@@ -82,7 +82,9 @@ const Post = () => {
             오늘도 행복한 하루 보내세요 :-)
           </div>
         </article>
-        <article className="ReplyAdmin"></article>
+        <article className="replyAdmin">
+          회원에게만 댓글 작성 권한이 있습니다.
+        </article>
       </section>
       <div className="nextText">
         <div className="prevArticle">
@@ -95,8 +97,8 @@ const Post = () => {
           <div className="arrowDown">
             <AiOutlineArrowUp /> 다음글
           </div>
-          <div>
-            <a href="#">너무 예쁨</a>
+          <div className="articleLink">
+            <button>너무 예쁨</button>
           </div>
         </div>
       </div>
@@ -130,9 +132,9 @@ const Post = () => {
               <td>2022-04-09</td>
               <td>248</td>
             </tr>
+            {/* <tr></tr>
             <tr></tr>
-            <tr></tr>
-            <tr></tr>
+            <tr></tr> */}
           </tbody>
         </table>
       </section>
