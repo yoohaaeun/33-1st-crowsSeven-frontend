@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Footer from './Footer';
 import MainButton from './MainButton';
 import Img from './Img';
 import './Main.scss';
@@ -22,10 +23,13 @@ const Main = () => {
   }, []);
 
   return (
-    <section className="mainSection">
-      <Img className="renderTest" src={imgData.url} />
-      <MainButton />
-    </section>
+    <>
+      <section className="mainSection">
+        <Img className="renderTest" src={imgData.url} />
+        <MainButton />
+      </section>
+      <Footer />
+    </>
   );
 };
 
