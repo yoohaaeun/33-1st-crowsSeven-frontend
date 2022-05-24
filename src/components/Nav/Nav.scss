@@ -53,7 +53,7 @@
 
         .insta {
           &:hover {
-            color: purple;
+            color: rgb(83, 131, 236);
           }
         }
 
@@ -82,7 +82,7 @@
     width: 20rem;
     background-color: #FAFAFA;
 
-    .xBox {
+    .cancel {
       margin-left: 8rem;
       width: 20rem;
       font-size: 2rem;
@@ -133,4 +133,41 @@
     flex-direction: column;
     font-weight: 600;
   }
+}
+
+.searchBox {
+  width: 100vw;
+  background-color: rgba(206, 206, 206, 0.5);
+  height: 100vh;
+  position: absolute;
+  @include flexCenter;
+  flex-direction: column;
+  transition: 0.3s all-in-out;
+
+
+  input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 20rem;
+    height: 5rem;
+    font-size: 2rem;
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+
+    &::placeholder {
+      text-align: center;
+      color: black;
+      font-size: 3rem;
+    }
+  }
+}
+
+.searchClose {
+  position: absolute;
+  right: 0;
+  margin: 1rem;
+  font-size: 2rem;
+  color: black;
+  z-index: 10;
 }
