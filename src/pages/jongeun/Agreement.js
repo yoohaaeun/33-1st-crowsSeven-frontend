@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Agreement = props => {
+const Agreement = (description, agreeCheck) => {
   return (
     <div>
       <ul className="agreementPage">
-        <li className="agreementTitle">{props.description}</li>
+        <li className="agreementTitle">{description}</li>
         <li className="agreementContent">
           제1조(목적) 이 약관은 스코프서울이 운영하는 크로우캐년홈
           온라인스토어(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하
@@ -269,7 +269,7 @@ const Agreement = props => {
           한국법을 적용합니다. 부 칙(시행일) 이 약관은 년 월 일부터 시행합니다.
         </li>
         <ul className="checkAgree">
-          <li>{props.agreeCheck}</li>
+          <li>{agreeCheck}</li>
           <input type="checkbox" />
           동의함
         </ul>
