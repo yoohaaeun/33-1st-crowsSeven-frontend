@@ -3,6 +3,324 @@
 
 .signupBox {
   @include flexCenter;
-  height: 100vh;
+  padding: 150px 0;
   flex-direction: column;
+  width: 37%;
+  margin: auto;
+
+  .title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
+
+  .information {
+    width: 100%;
+    margin-bottom: 20px;
+    font-weight: 600;
+    @include flexSpaceBetween;
+
+    div {
+      font-size: 12px;
+    }
+  }
+
+  .memberLine {
+    display: flex;
+    width: 100%;
+
+    .memberTitle {
+      width: 140px;
+    }
+  }
+  .idLine {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 30px;
+
+    .id {
+      width: 140px;
+    }
+
+    .idInput {
+      border: none;
+      border-bottom: 1px solid black;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .idDescription {
+      font-size: 11px;
+      margin-left: 10px;
+    }
+  }
+
+  .pwLine {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 30px;
+
+    .pw {
+      width: 140px;
+    }
+
+    .pwInput {
+      border: none;
+      border-bottom: 1px solid black;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .pwDescription {
+      font-size: 11px;
+      margin-left: 10px;
+    }
+  }
+
+  .pwCheckLine {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 30px;
+
+    .pwCheck {
+      width: 140px;
+    }
+
+    .pwInputCheck {
+      border: none;
+      border-bottom: 1px solid black;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .nameLine {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 30px;
+
+    .name {
+      width: 140px;
+    }
+
+    .nameInput {
+      border: none;
+      border-bottom: 1px solid black;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .addressLine {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 30px;
+
+    .address {
+      width: 140px;
+    }
+
+    .addressInput {
+      border: none;
+      border-bottom: 1px solid black;
+      width: 300px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .addressDescription {
+      font-size: 11px;
+      margin-left: 10px;
+    }
+  }
+
+  .phoneLine {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 30px;
+
+    .phone {
+      width: 140px;
+    }
+
+    .phoneSelect {
+      width: 80px;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input {
+      border: none;
+      border-bottom: 1px solid black;
+      width: 80px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .emailLine {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 30px;
+
+    .email {
+      width: 140px;
+    }
+
+    .emailInput {
+      border: none;
+      border-bottom: 1px solid black;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .addInformation {
+    width: 100%;
+    margin-top: 80px;
+    font-weight: 600;
+    @include flexSpaceBetween;
+  }
+
+  .birthdayLine {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 20px;
+
+    .birthday {
+      width: 140px;
+    }
+
+    .birthdayYear {
+      border: none;
+      border-bottom: 1px solid black;
+      width: 60px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .birthdayMonth {
+      border: none;
+      border-bottom: 1px solid black;
+      width: 40px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .birthdayDate {
+      border: none;
+      border-bottom: 1px solid black;
+      width: 40px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .birthdayRadio {
+      margin-left: 20px;
+    }
+  }
+  .agreement {
+    width: 100%;
+    margin: 80px 0 20px 0;
+    font-weight: 600;
+    @include flexSpaceBetween;
+
+    div {
+      font-size: 12px;
+    }
+  }
+
+  .agreementBox {
+    width: 100%;
+    border: 1px solid lightgray;
+    background-color: rgb(246, 246, 246);
+
+    .allAgreement {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid lightgray;
+      padding: 15px;
+
+      input {
+        width: 20px;
+        height: 20px;
+        border-radius: 0;
+      }
+
+      div {
+        font-size: 14px;
+      }
+    }
+
+    .agreementPage {
+      padding: 15px;
+      border-bottom: 1px solid lightgray;
+
+      .agreementTitle {
+        font-weight: 600;
+      }
+
+      .agreementContent {
+        height: 110px;
+        border: 1px solid lightgray;
+        background-color: white;
+        margin: 20px 0;
+        padding: 10px;
+        overflow-y: scroll;
+      }
+
+      .checkAgree {
+        display: flex;
+
+        input {
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+
+  .signup {
+    margin: 20px;
+    width: 130px;
+    height: 40px;
+    background-color: black;
+    color: white;
+
+    &:hover {
+      background-color: white;
+      color: black;
+      transition: all 350ms ease-in-out;
+      cursor: pointer;
+    }
+  }
 }
