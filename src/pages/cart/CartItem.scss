@@ -1,0 +1,48 @@
+.cartItem {
+  // height: fit-content;
+
+  img {
+    width: 5rem;
+  }
+
+  .quantity {
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        width: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      button {
+        width: 3rem;
+        font-size: 2px;
+        background-color: inherit;
+        border: none;
+      }
+    }
+  }
+
+  .charge {
+    color: darkgray;
+  }
+
+  .selectBtn {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      outline: none;
+      background-color: inherit;
+      border: none;
+      margin-bottom: 0.3rem;
+      cursor: pointer;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+.cart {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+
+  .basket {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .tableWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 80rem;
+    margin: auto;
+
+    p {
+      margin-bottom: 10px;
+    }
+  }
+
+  table {
+    text-align: center;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+    width: 80rem;
+
+    .checkBox {
+      // background-color: red;
+      width: 80px;
+      accent-color: black;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid #444444;
+      padding: 0.8rem 0;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    tfoot {
+      tr {
+        &:last-child {
+          border-bottom: 1px solid #444444;
+        }
+      }
+      td {
+        border: none;
+        padding: 10px 0;
+      }
+      .apple {
+        display: flex;
+        justify-content: end;
+
+        .pricebox {
+          width: 10rem;
+          text-align: end;
+        }
+      }
+    }
+  }
+
+  .bottomBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.25rem;
+
+    button {
+      background-color: inherit;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.noItem {
+  height: 150px;
+  font-weight: 300;
+}
