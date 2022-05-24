@@ -3,7 +3,7 @@ import './seulgi.scss';
 
 const Store = () => {
   const [list, setList] = useState([]);
-  const [changeItemList, setChangeItemList] = useState();
+  // const [listType, setListtype] = useState('');
 
   useEffect(() => {
     fetch('/Data/ITEM_LIST.json')
@@ -16,10 +16,10 @@ const Store = () => {
   return (
     <div className="Store">
       <section>
-        <h1>Category name</h1>
+        <h2>전체상품</h2>
         <div className="itemCategory">
           <div className="itemAmount">
-            <b>190</b>
+            <b>{list.length}</b>
             <span>개의 상품이 있습니다.</span>
           </div>
           <ItemSort />
@@ -43,13 +43,23 @@ const Store = () => {
 };
 
 const ItemSort = () => {
+  // const widthChangeFour = e => {
+  //   console.log(e.target);
+  // };
+
+  // const widthChangeTwo = e => {
+  //   console.log(e.target);
+  // };
+
   return (
     <div className="itemSort">
       <button>신상품</button>
       <button>상품명</button>
       <button>낮은가격</button>
       <button>높은가격</button>
+      {/* onClick={widthChangeFour} */}
       <button>4열</button>
+      {/* onClick={widthChangeTwo} */}
       <button>2열</button>
       {/* <span>제조사</span> */}
     </div>
@@ -61,14 +71,24 @@ const Items = ({ img, name, itemPrice }) => {
     <div className="items">
       <span className="itemImg">
         <img src={img} alt="img" />
-        <span className="itemButton">
-          <button>Quick Shop</button>
-          <button>Cart</button>
-        </span>
+        <ItemHoverButton />
       </span>
-      <div>{name}</div>
-      <div>{itemPrice}</div>
+      <div class="description">
+        <div class="name">{name}</div>
+        <hr />
+        <div class="price">{itemPrice}</div>
+      </div>
     </div>
+  );
+};
+// onClick버튼에 따라 다른 Component 보여주기
+
+const ItemHoverButton = () => {
+  return (
+    <span className="itemButton">
+      <button className="shop">Quick Shop</button>
+      <button className="cart">Cart</button>
+    </span>
   );
 };
 
@@ -76,10 +96,12 @@ const PageList = () => {
   return (
     <div className="pageList">
       <button>FIRST</button>
-      <button>{`< PREV`}</button>
+      <button>
+        <span className="leftBtn">{`<`}</span>PREV
+      </button>
       <ul>
         <li>
-          <button>1</button>
+          <button className="select">1</button>
         </li>
         <li>
           <button>2</button>
@@ -88,7 +110,9 @@ const PageList = () => {
           <button>3</button>
         </li>
       </ul>
-      <button>{`NEXT >`}</button>
+      <button>
+        NEXT<span className="rightBtn">{`>`}</span>
+      </button>
       <button>LAST</button>
     </div>
   );
