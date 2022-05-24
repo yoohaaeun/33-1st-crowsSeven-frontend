@@ -4,6 +4,14 @@
   .renderTest {
     animation: render 0.3s ease-in;
   }
+
+  .slideDot {
+    display: flex;
+    position: absolute;
+    bottom: 1rem;
+    font-size: 2rem;
+    right: 47vw;
+  }
 }
 
 @keyframes render {
