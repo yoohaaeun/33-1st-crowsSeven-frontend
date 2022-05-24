@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartItem.scss';
 
-const Cartitem = ({ idx, item, total }) => {
+const CartItem = ({ idx, item, total }) => {
   return (
     <tr className="cartItem">
       <td className="checkBox">
@@ -20,16 +20,10 @@ const Cartitem = ({ idx, item, total }) => {
       </td>
       <td>-</td>
       <td>기본배송</td>
-      {/* {idx === 0 && (
-        <td rowSpan={total} className="charge">
-          3000원
-        </td>
-      )} */}
       <td className="charge">
         3000원 <br />
         조건
       </td>
-      {/* {total < 50000 ? <td className="charge">3000원 <br />조건</td> : <td className="charge">무료배송</td>} */}
       <td>￦21,000</td>
       <td>
         <div className="selectBtn">
@@ -42,4 +36,4 @@ const Cartitem = ({ idx, item, total }) => {
   );
 };
 
-export default Cartitem;
+export default CartItem;

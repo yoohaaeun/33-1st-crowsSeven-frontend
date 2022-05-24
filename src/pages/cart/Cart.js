@@ -1,35 +1,36 @@
 import React from 'react';
-import Cartitem from './CartItem';
+import CartItem from './CartItem';
 import './Cart.scss';
 
-const cartList = [
-  // {
-  //   id: 1,
-  //   product:
-  //     'https://crowcanyon.co.kr/web/product/tiny/202203/5661ad01dd57773fdb78c8bd1c3c523f.png',
-  //   info: 'C03 쇼트텀블러 민트 히비스커스',
-  //   price: 21000,
-  //   qty: 1,
-  // },
-  // {
-  //   id: 2,
-  //   product:
-  //     'https://crowcanyon.co.kr/web/product/tiny/202110/77161f15372c33c8413ab198ad0cae3d.jpg',
-  //   info: 'K93 텀블러 블루스펙클',
-  //   price: 21000,
-  //   qty: 1,
-  // },
+const CART_LIST = [
+  {
+    id: 1,
+    product:
+      'https://crowcanyon.co.kr/web/product/tiny/202203/5661ad01dd57773fdb78c8bd1c3c523f.png',
+    info: 'C03 쇼트텀블러 민트 히비스커스',
+    price: 21000,
+    qty: 1,
+  },
+  {
+    id: 2,
+    product:
+      'https://crowcanyon.co.kr/web/product/tiny/202110/77161f15372c33c8413ab198ad0cae3d.jpg',
+    info: 'K93 텀블러 블루스펙클',
+    price: 21000,
+    qty: 1,
+  },
 ];
 
-const itemTotal = cartList.length;
-const cartEmpty = cartList.length === 0;
+const ITEM_TOTAL = CART_LIST.length;
+const cartEmpty = CART_LIST.length === 0;
 
 const Cart = () => {
   return (
     <div className="cart">
       <h1 className="basket">장바구니</h1>
       <div className="tableWrapper">
-        <p>국내배송({itemTotal})</p>
+        <p>국내배송({ITEM_TOTAL})</p>
+        {/* {!cartEmpty ? Cart UI : CartEmpty UI} */}
         {!cartEmpty && (
           <>
             <table>
@@ -50,12 +51,12 @@ const Cart = () => {
                 </tr>
               </thead>
               <tbody>
-                {cartList.map((item, idx) => {
+                {CART_LIST.map((item, idx) => {
                   return (
-                    <Cartitem
+                    <CartItem
                       key={idx}
                       item={item}
-                      total={itemTotal}
+                      total={ITEM_TOTAL}
                       idx={idx}
                     />
                   );
@@ -92,24 +93,6 @@ const Cart = () => {
                     </div>
                   </td>
                 </tr>
-                {/* <tr>
-              <td colspan="10">
-                <strong>Shipping</strong>
-                <div className="pricebox">
-                  <span>0</span>
-                  <span>원</span>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="10">
-                <strong>Total</strong>
-                <div className="pricebox">
-                  <span>50,000</span>
-                  <span>원</span>
-                </div>
-              </td>
-            </tr> */}
               </tfoot>
             </table>
             <div className="bottomBtn">

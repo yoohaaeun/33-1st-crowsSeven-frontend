@@ -1,6 +1,4 @@
 .cartItem {
-  // height: fit-content;
-
   img {
     width: 5rem;
   }
@@ -18,9 +16,9 @@
 
       button {
         width: 3rem;
-        font-size: 2px;
         background-color: inherit;
         border: none;
+        font-size: 2px;
       }
     }
   }
@@ -34,10 +32,10 @@
     flex-direction: column;
 
     button {
-      outline: none;
+      margin-bottom: 0.3rem;
       background-color: inherit;
       border: none;
-      margin-bottom: 0.3rem;
+      outline: none;
       cursor: pointer;
 
       &:last-child {
