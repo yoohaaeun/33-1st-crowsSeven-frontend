@@ -1,5 +1,6 @@
 import { GrClose } from 'react-icons/gr';
 import './SearchBox.scss';
+
 const SearchBox = ({ isSearch, handleSearchClick }) => {
   return (
     <>

@@ -1,5 +1,6 @@
 import { GiAtSea } from 'react-icons/gi';
 import './Logo.scss';
+
 const Logo = () => {
   return (
     <ul className="logo">

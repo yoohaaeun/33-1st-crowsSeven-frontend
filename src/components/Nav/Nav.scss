@@ -3,16 +3,16 @@
 .nav {
   position: fixed;
   @include flexAround;
-  align-items: center;
   height: 8rem;
   width: 100vw;
+  align-items: center;
   background-color: transparent;
 
   .navText {
     display: flex;
     align-items: center;
-    list-style: none;
     margin-left: 2rem;
+    list-style: none;
     font-size: 1.3rem;
     letter-spacing: 0.2rem;
 
@@ -26,21 +26,20 @@
       }
 
       .navTextListInfo {
-        transition: 0.2s all ease-in;
-        opacity: 0;
-        visibility: hidden;
+        position: absolute;
         width: 6rem;
         margin-top: 1rem;
         font-size: 0.9rem;
-        position: absolute;
+        transition: 0.2s all ease-in;
+        opacity: 0;
+        visibility: hidden;
 
         .navTextListIcon {
-          margin-top: 2rem;
-          display: flex;
-          font-size: 1.3rem;
           display: flex;
           justify-content: space-between;
           margin-right: 2rem;
+          margin-top: 2rem;
+          font-size: 1.3rem;
         }
 
         li {
