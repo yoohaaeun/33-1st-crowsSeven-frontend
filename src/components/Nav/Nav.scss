@@ -45,6 +45,10 @@
 
         li {
           margin-top: 2rem;
+
+          &:hover {
+            color: grey;
+          }
         }
 
         .insta {
