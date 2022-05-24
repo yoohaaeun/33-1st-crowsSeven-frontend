@@ -3,6 +3,7 @@ import './seulgi.scss';
 
 const Store = () => {
   const [list, setList] = useState([]);
+  const [changeItemList, setChangeItemList] = useState();
 
   useEffect(() => {
     fetch('/Data/ITEM_LIST.json')
@@ -48,6 +49,8 @@ const ItemSort = () => {
       <button>상품명</button>
       <button>낮은가격</button>
       <button>높은가격</button>
+      <button>4열</button>
+      <button>2열</button>
       {/* <span>제조사</span> */}
     </div>
   );
@@ -56,10 +59,12 @@ const ItemSort = () => {
 const Items = ({ img, name, itemPrice }) => {
   return (
     <div className="items">
-      {/* <button>Quick Shop</button>
-      <button>Cart</button> */}
-      <span>
-        <img src={img} />
+      <span className="itemImg">
+        <img src={img} alt="img" />
+        <span className="itemButton">
+          <button>Quick Shop</button>
+          <button>Cart</button>
+        </span>
       </span>
       <div>{name}</div>
       <div>{itemPrice}</div>

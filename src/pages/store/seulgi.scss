@@ -65,6 +65,14 @@ li {
   }
 }
 
+.itemImg {
+  position: relative;
+
+  .itemButton {
+    position: absolute;
+  }
+}
+
 .pageList {
   text-align: center;
   margin: 50px 0;
