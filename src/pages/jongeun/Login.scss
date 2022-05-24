@@ -64,13 +64,14 @@
     width: 300px;
     margin: 20px 0;
     height: 60px;
-    background-color: white;
+    color: white;
+    background-color: black;
     border: 1px solid black;
     cursor: pointer;
 
-    &:hover {
-      background-color: black;
-      color: white;
+    &:disabled {
+      color: black;
+      background-color: white;
     }
   }
 
