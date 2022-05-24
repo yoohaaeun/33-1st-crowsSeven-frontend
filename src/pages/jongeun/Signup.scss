@@ -1,0 +1,8 @@
+@import 'src/styles/reset.scss';
+@import 'src/styles/variables.scss';
+
+.signupBox {
+  @include flexCenter;
+  height: 100vh;
+  flex-direction: column;
+}
