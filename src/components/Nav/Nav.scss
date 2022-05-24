@@ -73,101 +73,10 @@
     font-size: 1.6rem;
   }
 
-  .rightNavBox {
-    transition: 0.3s all ease-in;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 20rem;
-    background-color: #FAFAFA;
-
-    .cancel {
-      margin-left: 8rem;
-      width: 20rem;
-      font-size: 2rem;
-      opacity: 0.5;
-      margin-top: 1rem;
-    }
-
-    .rightBoxText {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      li {
-        font-size: 1.3rem;
-        margin-top: 2rem;
-        font-weight: 100;
-      }
-
-      span {
-        margin-top: 4rem;
-        font-size: 1.3rem;
-      }
-    }
-  }
-
   .widthZero {
     width: 0;
     visibility: hidden;
     opacity: 0;
     color: transparent;
   }
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-
-  .logoIcon {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  .logoText {
-    margin-left: 1rem;
-    display: flex;
-    flex-direction: column;
-    font-weight: 600;
-  }
-}
-
-.searchBox {
-  width: 100vw;
-  background-color: rgba(206, 206, 206, 0.5);
-  height: 100vh;
-  position: absolute;
-  @include flexCenter;
-  flex-direction: column;
-  transition: 0.3s all-in-out;
-
-
-  input {
-    outline: none;
-    border: none;
-    background-color: transparent;
-    width: 20rem;
-    height: 5rem;
-    font-size: 2rem;
-    border-bottom: 1px solid black;
-    margin-bottom: 1rem;
-
-    &::placeholder {
-      text-align: center;
-      color: black;
-      font-size: 3rem;
-    }
-  }
-}
-
-.searchClose {
-  position: absolute;
-  right: 0;
-  margin: 1rem;
-  font-size: 2rem;
-  color: black;
-  z-index: 10;
 }

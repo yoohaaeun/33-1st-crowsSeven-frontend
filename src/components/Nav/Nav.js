@@ -1,51 +1,12 @@
 import React from 'react';
-import { GiAtSea, GiHamburgerMenu } from 'react-icons/gi';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import { GoSearch } from 'react-icons/go';
 import { BsHandbag, BsInstagram, BsYoutube } from 'react-icons/bs';
-import { GrClose } from 'react-icons/gr';
 import { useState } from 'react';
+import Logo from './Logo';
+import SearchBox from './SearchBox';
+import RightBoxNav from './RightBoxNav';
 import './Nav.scss';
-
-const SearchBox = ({ handleSearchClick }) => {
-  return (
-    <>
-      <GrClose onClick={handleSearchClick} className="searchClose" />
-      <section className="searchBox">
-        <input type="text" placeholder="SEARCH" />
-        <span>검색어 입력후에 엔터를 누르세요.</span>
-      </section>
-    </>
-  );
-};
-
-const Logo = () => {
-  return (
-    <ul className="logo">
-      <GiAtSea className="logoIcon" />
-      <div className="logoText">
-        <span>CORWSEVEN</span>
-        <span>HOME</span>
-        <span>SEOUL KOREA</span>
-      </div>
-    </ul>
-  );
-};
-
-const RightBoxNav = ({ isToggle, handleClick }) => {
-  return (
-    <div className={isToggle ? 'rightNavBox widthZero' : 'rightNavBox'}>
-      <GrClose onClick={handleClick} className="cancel" />
-      <ul className="rightBoxText">
-        <li>로그인</li>
-        <li>장바구니</li>
-        <li>주문조회</li>
-        <li>마이쇼핑</li>
-        <span>최근 상품</span>
-      </ul>
-      <div />
-    </div>
-  );
-};
 
 const Nav = () => {
   const [isToggle, setToggle] = useState(true);
@@ -56,12 +17,13 @@ const Nav = () => {
   const handleSearchClick = () => {
     setIsSearch(!isSearch);
   };
+
   return (
     <>
       <nav className="nav">
         <ul className="navText">
           <Logo />
-          <li className="navTextList">
+          <div className="navTextList">
             ABOUT
             <div className="navTextListInfo">
               <li>STORE</li>
@@ -69,9 +31,9 @@ const Nav = () => {
               <li>CONTACT</li>
               <li>STOCKIST</li>
             </div>
-          </li>
+          </div>
 
-          <li className="navTextList">
+          <div className="navTextList">
             STORE
             <div className="navTextListInfo">
               <li>RE-STOCK</li>
@@ -82,14 +44,14 @@ const Nav = () => {
               <li>키친웨어</li>
               <li>굿즈</li>
             </div>
-          </li>
-          <li className="navTextList">
+          </div>
+          <div className="navTextList">
             JOURNAL
             <div className="navTextListInfo">
               <li>MAGAZINE</li>
             </div>
-          </li>
-          <li className="navTextList">
+          </div>
+          <div className="navTextList">
             COMMUNITY
             <div className="navTextListInfo">
               <li>NOTICE</li>
@@ -100,7 +62,7 @@ const Nav = () => {
                 <BsYoutube className="youtube" />
               </div>
             </div>
-          </li>
+          </div>
           <li className="navTextList">WHOLESALE</li>
         </ul>
         <div className="navIcon">

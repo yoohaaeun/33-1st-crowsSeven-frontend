@@ -1,0 +1,52 @@
+@import 'src/styles/variables.scss';
+
+
+.searchBox {
+  width: 100vw;
+  background-color: rgba(206, 206, 206, 0.5);
+  height: 100vh;
+  position: absolute;
+  @include flexCenter;
+  flex-direction: column;
+  animation: move 0.5s;
+
+
+  input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 20rem;
+    height: 5rem;
+    font-size: 2rem;
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+
+    &::placeholder {
+      text-align: center;
+      color: black;
+      font-size: 3rem;
+    }
+  }
+}
+
+.searchClose {
+  position: absolute;
+  right: 0;
+  margin: 1rem;
+  font-size: 2rem;
+  color: black;
+  z-index: 10;
+}
+
+@keyframes move {
+
+  /* keyframe */
+  from {
+    opacity: 0;
+  }
+
+  /* keyframe */
+  to {
+    opacity: 1;
+  }
+}
