@@ -1,13 +1,21 @@
+import { useState } from 'react';
 import MainButton from './MainButton';
 import './Main.scss';
 
+const Img = ({ src }) => {
+  return <img src={src} alt="메인페이지 접시" />;
+};
+
 const Main = () => {
+  const [imgData, setImgData] = useState([
+    {
+      id: 1,
+      url: '',
+    },
+  ]);
   return (
     <section className="mainSection">
-      <img
-        src="https://cdn.pixabay.com/photo/2021/02/06/19/31/pancakes-5989144_1280.jpg"
-        alt="메인페이지 접시"
-      />
+      <Img />
       <MainButton />
     </section>
   );
