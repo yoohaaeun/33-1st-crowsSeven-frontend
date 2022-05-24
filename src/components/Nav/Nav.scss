@@ -1,0 +1,132 @@
+@import '../../styles/variables.scss';
+
+.nav {
+  position: fixed;
+  @include flexAround;
+  align-items: center;
+  height: 8rem;
+  width: 100vw;
+  background-color: transparent;
+
+  .navText {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-left: 2rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.2rem;
+
+    .navTextList {
+      position: relative;
+      margin-left: 3rem;
+
+      &:hover .navTextListInfo {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .navTextListInfo {
+        transition: 0.2s all ease-in;
+        opacity: 0;
+        visibility: hidden;
+        width: 6rem;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        position: absolute;
+
+        .navTextListIcon {
+          margin-top: 2rem;
+          display: flex;
+          font-size: 1.3rem;
+          display: flex;
+          justify-content: space-between;
+          margin-right: 2rem;
+        }
+
+        li {
+          margin-top: 2rem;
+        }
+
+        .insta {
+          &:hover {
+            color: purple;
+          }
+        }
+
+        .youtube {
+          &:hover {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+
+  .navIcon {
+    display: flex;
+    justify-content: space-around;
+    width: 8rem;
+    font-size: 1.6rem;
+  }
+
+  .rightNavBox {
+    transition: 0.3s all ease-in;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 20rem;
+    background-color: #FAFAFA;
+
+    .xBox {
+      margin-left: 8rem;
+      width: 20rem;
+      font-size: 2rem;
+      opacity: 0.5;
+      margin-top: 1rem;
+    }
+
+    .rightBoxText {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        font-size: 1.3rem;
+        margin-top: 2rem;
+        font-weight: 100;
+      }
+
+      span {
+        margin-top: 4rem;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .widthZero {
+    width: 0;
+    visibility: hidden;
+    opacity: 0;
+    color: transparent;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+
+  .logoIcon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .logoText {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+  }
+}
