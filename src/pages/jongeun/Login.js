@@ -9,11 +9,11 @@ const Login = () => {
         <div className="inputArea">
           <div className="idLine">
             <span className="idInputLine">Id</span>
-            <input className="idInput"></input>
+            <input className="idInput" />
           </div>
           <div className="pwLine">
             <span className="pwInputLine">Password</span>
-            <input type="password" className="pwInput"></input>
+            <input type="password" className="pwInput" />
           </div>
         </div>
         <button className="signBtn">SIGN IN</button>
