@@ -21,6 +21,7 @@ const Main = () => {
       length += 1;
       if (length >= 3) length = 0;
     }, 5000);
+    return () => clearInterval();
   }, []);
 
   return (
