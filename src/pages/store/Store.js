@@ -5,15 +5,24 @@ import Items from './Items';
 import './Store.scss';
 
 const Store = () => {
-  const [list, setList] = useState([]);
+  const [items, setItems] = useState([]);
+  const [listType, setListType] = useState(false);
 
   useEffect(() => {
     fetch('/data/ITEM_LIST.json')
       .then(res => res.json())
       .then(function (result) {
-        return setList(result);
+        return setItems(result);
       });
   }, []);
+
+  const changeBigList = e => {
+    setListType(true);
+  };
+
+  const changeSmallList = e => {
+    setListType(false);
+  };
 
   return (
     <div>
@@ -23,7 +32,7 @@ const Store = () => {
           <h2>전체상품</h2>
           <div className="itemCategory">
             <div className="itemAmount">
-              <b>{list.length}</b>
+              <b>{items.length}</b>
               <span>개의 상품이 있습니다.</span>
             </div>
             <div className="itemSort">
@@ -31,14 +40,15 @@ const Store = () => {
               <button>상품명</button>
               <button>낮은가격</button>
               <button>높은가격</button>
-              <button>4열</button>
-              <button>2열</button>
+              <button onClick={changeSmallList}>4열</button>
+              <button onClick={changeBigList}>2열</button>
             </div>
           </div>
           <div className="itemList">
-            {list.map(({ id, state, itemThumbnail, itemName, price }) => {
+            {items.map(({ id, state, itemThumbnail, itemName, price }) => {
               return (
                 <Items
+                  listType={listType}
                   key={id}
                   state={state}
                   img={itemThumbnail}

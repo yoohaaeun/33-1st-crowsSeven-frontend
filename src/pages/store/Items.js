@@ -1,6 +1,6 @@
-const Items = ({ state, img, name, itemPrice }) => {
+const Items = ({ listType, state, img, name, itemPrice }) => {
   return (
-    <div className="items">
+    <div className={!listType ? 'items' : 'bigItems'}>
       <span className="itemImg">
         <div className="itemTag">{state}</div>
         <img src={img} alt="img" />
