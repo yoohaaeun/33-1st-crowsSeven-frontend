@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Nav from '../../src/components/Nav/Nav';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
 import TextItem from '../components/review/TextItem';
@@ -23,6 +24,10 @@ const Post = () => {
       .then(productData => setTextList(productData));
   }, []);
 
+  const navigate = useNavigate();
+  const goToTextList = () => {
+    navigate('/');
+  };
   return (
     <>
       <Nav />
@@ -66,7 +71,10 @@ const Post = () => {
             다시는 구매하고싶지 않네요
           </article>
         </main>
-        <button className="goList">목록</button>
+        <button className="goList" onClick={goToTextList}>
+          {/* TODO: 주소 확정되면 Link 컴포넌트 추가 */}
+          목록
+        </button>
         <section className="reply">
           <article className="replyText">
             <div className="replyModifyDelete">
@@ -103,7 +111,7 @@ const Post = () => {
             <div className="arrowUp">
               <AiOutlineArrowDown /> 이전글
             </div>
-            <div>{/* navigation 기능 넣기 근데 주소가 없다*/}</div>
+            <div></div>
           </div>
           <div className="nextArticle">
             <div className="arrowDown">
@@ -128,9 +136,11 @@ const Post = () => {
               </tr>
             </thead>
             <tbody>
-              {textList.map(productData => (
-                <TextItem key={productData.id} data={productData} />
-              ))}
+              {textList
+                .filter(data => data.id < 6)
+                .map(productData => (
+                  <TextItem key={productData.id} data={productData} />
+                ))}
             </tbody>
           </table>
         </section>

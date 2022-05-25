@@ -1,5 +1,27 @@
 @import '../styles/variables.scss';
 
+.ReviewPage {
+  padding: 10rem 18.75rem 1.6rem 18.75rem;
+  .slideRight {
+    @include flexCenter;
+    h1 {
+      font-size: 25px;
+      font-weight: bold;
+      animation: slide-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+    @keyframes slide-right {
+      0% {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0px);
+        opacity: 1;
+      }
+    }
+  }
+}
+
 .btnSearch {
   .prevNextBtn {
   }

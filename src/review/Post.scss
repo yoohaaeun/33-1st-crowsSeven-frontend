@@ -3,10 +3,9 @@
 .Post {
   @include flexColumn;
   @include flexAround;
-  padding: 20px 300px;
+  padding: 10rem 18.75rem 1.6rem 18.75rem;
 
   .slideRight {
-    margin-top: 100px;
     display: flex;
     justify-content: center;
 
@@ -30,10 +29,10 @@
   .product {
     border: 1px solid lightgray;
     border-radius: 30px;
-    padding: 0 20px;
-    margin: 20px 0;
-    width: 300px;
-    height: 170px;
+    padding: 0 1.25rem;
+    margin: 1.25rem 0;
+    width: 18.75rem;
+    height: 10.625rem;
     @include flexCenter;
 
     .productInfo {
@@ -52,7 +51,7 @@
 
       .detailedInfo {
         @include flexColumn;
-        height: 170px;
+        height: 10.625rem;
         justify-content: space-around;
 
         .receivingStatus {
