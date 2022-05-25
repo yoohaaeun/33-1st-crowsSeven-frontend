@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Cart.scss';
 import Nav from '../../components/Nav/Nav';
 import CartUI from './CartUI';
+import CartEmptyUI from './CartEmptyUI';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
@@ -26,7 +27,7 @@ const Cart = () => {
           {!cartEmpty ? (
             <CartUI cartList={cartList} itemTotal={ITEM_TOTAL} />
           ) : (
-            <cartEmptyUI />
+            <CartEmptyUI />
           )}
         </div>
       </div>

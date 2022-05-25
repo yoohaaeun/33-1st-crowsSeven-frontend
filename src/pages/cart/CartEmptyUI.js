@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cartemptyui = () => {
+const CartEmptyUI = () => {
   return (
     <>
       <table>
@@ -21,4 +21,4 @@ const Cartemptyui = () => {
   );
 };
 
-export default Cartemptyui;
+export default CartEmptyUI;
