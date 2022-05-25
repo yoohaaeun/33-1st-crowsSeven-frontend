@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductDetail from './pages/productDetail/seulgi';
-import Store from './pages/store/seulgi';
+import Store from './pages/store/Store';
 import Nav from './components/Nav/Nav';
 
 const Router = () => {

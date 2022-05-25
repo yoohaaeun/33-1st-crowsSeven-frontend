@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 import Nav from '../../components/Nav/Nav';
 import PageList from './PageList';
 import Items from './Items';
-import './seulgi.scss';
+import './Store.scss';
 
 const Store = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch('/Data/ITEM_LIST.json')
+    fetch('/data/ITEM_LIST.json')
       .then(res => res.json())
       .then(function (result) {
         return setList(result);
