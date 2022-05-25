@@ -1,25 +1,41 @@
 .mainSection {
   position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  .slideImg {
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s all ease-in;
+  }
+
+  .active {
+    opacity: 1;
+  }
 
   .renderTest {
     animation: render 0.3s ease-in;
   }
-
-  .slideDot {
-    display: flex;
-    position: absolute;
-    bottom: 1rem;
-    font-size: 2rem;
-    right: 47vw;
-  }
 }
 
-@keyframes render {
-  from {
-    opacity: 0;
-  }
+.container-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
 
-  to {
-    opacity: 1;
-  }
+.dot {
+  width: 10px;
+  height: 8px;
+  border-radius: 3px;
+  margin: 0 5px;
+  background-color: rgba(0, 0, 0, 0.459);
+  transition: 0.3s all ease-in;
+}
+
+.dot.active {
+  width: 1.4rem;
+  background-color: black;
 }
