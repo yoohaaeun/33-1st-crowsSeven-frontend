@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from 'react';
 import './Signup.scss';
 import Agreement from './Agreement';
-import { Catalogues } from './mock';
+import AGREE_LIST from './agreeData';
 
 const Signup = () => {
-  const [list, setList] = useState([]);
-
-  useEffect(() => {
-    setList(Catalogues);
-  }, []);
-
   return (
     <div>
       <main className="signup">
@@ -31,28 +24,28 @@ const Signup = () => {
           </form>
         </section>
 
-        <form className="idLine">
-          <div className="id">ID</div>
-          <input type="text" className="idInput" />
-          <div className="idDescription">
+        <form className="inputLine">
+          <div className="inputTitle">ID</div>
+          <input type="text" className="userInput" />
+          <div className="inputDescription">
             아이디를 입력해 주세요(영문소문자/숫자,4~16자)
           </div>
         </form>
 
-        <form className="pwLine">
-          <div className="pw">Password</div>
-          <input type="password" className="pwInput" />
-          <div className="pwDescription">(영문 대소문자/숫자 4자~16자)</div>
+        <form className="inputLine">
+          <div className="inputTitle">Password</div>
+          <input type="password" className="userInput" />
+          <div className="inputDescription">(영문 대소문자/숫자 4자~16자)</div>
         </form>
 
-        <form className="pwCheckLine">
-          <div className="pwCheck">Password Check</div>
-          <input type="password" className="pwInputCheck" />
+        <form className="inputLine">
+          <div className="inputTitle">Password Check</div>
+          <input type="password" className="userInput" />
         </form>
 
-        <form className="nameLine">
-          <div className="name">Name</div>
-          <input type="text" className="nameInput" />
+        <form className="inputLine">
+          <div className="inputTitle">Name</div>
+          <input type="text" className="userInput" />
         </form>
 
         <form className="addressLine">
@@ -95,9 +88,9 @@ const Signup = () => {
           <input type="text" className="phoneThird" />
         </form>
 
-        <form className="emailLine">
-          <div className="email">E-Mail</div>
-          <input type="text" className="emailInput" />
+        <form className="inputLine">
+          <div className="inputTitle">E-Mail</div>
+          <input type="text" className="userInput" />
         </form>
 
         <title className="addInformation">
@@ -107,9 +100,9 @@ const Signup = () => {
           <div className="birthday">E-Mail</div>
           <input type="text" className="birthdayYear" />
           년
-          <input type="text" className="birthdayMonth" />
+          <input type="text" className="birthdayDay" />
           월
-          <input type="text" className="birthdayDate" />일
+          <input type="text" className="birthdayDay" />일
           <div className="birthdayRadio">
             <input type="radio" name="birthday" />
             <label>양력</label>
@@ -129,7 +122,7 @@ const Signup = () => {
               합니다.
             </div>
           </div>
-          {list.map((item, i) => {
+          {AGREE_LIST.map((item, i) => {
             return <Agreement key={i} item={item} />;
           })}
         </form>

@@ -33,17 +33,17 @@
       width: 140px;
     }
   }
-  .idLine {
+  .inputLine {
     display: flex;
     justify-content: flex-start;
     width: 100%;
     margin-top: 30px;
 
-    .id {
+    .inputTitle {
       width: 140px;
     }
 
-    .idInput {
+    .userInput {
       border: none;
       border-bottom: 1px solid black;
 
@@ -52,73 +52,9 @@
       }
     }
 
-    .idDescription {
+    .inputDescription {
       margin-left: 10px;
       font-size: 11px;
-    }
-  }
-
-  .pwLine {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    margin-top: 30px;
-
-    .pw {
-      width: 140px;
-    }
-
-    .pwInput {
-      border: none;
-      border-bottom: 1px solid black;
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    .pwDescription {
-      margin-left: 10px;
-      font-size: 11px;
-    }
-  }
-
-  .pwCheckLine {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    margin-top: 30px;
-
-    .pwCheck {
-      width: 140px;
-    }
-
-    .pwInputCheck {
-      border: none;
-      border-bottom: 1px solid black;
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-  .nameLine {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    margin-top: 30px;
-
-    .name {
-      width: 140px;
-    }
-
-    .nameInput {
-      border: none;
-      border-bottom: 1px solid black;
-
-      &:focus {
-        outline: none;
-      }
     }
   }
 
@@ -178,26 +114,6 @@
     }
   }
 
-  .emailLine {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    margin-top: 30px;
-
-    .email {
-      width: 140px;
-    }
-
-    .emailInput {
-      border: none;
-      border-bottom: 1px solid black;
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-
   .addInformation {
     @include flexSpaceBetween;
     width: 100%;
@@ -225,17 +141,7 @@
       }
     }
 
-    .birthdayMonth {
-      width: 40px;
-      border: none;
-      border-bottom: 1px solid black;
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    .birthdayDate {
+    .birthdayDay {
       width: 40px;
       border: none;
       border-bottom: 1px solid black;
