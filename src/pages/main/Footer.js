@@ -9,10 +9,9 @@ const Footer = () => {
       <span>주말 및 공휴일 휴무</span>
       <span>XX은행 123-456-7891011 예금주: 스코프컴퍼니(주)</span>
       <ul className="footerNav">
-        <li>guide</li>
-        <li>privacy</li>
-        <li>agreement</li>
-        <li>about us</li>
+        {FOOTER_LIST.map(item => (
+          <li key={item.id}>{item.list}</li>
+        ))}
       </ul>
       <div className="footerBottom">
         <FaFacebookF className="footerIcon" />
@@ -28,5 +27,24 @@ const Footer = () => {
     </footer>
   );
 };
+
+const FOOTER_LIST = [
+  {
+    id: 1,
+    list: 'guide',
+  },
+  {
+    id: 2,
+    list: 'privacy',
+  },
+  {
+    id: 3,
+    list: 'agreement',
+  },
+  {
+    id: 4,
+    list: 'about us',
+  },
+];
 
 export default Footer;
