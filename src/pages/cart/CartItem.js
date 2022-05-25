@@ -8,14 +8,14 @@ const CartItem = ({ idx, item, total }) => {
         <input type="checkbox" />
       </td>
       <td>
-        <img src={item.product} alt={`${item.info}`} />
+        <img src={item.product} alt={item.info} />
       </td>
       <td>{item.info}</td>
       <td>￦{item.price}</td>
       <td className="quantity">
         <div>
-          <input type="number" />
-          <button>Modify</button>
+          <input type="number" className="quantityBtn" />
+          <button className="modifyBtn">Modify</button>
         </div>
       </td>
       <td>-</td>

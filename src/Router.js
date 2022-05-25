@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from './components/Nav';
 import Cart from './pages/cart/Cart';
+import Nav from './components/Nav/Nav';
 
 const Router = () => {
   return (

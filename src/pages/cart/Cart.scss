@@ -1,19 +1,18 @@
 .cart {
   display: flex;
   flex-direction: column;
-  padding: 100px;
+  padding: 10rem 0;
   font-size: 12px;
 
   .basket {
     margin-bottom: 30px;
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
   }
 
   .tableWrapper {
     display: flex;
     flex-direction: column;
-    width: 80rem;
     margin: auto;
 
     p {
@@ -22,13 +21,12 @@
   }
 
   table {
-    width: 80rem;
+    width: 75rem;
     border-top: 1px solid black;
     border-collapse: collapse;
     text-align: center;
 
     .checkBox {
-      // background-color: red;
       width: 80px;
       accent-color: black;
     }
