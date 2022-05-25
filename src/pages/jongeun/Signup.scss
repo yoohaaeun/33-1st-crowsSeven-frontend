@@ -1,7 +1,7 @@
 @import 'src/styles/reset.scss';
 @import 'src/styles/variables.scss';
 
-.signupBox {
+.signup {
   @include flexCenter;
   padding: 150px 0;
   flex-direction: column;
@@ -309,7 +309,7 @@
     }
   }
 
-  .signup {
+  .signupBtn {
     margin: 20px;
     width: 130px;
     height: 40px;

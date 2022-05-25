@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Signup.scss';
 import Agreement from './Agreement';
+import { Catalogues } from './mock';
 
 const Signup = () => {
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    setList(Catalogues);
+  }, []);
+
   return (
     <div>
-      <main className="signupBox">
+      <main className="signup">
         <h1 className="title">SIGN UP</h1>
         <title className="information">
           <h2>기본정보</h2>
@@ -15,11 +22,11 @@ const Signup = () => {
           <div className="memberTitle"> Member Type</div>
           <div className="memberRadio">
             <input type="radio" name="member" />
-            <label for="male">개인회원</label>
+            <label>개인회원</label>
             <input type="radio" name="member" />
-            <label for="male">사업자 회원</label>
+            <label>사업자 회원</label>
             <input type="radio" name="member" />
-            <label for="male">외국인 회원</label>
+            <label>외국인 회원</label>
           </div>
         </section>
 
@@ -121,7 +128,10 @@ const Signup = () => {
               합니다.
             </div>
           </div>
-          <Agreement
+          {list.map((item, i) => {
+            return <Agreement key={i} item={item} />;
+          })}
+          {/* <Agreement
             description="[필수]이용약관 동의"
             agreeCheck="이용약관에 동의하십니까?"
           />
@@ -132,9 +142,9 @@ const Signup = () => {
           <Agreement
             description="[선택]쇼핑정보 수신 동의"
             agreeCheck="이메일 수신을 동의하십니까?"
-          />
+          /> */}
         </section>
-        <button className="signup">회원가입</button>
+        <button className="signupBtn">회원가입</button>
       </main>
     </div>
   );
