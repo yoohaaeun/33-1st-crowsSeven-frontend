@@ -3,22 +3,22 @@
 
 .signup {
   @include flexCenter;
-  padding: 150px 0;
   flex-direction: column;
   width: 37%;
   margin: auto;
+  padding: 150px 0;
 
   .title {
+    margin-bottom: 40px;
     font-size: 30px;
     font-weight: 600;
-    margin-bottom: 40px;
   }
 
   .information {
+    @include flexSpaceBetween;
     width: 100%;
     margin-bottom: 20px;
     font-weight: 600;
-    @include flexSpaceBetween;
 
     div {
       font-size: 12px;
@@ -53,8 +53,8 @@
     }
 
     .idDescription {
-      font-size: 11px;
       margin-left: 10px;
+      font-size: 11px;
     }
   }
 
@@ -78,8 +78,8 @@
     }
 
     .pwDescription {
-      font-size: 11px;
       margin-left: 10px;
+      font-size: 11px;
     }
   }
 
@@ -133,9 +133,9 @@
     }
 
     .addressInput {
+      width: 300px;
       border: none;
       border-bottom: 1px solid black;
-      width: 300px;
 
       &:focus {
         outline: none;
@@ -143,8 +143,8 @@
     }
 
     .addressDescription {
-      font-size: 11px;
       margin-left: 10px;
+      font-size: 11px;
     }
   }
 
@@ -168,9 +168,9 @@
     }
 
     input {
+      width: 80px;
       border: none;
       border-bottom: 1px solid black;
-      width: 80px;
 
       &:focus {
         outline: none;
@@ -199,10 +199,10 @@
   }
 
   .addInformation {
+    @include flexSpaceBetween;
     width: 100%;
     margin-top: 80px;
     font-weight: 600;
-    @include flexSpaceBetween;
   }
 
   .birthdayLine {
@@ -226,9 +226,9 @@
     }
 
     .birthdayMonth {
+      width: 40px;
       border: none;
       border-bottom: 1px solid black;
-      width: 40px;
 
       &:focus {
         outline: none;
@@ -236,9 +236,9 @@
     }
 
     .birthdayDate {
+      width: 40px;
       border: none;
       border-bottom: 1px solid black;
-      width: 40px;
 
       &:focus {
         outline: none;
@@ -250,10 +250,10 @@
     }
   }
   .agreement {
+    @include flexSpaceBetween;
     width: 100%;
     margin: 80px 0 20px 0;
     font-weight: 600;
-    @include flexSpaceBetween;
 
     div {
       font-size: 12px;
@@ -268,8 +268,8 @@
     .allAgreement {
       display: flex;
       align-items: center;
-      border-bottom: 1px solid lightgray;
       padding: 15px;
+      border-bottom: 1px solid lightgray;
 
       input {
         width: 20px;
@@ -292,10 +292,10 @@
 
       .agreementContent {
         height: 110px;
-        border: 1px solid lightgray;
-        background-color: white;
         margin: 20px 0;
         padding: 10px;
+        background-color: white;
+        border: 1px solid lightgray;
         overflow-y: scroll;
       }
 
@@ -310,15 +310,15 @@
   }
 
   .signupBtn {
-    margin: 20px;
     width: 130px;
     height: 40px;
-    background-color: black;
+    margin: 20px;
     color: white;
+    background-color: black;
 
     &:hover {
-      background-color: white;
       color: black;
+      background-color: white;
       transition: all 350ms ease-in-out;
       cursor: pointer;
     }
