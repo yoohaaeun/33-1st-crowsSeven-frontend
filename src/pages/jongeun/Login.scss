@@ -1,12 +1,12 @@
 @import 'src/styles/variables.scss';
-@import 'src/styles/reset.scss';
+//index.js에 이미 reset.scss가 있어서 굳이 여기서 import안해도 될꺼 같습니다.
 
-.loginArea {
-  border: 1px solid black;
-  height: 100vh;
+.login {
   @include flexCenter;
   flex-direction: column;
+  height: 100vh;
   padding-bottom: 100px;
+  border: 1px solid black;
 
   .loginTitle {
     font-size: 35px;
@@ -14,24 +14,24 @@
   }
 
   .inputArea {
-    margin-top: 50px;
     @include flexColumn;
     width: 320px;
+    margin-top: 50px;
 
     .idLine {
       display: flex;
       margin: 10px;
 
       .idInputLine {
-        border-bottom: 1px solid black;
         width: 120px;
         padding: 10px 5px 20px 5px;
+        border-bottom: 1px solid black;
       }
 
       .idInput {
+        width: 100%;
         border: none;
         border-bottom: 1px solid black;
-        width: 100%;
 
         &:focus {
           outline: none;
@@ -43,15 +43,15 @@
       margin: 10px;
 
       .pwInputLine {
-        border-bottom: 1px solid black;
         width: 120px;
         padding: 10px 5px 20px 5px;
+        border-bottom: 1px solid black;
       }
 
       .pwInput {
+        width: 100%;
         border: none;
         border-bottom: 1px solid black;
-        width: 100%;
 
         &:focus {
           outline: none;
@@ -62,8 +62,8 @@
 
   .signBtn {
     width: 300px;
-    margin: 20px 0;
     height: 60px;
+    margin: 20px 0;
     color: white;
     background-color: black;
     border: 1px solid black;

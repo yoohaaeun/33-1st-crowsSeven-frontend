@@ -17,28 +17,12 @@ const Login = () => {
     });
   };
 
-  const goToMain = () => {
-    fetch('http://10.58.3.110:8000/users/signin', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: id,
-        password: pw,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        if (result.token) {
-          localStorage.setItem('token', result.token);
-        }
-      });
-  };
-
   return (
     <div>
-      <section className="loginArea">
+      <section className="login">
         <div className="loginTitle">CROWS SEVEN</div>
         <div className="inputArea">
-          <div className="idLine">
+          <form className="idLine">
             <span className="idInputLine">Id</span>
             <input
               className="idInput"
@@ -46,8 +30,8 @@ const Login = () => {
               name="id"
               onChange={handleInput}
             />
-          </div>
-          <div className="pwLine">
+          </form>
+          <form className="pwLine">
             <span className="pwInputLine">Password</span>
             <input
               className="pwInput"
@@ -55,12 +39,11 @@ const Login = () => {
               name="pw"
               onChange={handleInput}
             />
-          </div>
+          </form>
         </div>
         <button
           className="signBtn"
-          onClick={goToMain}
-          disabled={id.includes('@') && pw.length >= 5 ? false : true}
+          disabled={id.includes('@') && pw.length >= 5}
         >
           SIGN IN
         </button>
