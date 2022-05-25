@@ -1,0 +1,47 @@
+.cartTable {
+  background-color: plum;
+  width: 80rem;
+
+  img {
+    width: 6.25rem;
+  }
+
+  table {
+    text-align: center;
+    border-collapse: collapse;
+    width: 80rem;
+
+    .checkBox {
+      width: 5rem;
+      accent-color: black;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid #444444;
+      padding: 0.8rem 0;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    tfoot {
+      tr {
+        &:last-child {
+          border-bottom: 1px solid #444444;
+        }
+      }
+      td {
+        border: none;
+        padding: 10px 0;
+      }
+
+      .pricebox {
+        width: 10rem;
+        text-align: end;
+      }
+    }
+  }
+}
+
+.cartItem {
+}

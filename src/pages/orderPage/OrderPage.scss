@@ -1,0 +1,21 @@
+.orderPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    text-align: center;
+  }
+
+  .orderInfo {
+    background-color: lightskyblue;
+    width: 80rem;
+    height: 80rem;
+  }
+
+  .payment {
+    background-color: lightgreen;
+    width: 80rem;
+    height: 80rem;
+  }
+}
