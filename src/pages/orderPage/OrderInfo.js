@@ -9,16 +9,13 @@ const Orderinfo = () => {
           <td>
             <input type="radio" name="red" id="apple" />
             <label for="apple">회원 정보와 동일</label>
-          </td>
-          <td>
+
             <input type="radio" name="red" id="mango" />
             <label for="mango">새로운 배송지</label>
-          </td>
-          <td>
+
             <input type="radio" name="red" id="banana" />
             <label for="banana">최근배송지 : 유하은</label>
-          </td>
-          <td>
+
             <button>주소록 보기</button>
           </td>
         </tr>
