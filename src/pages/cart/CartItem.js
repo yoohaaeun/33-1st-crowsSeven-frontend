@@ -21,10 +21,11 @@ const CartItem = ({ idx, item, total }) => {
       <td>-</td>
       <td>기본배송</td>
       <td className="charge">
-        3000원 <br />
+        3000원 ❤️‍🔥
+        <br />
         조건
       </td>
-      <td>￦21,000</td>
+      <td>￦21,000❤️‍🔥</td>
       <td>
         <div className="selectBtn">
           <button>주문하기</button>

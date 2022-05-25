@@ -14,12 +14,17 @@ const tableHeader = [
 ];
 
 const tableFooter = [
-  { title: 'Price', total: '50000' },
-  { title: 'Shipping', total: '0' },
-  { title: 'Total', total: '50000' },
+  { title: 'Price' },
+  { title: 'Shipping' },
+  { title: 'Total' },
 ];
-
 const CartUI = ({ cartList, itemTotal }) => {
+  const price = cartList.map(item => item.price).reduce((a, b) => a + b, 0);
+  const shipping = price > 50000 ? 0 : 3000;
+  const total = price + shipping;
+
+  const priceArr = [price, shipping, total];
+
   return (
     <>
       <table>
@@ -48,7 +53,7 @@ const CartUI = ({ cartList, itemTotal }) => {
                   <div className="apple">
                     <strong>{row.title}</strong>
                     <div className="pricebox">
-                      <span>{row.total}원</span>
+                      <span>{priceArr[idx]}원</span>
                     </div>
                   </div>
                 </td>
