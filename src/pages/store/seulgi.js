@@ -29,6 +29,7 @@ const Store = () => {
             return (
               <Items
                 key={list.id}
+                state={list.state}
                 img={list.itemThumbnail}
                 name={list.itemName}
                 itemPrice={list.price}
@@ -66,21 +67,38 @@ const ItemSort = () => {
   );
 };
 
-const Items = ({ img, name, itemPrice }) => {
+const Items = ({ state, img, name, itemPrice }) => {
+  // console.log({ state });
+  const ItemTag = () => {
+    // if ({ state } === 'soldOut') {
+    return <span className="itemTag">{state}</span>;
+    // }
+    // if ({ state } === 'new') {
+    //   return <span>신상품</span>;
+    // }
+    // if ({ state } === 'none') {
+    //   return <span>none</span>;
+    // }
+    // return <span>h2</span>;
+    // }
+  };
+
   return (
     <div className="items">
       <span className="itemImg">
+        <ItemTag />
         <img src={img} alt="img" />
         <ItemHoverButton />
       </span>
-      <div class="description">
-        <div class="name">{name}</div>
+      <div className="description">
+        <div className="name">{name}</div>
         <hr />
-        <div class="price">{itemPrice}</div>
+        <div className="price">{itemPrice}</div>
       </div>
     </div>
   );
 };
+
 // onClick버튼에 따라 다른 Component 보여주기
 
 const ItemHoverButton = () => {
