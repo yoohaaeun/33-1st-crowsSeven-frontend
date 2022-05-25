@@ -1,8 +1,8 @@
 import React from 'react';
-import './Post.scss';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
+import './Post.scss';
 
-const productInfo = [
+const PRODUCT_INFO = [
   {
     img: 'https://crowcanyon.co.kr/web/product/tiny/202201/340ff70c75de7d1e91b0979a59a228e6.jpg',
     NEW: true,
@@ -14,20 +14,20 @@ const productInfo = [
 
 const Post = () => {
   return (
-    <div className="reviewContainer">
+    <div className="Post">
       <header className="slideRight">
         <h1>상품후기</h1>
       </header>
       <section className="product">
         <div className="productInfo">
-          <img src={`${productInfo[0].img}`} alt="productPhoto" />
+          <img src={`${PRODUCT_INFO[0].img}`} alt="productPhoto" />
           <div className="detailedInfo">
             <div className="receivingStatus">
-              <span>{productInfo[0].NEW ? 'NEW' : null}</span>
-              <span>{productInfo[0].품절 ? '품절' : null}</span>
+              <span>{PRODUCT_INFO[0].NEW ? 'NEW' : null}</span>
+              <span>{PRODUCT_INFO[0].품절 ? '품절' : null}</span>
             </div>
-            <div className="productName">{productInfo[0].name}</div>
-            <div className="productPrice">{productInfo[0].price}</div>
+            <div className="productName">{PRODUCT_INFO[0].name}</div>
+            <div className="productPrice">{PRODUCT_INFO[0].price}</div>
             <button className="viewDetails">상품 상세보기</button>
           </div>
         </div>

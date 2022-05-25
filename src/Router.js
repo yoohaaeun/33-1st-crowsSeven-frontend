@@ -1,13 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Post from './review/Post';
+import ReviewPage from './review/ReviewPage';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Nav />} />
-        <Route path="/reviewPage" element={<Post />} />
+        <Route path="/review_post" element={<Post />} />
+        <Route path="/review_page" element={<ReviewPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,23 @@
+@import '../styles/variables.scss';
+
+.btnSearch {
+  .prevNextBtn {
+  }
+
+  .searchText {
+    display: flex;
+    align-items: center;
+    .searchField {
+      select {
+        width: 80px;
+      }
+    }
+  }
+}
+
+.productList {
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
