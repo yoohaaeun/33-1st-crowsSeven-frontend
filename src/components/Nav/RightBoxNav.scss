@@ -1,0 +1,35 @@
+.rightNavBox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 20rem;
+  transition: 0.3s all ease-in;
+  background-color: #FAFAFA;
+
+  .cancel {
+    width: 20rem;
+    margin-left: 8rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    opacity: 0.5;
+  }
+
+  .rightBoxText {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    align-items: center;
+
+    li {
+      margin-top: 2rem;
+      font-weight: 100;
+      font-size: 1.3rem;
+    }
+
+    span {
+      margin-top: 4rem;
+      font-size: 1.3rem;
+    }
+  }
+}
