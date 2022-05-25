@@ -29,7 +29,7 @@ const CartUI = ({ cartList, itemTotal }) => {
               <input type="checkbox" />
             </th>
             {tableHeader.map(row => {
-              return <th>{row}</th>;
+              return <th key={row}>{row}</th>;
             })}
           </tr>
         </thead>
