@@ -1,5 +1,4 @@
 @import 'src/styles/variables.scss';
-//index.js에 이미 reset.scss가 있어서 굳이 여기서 import안해도 될꺼 같습니다.
 
 .login {
   @include flexCenter;
