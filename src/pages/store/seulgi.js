@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './seulgi.scss';
+import Nav from '../../components/Nav/Nav';
 
 const Store = () => {
   const [list, setList] = useState([]);
@@ -14,31 +15,34 @@ const Store = () => {
   }, []);
 
   return (
-    <div className="Store">
-      <section>
-        <h2>전체상품</h2>
-        <div className="itemCategory">
-          <div className="itemAmount">
-            <b>{list.length}</b>
-            <span>개의 상품이 있습니다.</span>
+    <div>
+      <Nav />
+      <div className="store">
+        <section>
+          <h2>전체상품</h2>
+          <div className="itemCategory">
+            <div className="itemAmount">
+              <b>{list.length}</b>
+              <span>개의 상품이 있습니다.</span>
+            </div>
+            <ItemSort />
           </div>
-          <ItemSort />
-        </div>
-        <div className="itemList">
-          {list.map(list => {
-            return (
-              <Items
-                key={list.id}
-                state={list.state}
-                img={list.itemThumbnail}
-                name={list.itemName}
-                itemPrice={list.price}
-              />
-            );
-          })}
-        </div>
-        <PageList />
-      </section>
+          <div className="itemList">
+            {list.map(({ id, state, itemThumbnail, itemName, price }) => {
+              return (
+                <Items
+                  key={id}
+                  state={state}
+                  img={itemThumbnail}
+                  name={itemName}
+                  itemPrice={price}
+                />
+              );
+            })}
+          </div>
+          <PageList />
+        </section>
+      </div>
     </div>
   );
 };
@@ -98,8 +102,6 @@ const Items = ({ state, img, name, itemPrice }) => {
     </div>
   );
 };
-
-// onClick버튼에 따라 다른 Component 보여주기
 
 const ItemHoverButton = () => {
   return (
