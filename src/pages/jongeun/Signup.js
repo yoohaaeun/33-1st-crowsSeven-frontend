@@ -18,55 +18,56 @@ const Signup = () => {
           <h2>기본정보</h2>
           <div>*필수입력사항</div>
         </title>
+
         <section className="memberLine">
           <div className="memberTitle"> Member Type</div>
-          <div className="memberRadio">
+          <form className="memberRadio">
             <input type="radio" name="member" />
             <label>개인회원</label>
             <input type="radio" name="member" />
             <label>사업자 회원</label>
             <input type="radio" name="member" />
             <label>외국인 회원</label>
-          </div>
+          </form>
         </section>
 
-        <section className="idLine">
+        <form className="idLine">
           <div className="id">ID</div>
           <input type="text" className="idInput" />
           <div className="idDescription">
             아이디를 입력해 주세요(영문소문자/숫자,4~16자)
           </div>
-        </section>
+        </form>
 
-        <section className="pwLine">
+        <form className="pwLine">
           <div className="pw">Password</div>
           <input type="password" className="pwInput" />
           <div className="pwDescription">(영문 대소문자/숫자 4자~16자)</div>
-        </section>
+        </form>
 
-        <section className="pwCheckLine">
+        <form className="pwCheckLine">
           <div className="pwCheck">Password Check</div>
           <input type="password" className="pwInputCheck" />
-        </section>
+        </form>
 
-        <section className="nameLine">
+        <form className="nameLine">
           <div className="name">Name</div>
           <input type="text" className="nameInput" />
-        </section>
+        </form>
 
-        <section className="addressLine">
+        <form className="addressLine">
           <div className="address">Address</div>
           <input type="text" className="addressInput" />
           <div className="addressDescription">기본주소</div>
-        </section>
+        </form>
 
-        <section className="addressLine">
+        <form className="addressLine">
           <div className="address" />
           <input type="text" className="addressInput" />
           <div className="addressDescription">나머지 주소</div>
-        </section>
+        </form>
 
-        <section className="phoneLine">
+        <form className="phoneLine">
           <div className="phone">Phone</div>
           <select name="phone" className="phoneSelect">
             <option>02</option>
@@ -78,9 +79,9 @@ const Signup = () => {
           </select>
           <input type="text" className="phoneSecond" />-
           <input type="text" className="phoneThird" />
-        </section>
+        </form>
 
-        <section className="phoneLine">
+        <form className="phoneLine">
           <div className="phone">Mobile Phone</div>
           <select name="phone" className="phoneSelect">
             <option>010</option>
@@ -92,17 +93,17 @@ const Signup = () => {
           </select>
           <input type="text" className="phoneSecond" />-
           <input type="text" className="phoneThird" />
-        </section>
+        </form>
 
-        <section className="emailLine">
+        <form className="emailLine">
           <div className="email">E-Mail</div>
           <input type="text" className="emailInput" />
-        </section>
+        </form>
 
         <title className="addInformation">
           <h2>추가정보</h2>
         </title>
-        <section className="birthdayLine">
+        <form className="birthdayLine">
           <div className="birthday">E-Mail</div>
           <input type="text" className="birthdayYear" />
           년
@@ -115,12 +116,12 @@ const Signup = () => {
             <input type="radio" name="birthday" />
             <label>음력</label>
           </div>
-        </section>
+        </form>
 
         <title className="agreement">
           <h2>전체 동의</h2>
         </title>
-        <section className="agreementBox">
+        <form className="agreementBox">
           <div className="allAgreement">
             <input type="checkbox" />
             <div>
@@ -131,19 +132,7 @@ const Signup = () => {
           {list.map((item, i) => {
             return <Agreement key={i} item={item} />;
           })}
-          {/* <Agreement
-            description="[필수]이용약관 동의"
-            agreeCheck="이용약관에 동의하십니까?"
-          />
-          <Agreement
-            description="[필수]개인정보 수집 및 이용 동의"
-            agreeCheck="개인정보 수집 및 이용에 동의하십니까?"
-          />
-          <Agreement
-            description="[선택]쇼핑정보 수신 동의"
-            agreeCheck="이메일 수신을 동의하십니까?"
-          /> */}
-        </section>
+        </form>
         <button className="signupBtn">회원가입</button>
       </main>
     </div>
