@@ -53,7 +53,6 @@ const CartTable = () => {
 
   return (
     <div className="cartTable">
-      <h1>CartTable</h1>
       <table>
         <thead>
           <tr>

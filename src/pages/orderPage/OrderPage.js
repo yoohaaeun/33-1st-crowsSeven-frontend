@@ -1,29 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CartTable from './CartTable';
+import Orderinfo from './OrderInfo';
 import './OrderPage.scss';
+import Payment from './Payment';
 
-const OrderInfo = () => {
-  return (
-    <div className="orderInfo">
-      <h1>orderInfo</h1>
-    </div>
-  );
-};
-
-const Payment = () => {
-  return (
-    <div className="payment">
-      <h1>payment</h1>
-    </div>
-  );
-};
+// const Payment = () => {
+//   return (
+//     <div className="payment">
+//       <h1>payment</h1>
+//     </div>
+//   );
+// };
 
 const OrderPage = () => {
   return (
     <div className="orderPage">
       <h1>주문서작성</h1>
       <CartTable />
-      <OrderInfo />
+      <Orderinfo />
       <Payment />
     </div>
   );
