@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { MdCalendarViewMonth } from 'react-icons/md';
+import { CgViewSplit } from 'react-icons/cg';
 import Nav from '../../components/Nav/Nav';
 import PageList from './PageList';
 import Items from './Items';
@@ -40,8 +42,12 @@ const Store = () => {
               <button>상품명</button>
               <button>낮은가격</button>
               <button>높은가격</button>
-              <button onClick={changeSmallList}>4열</button>
-              <button onClick={changeBigList}>2열</button>
+              <button onClick={changeSmallList}>
+                <MdCalendarViewMonth />
+              </button>
+              <button onClick={changeBigList}>
+                <CgViewSplit />
+              </button>
             </div>
           </div>
           <div className="itemList">
