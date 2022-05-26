@@ -11,7 +11,6 @@ const CreditCard = () => {
         <input type="checkbox" id="check" />
         <label for="check">결제수단과 입력정보를 다음에도 사용</label>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };
@@ -30,7 +29,6 @@ const AccountTransfer = () => {
       <p>
         ❗️ 소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.
       </p>
-      {/* <Footer /> */}
     </div>
   );
 };
@@ -57,19 +55,6 @@ const Deposit = () => {
           </td>
         </tr>
       </table>
-      {/* <Footer /> */}
-    </div>
-  );
-};
-
-const Footer = () => {
-  return (
-    <div className="footer">
-      <div className="total">
-        <p>Total</p>
-        <p>101,000원</p>
-      </div>
-      <button>Payment</button>
     </div>
   );
 };
@@ -121,7 +106,6 @@ const Payment = () => {
       {payment === 'creditCard' && <CreditCard />}
       {payment === 'accountTransfer' && <AccountTransfer />}
       {payment === 'deposit' && <Deposit />}
-      <Footer />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './CartTable.scss';
 
 const tableHeader = [
@@ -35,18 +35,10 @@ const OrderItem = ({ item, price }) => {
   );
 };
 
-const CartTable = () => {
-  const [orderItem, setOrderItem] = useState([]);
-
-  useEffect(() => {
-    fetch('/data/cartList.JSON')
-      .then(res => res.json())
-      .then(data => {
-        setOrderItem(data);
-      });
-  }, []);
-
-  const price = orderItem.map(item => item.price).reduce((a, b) => a + b, 0);
+const CartTable = ({ orderItemList }) => {
+  const price = orderItemList
+    .map(item => item.price)
+    .reduce((a, b) => a + b, 0);
   const shipping = price > 50000 ? 0 : 3000;
   const total = price + shipping;
 
@@ -61,8 +53,10 @@ const CartTable = () => {
           </tr>
         </thead>
         <tbody>
-          {orderItem.map(item => {
-            return <OrderItem key={orderItem.id} item={item} price={price} />;
+          {orderItemList.map(item => {
+            return (
+              <OrderItem key={orderItemList.id} item={item} price={price} />
+            );
           })}
         </tbody>
         <tfoot>

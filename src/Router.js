@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
-import Orderpage from './pages/orderPage/OrderPage';
+import Orderpage from './pages/Order/OrderPage';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 
