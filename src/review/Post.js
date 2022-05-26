@@ -31,7 +31,7 @@ const Post = () => {
   return (
     <>
       <Nav />
-      <div className="Post">
+      <div className="post">
         <header className="slideRight">
           <h1>상품후기</h1>
         </header>
@@ -49,7 +49,7 @@ const Post = () => {
             </div>
           </div>
         </section>
-        <main className="post">
+        <main className="mainPost">
           <div className="postSubject">
             <div>제목</div>
             <div>서비스</div>
