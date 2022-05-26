@@ -61,10 +61,10 @@ const Main = () => {
           ))}
         </div>
         <section id="second" className="mainSection">
-          <SectionImg url={secondImg} />
+          <SectionImg url={SECOND_IMG} />
         </section>
         <section id="third" className="mainSection">
-          <SectionImg url={thirdImg} />
+          <SectionImg url={THIRD_IMG} />
         </section>
         <Footer />
       </div>
@@ -110,9 +110,9 @@ const RIGHT_DOTS = [
   },
 ];
 
-const secondImg =
+const SECOND_IMG =
   'https://cdn.pixabay.com/photo/2016/05/17/12/15/minions-guitar-1398006_1280.jpg';
-const thirdImg =
+const THIRD_IMG =
   'https://cdn.pixabay.com/photo/2018/08/16/03/06/minion-3609547_1280.jpg';
 
 export default Main;
