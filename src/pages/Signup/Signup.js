@@ -5,6 +5,9 @@ import React, { useState, useEffect } from 'react';
 
 const Signup = () => {
   const [checkedList, setCheckedLists] = useState([]);
+  const [checkId, setCheckId] = useState(
+    '아이디를 입력해 주세요(영문소문자/숫자,4~16자)'
+  );
 
   useEffect(() => {
     setCheckedLists(AGREE_LIST);
@@ -24,6 +27,18 @@ const Signup = () => {
       setCheckedLists(copy);
     }
   };
+
+  const handleCheckId = e => {
+    let copy = checkId;
+    if (e.length < 4 || e.length > 16) {
+      copy = '올바른 아이디를 입력해 주세요(영문소문자/숫자,4~16자)';
+      setCheckId(copy);
+    } else {
+      copy = '사용가능한 아이디입니다';
+      setCheckId(copy);
+    }
+  };
+
   return (
     <div>
       <main className="signup">
@@ -47,10 +62,14 @@ const Signup = () => {
 
         <form className="inputLine">
           <div className="inputTitle">ID</div>
-          <input type="text" className="userInput" />
-          <div className="inputDescription">
-            아이디를 입력해 주세요(영문소문자/숫자,4~16자)
-          </div>
+          <input
+            type="text"
+            className="userInput"
+            onChange={e => {
+              handleCheckId(e.target.value);
+            }}
+          />
+          <div className="inputDescription">{checkId}</div>
         </form>
 
         <form className="inputLine">
@@ -118,7 +137,7 @@ const Signup = () => {
           <h2>추가정보</h2>
         </title>
         <form className="birthdayLine">
-          <div className="birthday">E-Mail</div>
+          <div className="birthday">생년월일</div>
           <input type="text" className="birthdayYear" />
           년
           <input type="text" className="birthdayDay" />
@@ -139,6 +158,9 @@ const Signup = () => {
           <div className="allAgreement">
             <input
               type="checkbox"
+              checked={
+                checkedList.filter(item => item?.isChecked !== true).length < 1
+              }
               onChange={e => {
                 handleCheck(e.target.checked);
               }}
