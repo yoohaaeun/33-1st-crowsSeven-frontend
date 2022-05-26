@@ -12,17 +12,23 @@ const Main = () => {
   };
 
   const slideTimer = () => {
+    console.log(slideIndex);
     if (slideIndex !== imgUrls.length) {
       setSlideIndex(slideIndex + 1);
     } else if (slideIndex === imgUrls.length) {
       setSlideIndex(1);
     }
   };
+
   useEffect(() => {
     const timer = setInterval(slideTimer, 2000);
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      console.log('unmount');
+    };
   }, [slideIndex]);
-  //dependency 안 넣으면 안됨 -- 질문
+  //dependency array 빈배열 작동 안됨-- 질문
+  //dependency array에 slideIndex를 넣으면 매번 마운트 후 언마운트 반복
 
   return (
     <>
