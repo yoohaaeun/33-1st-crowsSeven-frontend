@@ -16,12 +16,12 @@ const PRODUCT_INFO = [
 ];
 
 const Post = () => {
-  const [textList, setTextList] = useState([]);
+  const [postList, setPostList] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/relatedProductData.json')
+    fetch('/data/relatedProductData.json')
       .then(res => res.json())
-      .then(productData => setTextList(productData));
+      .then(productData => setPostList(productData));
   }, []);
 
   const navigate = useNavigate();
@@ -136,10 +136,10 @@ const Post = () => {
               </tr>
             </thead>
             <tbody>
-              {textList
+              {postList
                 .filter(data => data.id < 6)
                 .map(productData => (
-                  <TextItem key={productData.id} data={productData} />
+                  <TextItem key={productData.id} postData={productData} />
                 ))}
             </tbody>
           </table>
