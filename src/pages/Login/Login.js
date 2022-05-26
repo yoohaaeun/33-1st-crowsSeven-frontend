@@ -43,7 +43,7 @@ const Login = () => {
         </div>
         <button
           className="signBtn"
-          disabled={id.includes('@') && pw.length >= 5 ? false : true}
+          disabled={!(id.includes('@') && pw.length >= 5)}
         >
           SIGN IN
         </button>
