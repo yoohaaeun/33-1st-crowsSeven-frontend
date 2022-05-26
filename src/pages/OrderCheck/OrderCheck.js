@@ -35,7 +35,24 @@ const OrderCheck = () => {
             <button>6개월</button>
           </div>
           <div className="calendar1">2022-02-25</div>
-          <FaRegCalendarAlt />
+          <FaRegCalendarAlt className="calendarIcon" />
+          <div className="dash">-</div>
+          <div className="calendar1">2022-02-25</div>
+          <FaRegCalendarAlt className="calendarIcon" />
+          <button className="inquire">조회</button>
+        </section>
+        <section className="orderDescription">
+          <div>
+            ㆍ기본적으로 최근 3개월간의 자료가 조회되며, 기간 검색시 지난
+            주문내역을 조회하실 수 있습니다.
+          </div>
+          <div>
+            ㆍ주문번호를 클릭하시면 해당 주문에 대한 상세내역을 확인하실 수
+            있습니다.
+          </div>
+          <div>
+            ㆍ취소/교환/반품 신청은 주문 완료일 기준 7일까지 가능합니다.
+          </div>
         </section>
       </main>
     </div>
