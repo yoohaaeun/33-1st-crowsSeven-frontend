@@ -1,6 +1,6 @@
 import React from 'react';
 import './OrderCheck.scss';
-import { FaCalendarAlt } from 'react-icons/fa';
+import { FaRegCalendarAlt } from 'react-icons/fa';
 
 const OrderCheck = () => {
   return (
@@ -35,7 +35,7 @@ const OrderCheck = () => {
             <button>6개월</button>
           </div>
           <div className="calendar1">2022-02-25</div>
-          <FaCalendarAlt />
+          <FaRegCalendarAlt />
         </section>
       </main>
     </div>
