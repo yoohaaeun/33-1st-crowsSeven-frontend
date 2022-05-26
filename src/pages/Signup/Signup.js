@@ -10,18 +10,19 @@ const Signup = () => {
     setCheckedLists(AGREE_LIST);
   }, []);
 
-  let copy = checkedList;
   const handleCheck = e => {
+    let copy = [...checkedList];
     if (e === true) {
       copy.map(item => {
         item.isChecked = true;
       });
+      setCheckedLists(copy);
     } else {
       copy.map(item => {
         item.isChecked = false;
       });
+      setCheckedLists(copy);
     }
-    setCheckedLists(copy);
   };
   return (
     <div>
@@ -147,8 +148,16 @@ const Signup = () => {
               합니다.
             </div>
           </div>
-          {AGREE_LIST.map((item, i) => {
-            return <Agreement key={i} item={item} />;
+          {checkedList.map((item, i) => {
+            return (
+              <Agreement
+                key={i}
+                item={item}
+                i={i}
+                checkedList={checkedList}
+                setCheckedLists={setCheckedLists}
+              />
+            );
           })}
         </form>
         <button className="signupBtn">회원가입</button>

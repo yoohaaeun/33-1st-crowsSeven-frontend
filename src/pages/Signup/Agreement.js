@@ -1,6 +1,21 @@
 import React from 'react';
 
-const Agreement = ({ item }) => {
+const Agreement = ({ item, checkedList, i, setCheckedLists }) => {
+  const checkItems = id => {
+    let copy = [...checkedList];
+    for (let i = 0; i < copy.length; i++) {
+      if (copy[i].id === id) {
+        if (copy[i].isChecked === true) {
+          copy[i].isChecked = false;
+          setCheckedLists(copy);
+        } else if (copy[i].isChecked === false) {
+          copy[i].isChecked = true;
+          setCheckedLists(copy);
+        }
+      }
+    }
+  };
+
   return (
     <div>
       <ul className="agreementPage">
@@ -270,7 +285,12 @@ const Agreement = ({ item }) => {
         </li>
         <ul className="checkAgree">
           <li>{item.agreeCheck}</li>
-          <input type="checkbox" name={item.id} checked={item.isChecked} />
+          <input
+            type="checkbox"
+            name={item.id}
+            checked={checkedList[i].isChecked}
+            onChange={() => checkItems(checkedList[i].id)}
+          />
           동의함
         </ul>
       </ul>
