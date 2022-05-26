@@ -1,10 +1,10 @@
 @import '../../styles/variables.scss';
 
-.Store {
-  letter-spacing: 1px;
-
+.store {
   @include flexCenter;
-  margin-top: 150px;
+  letter-spacing: 1px;
+  min-width: 950px;
+  padding: 0 80px;
 
   h2 {
     text-align: center;
@@ -23,7 +23,7 @@
   }
 
   section {
-    width: 92%;
+    margin-top: 150px;
   }
 
   button,
@@ -36,7 +36,8 @@
 .itemCategory {
   @include flexSpaceBetween;
   align-items: center;
-  padding: 0 0.7%;
+  padding: 0 15px;
+  margin-bottom: 10px;
 
   b {
     font-size: 13px;
@@ -48,6 +49,13 @@
     font-size: 13px;
     color: #999;
   }
+
+  button {
+    text-align: right;
+    padding: 0;
+    margin: 0 0 0 20px;
+  }
+
   .itemAmount {
     display: inline;
   }
@@ -59,20 +67,20 @@
 
 .itemList {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .items {
-  display: flex;
-  flex-direction: column;
+  @include flexColumn;
+  justify-content: center;
   text-align: center;
   margin-bottom: 50px;
   width: 25%;
 
   span {
     @include flexCenter;
-    margin: 20px 3%;
+    margin: 15px;
 
     img {
       width: 100%;
@@ -81,13 +89,64 @@
   }
 
   .description {
-    margin: 10px 20px;
-    padding: 0 15px;
+    margin: 10px 15px;
 
     hr {
-      width: 100%;
-      border: 1px solid #eee;
       margin: 20px 0;
+      height: 1px;
+      border: 0;
+      background: linear-gradient(
+        to right,
+        white,
+        #eee,
+        #eee,
+        #eee,
+        #eee,
+        white
+      );
+    }
+    .name {
+      font-size: 16px;
+    }
+    .price {
+      font-size: 12px;
+      font-weight: 800;
+    }
+  }
+}
+
+.bigItems {
+  @include flexColumn;
+  text-align: center;
+  margin-bottom: 50px;
+  width: 50%;
+
+  span {
+    @include flexCenter;
+    margin: 15px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .description {
+    margin: 10px 15px;
+
+    hr {
+      margin: 20px 0;
+      height: 1px;
+      border: 0;
+      background: linear-gradient(
+        to right,
+        white,
+        #eee,
+        #eee,
+        #eee,
+        #eee,
+        white
+      );
     }
     .name {
       font-size: 16px;
@@ -100,16 +159,32 @@
 }
 
 .itemImg {
+  @include flexColumn;
   position: relative;
+
+  .itemTag {
+    @include flexCenter;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: black;
+    color: white;
+    padding: 4px 8px 2px 8px;
+    letter-spacing: 0;
+    margin: 0;
+    font-size: 12px;
+  }
 
   .itemButton {
     width: 100%;
     height: 100%;
     position: absolute;
     opacity: 0;
+
     &:hover {
       opacity: 1;
       transition: 0.8s;
+
       button {
         width: 100px;
         height: 40px;
