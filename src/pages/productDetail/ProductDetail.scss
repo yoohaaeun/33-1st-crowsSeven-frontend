@@ -53,6 +53,7 @@
     .amountTab {
       font-size: 13px;
       padding: 20px 0;
+      margin-bottom: 20px;
       @include flexSpaceBetween;
       input {
         width: 40px;

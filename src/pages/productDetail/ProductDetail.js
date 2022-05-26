@@ -1,14 +1,14 @@
-import './seulgi.scss';
+import './ProductDetail.scss';
 import { useState, useEffect } from 'react';
 
 const ProductDetail = () => {
   const [list, setList] = useState([]);
-  const { itemDetail, itemName, description, price } = list[0];
+  const { itemDetail, itemName, description, price } = list;
   useEffect(() => {
     fetch('/Data/ITEM_LIST.json')
       .then(res => res.json())
       .then(function (result) {
-        return setList(result);
+        return setList(result[0]);
       });
   }, []);
 

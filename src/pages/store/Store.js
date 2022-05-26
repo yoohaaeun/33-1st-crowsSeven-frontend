@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './seulgi.scss';
+import './Store.scss';
 
 const Store = () => {
   const [list, setList] = useState([]);

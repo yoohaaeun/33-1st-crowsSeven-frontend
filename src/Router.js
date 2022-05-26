@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
-import ProductDetail from './pages/productDetail/seulgi';
-import Store from './pages/store/seulgi';
+import ProductDetail from './pages/productDetail/ProductDetail';
+import Store from './pages/store/Store';
 
 const Router = () => {
   return (
@@ -9,7 +9,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Nav />} />
         <Route path="/store" element={<Store />} />
-        <Route path="/product" element={<ProductDetail />} />
+        <Route path="/productDetail" element={<ProductDetail />} />
       </Routes>
     </BrowserRouter>
   );
