@@ -16,14 +16,10 @@ const Signup = () => {
   const handleCheck = e => {
     let copy = [...checkedList];
     if (e === true) {
-      copy.map(item => {
-        item.isChecked = true;
-      });
+      copy.map(item => (item.isChecked = true));
       setCheckedLists(copy);
     } else {
-      copy.map(item => {
-        item.isChecked = false;
-      });
+      copy.map(item => (item.isChecked = false));
       setCheckedLists(copy);
     }
   };
