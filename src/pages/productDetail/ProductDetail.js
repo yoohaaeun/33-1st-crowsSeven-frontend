@@ -1,4 +1,4 @@
-import './seulgi.scss';
+import './ProductDetail.scss';
 import { useState, useEffect } from 'react';
 
 const ProductDetail = () => {

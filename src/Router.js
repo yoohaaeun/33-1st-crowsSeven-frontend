@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProductDetail from './pages/productDetail/seulgi';
+import ProductDetail from './pages/productDetail/ProductDetail';
 import Store from './pages/store/Store';
 import Nav from './components/Nav/Nav';
 
