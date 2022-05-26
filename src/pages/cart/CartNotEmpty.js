@@ -13,18 +13,16 @@ const tableHeader = [
   '선택',
 ];
 
-const tableFooter = [
-  { title: 'Price' },
-  { title: 'Shipping' },
-  { title: 'Total' },
-];
-
-const CartUI = ({ cartList, itemTotal }) => {
+const CartUI = ({ cartList }) => {
   const price = cartList.map(item => item.price).reduce((a, b) => a + b, 0);
-  const shipping = price > 50000 ? 0 : 3000;
+  const shipping = price >= 50000 ? 0 : 3000;
   const total = price + shipping;
 
-  const priceArr = [price, shipping, total];
+  const TABLE_FOOTER = [
+    { title: 'Price', amount: price },
+    { title: 'Shipping', amount: shipping },
+    { title: 'Total', amount: total },
+  ];
 
   return (
     <>
@@ -34,25 +32,25 @@ const CartUI = ({ cartList, itemTotal }) => {
             <th className="checkBox">
               <input type="checkbox" />
             </th>
-            {tableHeader.map(row => {
-              return <th key={row}>{row}</th>;
-            })}
+            {tableHeader.map(row => (
+              <th key={row}>{row}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          {cartList.map((item, idx) => {
+          {cartList.map(item => {
             return <CartItem key={cartList.id} item={item} total={total} />;
           })}
         </tbody>
         <tfoot>
-          {tableFooter.map((row, idx) => {
+          {TABLE_FOOTER.map(row => {
             return (
               <tr key={row.title}>
                 <td colspan="10">
                   <div className="priceRow">
                     <strong>{row.title}</strong>
                     <div className="pricebox">
-                      <span>{priceArr[idx]}원</span>
+                      <span>{row.amount}원</span>
                     </div>
                   </div>
                 </td>

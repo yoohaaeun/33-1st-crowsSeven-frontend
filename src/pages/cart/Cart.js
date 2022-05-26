@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Cart.scss';
 import Nav from '../../components/Nav/Nav';
-import CartUI from './CartUI';
-import CartEmptyUI from './CartEmptyUI';
+import CartNotEmpty from './CartNotEmpty';
+import CartEmpty from './CartEmpty';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
-  const ITEM_TOTAL = cartList.length;
   const cartEmpty = cartList.length === 0;
 
   useEffect(() => {
@@ -23,12 +22,8 @@ const Cart = () => {
       <div className="cart">
         <h1 className="basket">장바구니</h1>
         <div className="tableWrapper">
-          <p>국내배송({ITEM_TOTAL})</p>
-          {!cartEmpty ? (
-            <CartUI cartList={cartList} itemTotal={ITEM_TOTAL} />
-          ) : (
-            <CartEmptyUI />
-          )}
+          <p>국내배송({cartList.length})</p>
+          {cartEmpty ? <CartEmpty /> : <CartNotEmpty cartList={cartList} />}
         </div>
       </div>
     </>

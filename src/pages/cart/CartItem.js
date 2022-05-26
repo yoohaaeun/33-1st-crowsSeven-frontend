@@ -20,7 +20,7 @@ const CartItem = ({ item, total }) => {
       </td>
       <td>-</td>
       <td>기본배송</td>
-      {total > 50000 ? (
+      {total >= 50000 ? (
         <td className="charge">무료배송</td>
       ) : (
         <td className="charge">
