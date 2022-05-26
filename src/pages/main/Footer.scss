@@ -6,6 +6,7 @@
   height: 20rem;
   font-size: 0.8rem;
   font-weight: 500;
+  scroll-snap-align: start;
 
   h1 {
     margin-top: 2rem;
@@ -27,17 +28,17 @@
   }
 
   .footerBottom {
-    width: 90%;
     display: flex;
+    width: 90%;
 
     .footerIcon {
-      font-size: 2rem;
       margin-right: 1rem;
+      font-size: 2rem;
     }
 
     .footerBottomText {
-      text-align: center;
       color: grey;
+      text-align: center;
     }
   }
 }

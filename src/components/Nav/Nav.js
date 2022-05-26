@@ -27,8 +27,8 @@ const Nav = () => {
           <div className="navTextList">
             ABOUT
             <div className="navTextListInfo">
-              {ABOUT.map(aboutItem => (
-                <li key={aboutItem.id}>{aboutItem.listName}</li>
+              {ABOUT.map(({ id, listName }) => (
+                <li key={id}>{listName}</li>
               ))}
             </div>
           </div>
@@ -36,8 +36,8 @@ const Nav = () => {
           <div className="navTextList">
             STORE
             <div className="navTextListInfo">
-              {STORE.map(storeItem => (
-                <li key={storeItem.id}>{storeItem.listName}</li>
+              {STORE.map(({ id, listName }) => (
+                <li key={id}>{listName}</li>
               ))}
             </div>
           </div>
@@ -50,8 +50,8 @@ const Nav = () => {
           <div className="navTextList">
             COMMUNITY
             <div className="navTextListInfo">
-              {COMMUNITY.map(communityItem => (
-                <li key={communityItem.id}>{communityItem.listName}</li>
+              {COMMUNITY.map(({ id, listName }) => (
+                <li key={id}>{listName}</li>
               ))}
               <div className="navTextListIcon">
                 <BsInstagram className="insta" />

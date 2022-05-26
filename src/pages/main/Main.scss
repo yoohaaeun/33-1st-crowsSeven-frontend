@@ -1,41 +1,70 @@
-.mainSection {
-  position: relative;
-  width: 100vw;
+.fullPageContainer {
   height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 
-  .slideImg {
-    position: absolute;
-    opacity: 0;
-    transition: 0.3s all ease-in;
+  .mainSection {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+
+    .slideImg {
+      position: absolute;
+      opacity: 0;
+      transition: 0.3s all ease-in;
+    }
+
+    .active {
+      opacity: 1;
+    }
+
+    .containerDots {
+      position: absolute;
+      display: flex;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .dot {
+        margin: 0 5px;
+        width: 10px;
+        height: 8px;
+        border-radius: 3px;
+        background-color: rgb(94, 94, 94);
+        transition: 0.3s all ease-in;
+      }
+
+      .active {
+        width: 1.4rem;
+        background-color: black;
+      }
+    }
+  }
+}
+
+.rightContainerDots {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-decoration: none;
+  right: 20px;
+  bottom: 50%;
+  z-index: 10;
+
+  .rightDots {
+    width: 10px;
+    height: 10px;
+    margin-top: 1rem;
+    border-radius: 50%;
+    background-color: #FFF;
+
   }
 
   .active {
-    opacity: 1;
+    background-color: black;
   }
 
-  .renderTest {
-    animation: render 0.3s ease-in;
-  }
-}
-
-.container-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-}
-
-.dot {
-  width: 10px;
-  height: 8px;
-  border-radius: 3px;
-  margin: 0 5px;
-  background-color: rgba(0, 0, 0, 0.459);
-  transition: 0.3s all ease-in;
-}
-
-.dot.active {
-  width: 1.4rem;
-  background-color: black;
 }
