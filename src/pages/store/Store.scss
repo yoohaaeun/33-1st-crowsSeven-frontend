@@ -67,12 +67,13 @@
 
 .itemList {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .items {
   @include flexColumn;
+  justify-content: center;
   text-align: center;
   margin-bottom: 50px;
   width: 25%;
@@ -88,13 +89,21 @@
   }
 
   .description {
-    margin: 10px 20px;
-    padding: 0 15px;
+    margin: 10px 15px;
 
     hr {
-      width: 100%;
-      border: 1px solid #eee;
       margin: 20px 0;
+      height: 1px;
+      border: 0;
+      background: linear-gradient(
+        to right,
+        white,
+        #eee,
+        #eee,
+        #eee,
+        #eee,
+        white
+      );
     }
     .name {
       font-size: 16px;
@@ -123,13 +132,21 @@
   }
 
   .description {
-    margin: 10px 20px;
-    padding: 0 15px;
+    margin: 10px 15px;
 
     hr {
-      width: 100%;
-      border: 1px solid #eee;
       margin: 20px 0;
+      height: 1px;
+      border: 0;
+      background: linear-gradient(
+        to right,
+        white,
+        #eee,
+        #eee,
+        #eee,
+        #eee,
+        white
+      );
     }
     .name {
       font-size: 16px;
@@ -150,9 +167,10 @@
     position: absolute;
     left: 10px;
     top: 10px;
-    background-color: white;
-    color: #999;
-    padding: 5px 8px;
+    background-color: black;
+    color: white;
+    padding: 4px 8px 2px 8px;
+    letter-spacing: 0;
     margin: 0;
     font-size: 12px;
   }
