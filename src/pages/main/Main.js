@@ -12,16 +12,14 @@ const Main = () => {
     setSlideIndex(index);
   };
 
-  const slideTimer = () => {
-    if (slideIndex !== IMG_URLS.length) {
-      setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === IMG_URLS.length) {
-      setSlideIndex(1);
-    }
-  };
-
   useEffect(() => {
-    const timer = setInterval(slideTimer, 3000);
+    const timer = setInterval(() => {
+      if (slideIndex !== IMG_URLS.length) {
+        setSlideIndex(slideIndex + 1);
+      } else if (slideIndex === IMG_URLS.length) {
+        setSlideIndex(1);
+      }
+    }, 3000);
     return () => {
       clearInterval(timer);
     };
