@@ -18,6 +18,7 @@ const tableFooter = [
   { title: 'Shipping' },
   { title: 'Total' },
 ];
+
 const CartUI = ({ cartList, itemTotal }) => {
   const price = cartList.map(item => item.price).reduce((a, b) => a + b, 0);
   const shipping = price > 50000 ? 0 : 3000;
@@ -40,17 +41,15 @@ const CartUI = ({ cartList, itemTotal }) => {
         </thead>
         <tbody>
           {cartList.map((item, idx) => {
-            return (
-              <CartItem key={idx} item={item} total={itemTotal} idx={idx} />
-            );
+            return <CartItem key={cartList.id} item={item} total={total} />;
           })}
         </tbody>
         <tfoot>
           {tableFooter.map((row, idx) => {
             return (
-              <tr key={idx}>
+              <tr key={row.title}>
                 <td colspan="10">
-                  <div className="apple">
+                  <div className="priceRow">
                     <strong>{row.title}</strong>
                     <div className="pricebox">
                       <span>{priceArr[idx]}원</span>
