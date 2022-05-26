@@ -1,32 +1,42 @@
 .orderinfo {
   width: 80rem;
-  background-color: lightpink;
+  font-size: 13px;
+
+  button {
+    cursor: pointer;
+  }
 
   th {
     text-align: start;
     padding-right: 4rem;
     padding-bottom: 0.5rem;
-  }
-
-  .destinationBox {
-    input {
-      margin-right: 0.4rem;
-      cursor: pointer;
-    }
-
-    label {
-      margin-right: 1.25rem;
-    }
+    font-weight: 400;
   }
 
   input {
     border: none;
     border-bottom: 1px solid black;
     background-color: inherit;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .destinationBox {
+    input {
+      margin-right: 0.4rem;
+    }
+
+    label {
+      margin-right: 1.25rem;
+      cursor: pointer;
+    }
   }
 
   .addressBookBtn {
     margin-right: 1.25rem;
+    border: 0.5px solid black;
+    border-radius: 3px;
+    background-color: inherit;
   }
 
   .addressBox {
@@ -35,6 +45,27 @@
 
     td {
       margin-bottom: 25px;
+
+      span {
+        margin-left: 1rem;
+        font-size: 13px;
+      }
+    }
+    .zipcode {
+      button {
+        margin-left: 0.6rem;
+        border: 0.5px solid black;
+        border-radius: 3px;
+        background-color: inherit;
+      }
     }
   }
+}
+.messageBox {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-top: 10px;
+  width: 50%;
+  height: 3rem;
 }

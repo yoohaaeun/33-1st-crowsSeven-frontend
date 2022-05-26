@@ -1,21 +1,105 @@
 .payment {
-  background-color: lightgreen;
   width: 80rem;
-  height: 80rem;
+  padding: 20px 0;
+  font-size: 13px;
+
+  tr {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .PaymentMethod {
+      margin-right: 5rem;
+      padding: 0;
+      font-weight: 400;
+
+      .paymentInputBox {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    input {
+      margin-right: 0.4rem;
+      cursor: pointer;
+    }
+
+    label {
+      margin-right: 1.25rem;
+      font-weight: 400;
+      cursor: pointer;
+    }
+  }
 }
 
-.apple {
-  width: 100px;
-  height: 100px;
-  background-color: red;
+.creditCard {
+  div {
+    display: flex;
+    align-items: center;
+    input {
+      margin-right: 10px;
+      accent-color: black;
+      margin-left: 0;
+      cursor: pointer;
+    }
+
+    label {
+      cursor: pointer;
+    }
+  }
 }
-.mango {
-  width: 100px;
-  height: 100px;
-  background-color: green;
+
+.accountTransfer {
+  th {
+    font-weight: 400;
+    margin-right: 5rem;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+  }
 }
-.banana {
-  width: 100px;
-  height: 100px;
-  background-color: yellow;
+
+.deposit {
+  th {
+    font-weight: 400;
+    margin-right: 5rem;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+  }
+
+  select {
+    outline: none;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid black;
+  margin-top: 1.25rem;
+
+  .total {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-right: 20px;
+    }
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+  }
 }

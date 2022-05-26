@@ -2,7 +2,7 @@
   width: 80rem;
   margin-top: 1.25rem;
   margin-bottom: 3rem;
-  background-color: lightsteelblue;
+  font-size: 13px;
 
   img {
     width: 6.25rem;
@@ -12,11 +12,6 @@
     text-align: center;
     border-collapse: collapse;
     width: 80rem;
-
-    .checkBox {
-      width: 5rem;
-      accent-color: black;
-    }
 
     th,
     td {
@@ -34,7 +29,7 @@
       }
       td {
         border: none;
-        padding: 10px 0;
+        padding: 10px;
       }
 
       .pricebox {
@@ -42,5 +37,15 @@
         text-align: end;
       }
     }
+  }
+}
+
+.cartItem {
+  .product {
+    width: 12.5rem;
+  }
+
+  .info {
+    width: 15.6rem;
   }
 }

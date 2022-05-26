@@ -3,22 +3,22 @@ import './Payment.scss';
 
 const CreditCard = () => {
   return (
-    <div>
+    <div className="creditCard">
       <p>
         소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.
       </p>
       <div>
-        <input type="checkbox" />
-        <span>결제수단과 입력정보를 다음에도 사용</span>
+        <input type="checkbox" id="check" />
+        <label for="check">결제수단과 입력정보를 다음에도 사용</label>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
 
 const AccountTransfer = () => {
   return (
-    <div>
+    <div className="accountTransfer">
       <table>
         <tr>
           <th>예금주명</th>
@@ -30,14 +30,14 @@ const AccountTransfer = () => {
       <p>
         ❗️ 소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.
       </p>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
 
 const Deposit = () => {
   return (
-    <div>
+    <div className="deposit">
       <table>
         <tr>
           <th>입금자명</th>
@@ -48,7 +48,7 @@ const Deposit = () => {
         <tr>
           <th>입금은행</th>
           <td>
-            <select className="bank" value="1">
+            <select className="bank">
               <option value="1">선택해 주세요</option>
               <option value="2">국민은행</option>
               <option value="3">우리은행</option>
@@ -57,18 +57,18 @@ const Deposit = () => {
           </td>
         </tr>
       </table>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
 
 const Footer = () => {
   return (
-    <div>
-      <dl>
-        <dt>Total</dt>
-        <dd>101,000원</dd>
-      </dl>
+    <div className="footer">
+      <div className="total">
+        <p>Total</p>
+        <p>101,000원</p>
+      </div>
       <button>Payment</button>
     </div>
   );
@@ -81,10 +81,15 @@ const Payment = () => {
     <div className="payment">
       <table>
         <th>
-          <tr>
-            <th scope="row">결제수단</th>
+          <tr className="paymentWrapper">
+            <th scope="row" className="PaymentMethod">
+              결제수단
+            </th>
             <td>
-              <div onChange={e => setPayment(e.target.value)}>
+              <div
+                onChange={e => setPayment(e.target.value)}
+                className="paymentInputBox"
+              >
                 <input
                   type="radio"
                   name="payment"
@@ -116,6 +121,7 @@ const Payment = () => {
       {payment === 'creditCard' && <CreditCard />}
       {payment === 'accountTransfer' && <AccountTransfer />}
       {payment === 'deposit' && <Deposit />}
+      <Footer />
     </div>
   );
 };
