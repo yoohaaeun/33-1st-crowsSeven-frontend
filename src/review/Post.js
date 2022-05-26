@@ -26,7 +26,7 @@ const Post = () => {
 
   const navigate = useNavigate();
   const goToTextList = () => {
-    navigate('/');
+    navigate('/review_page');
   };
   return (
     <>

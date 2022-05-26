@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Post from './review/Post';
-import ReviewPage from './review/ReviewPage';
 
 const Router = () => {
   return (
@@ -9,7 +8,6 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Nav />} />
         <Route path="/review_post" element={<Post />} />
-        <Route path="/review_page" element={<ReviewPage />} />
       </Routes>
     </BrowserRouter>
   );
