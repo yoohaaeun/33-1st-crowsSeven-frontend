@@ -1,6 +1,6 @@
 @import '../styles/variables.scss';
 
-.Post {
+.post {
   @include flexColumn;
   @include flexAround;
   padding: 10rem 18.75rem 1.6rem 18.75rem;
@@ -102,7 +102,7 @@
       }
     }
   }
-  .post {
+  .mainPost {
     .postAuthor {
       border-bottom: 1px solid lightgray;
       display: flex;
@@ -132,6 +132,8 @@
       padding: 70px 0;
       margin-bottom: 20px;
       line-height: 30px;
+      white-space: pre-line;
+      // 리액트 개행문자
     }
   }
 

@@ -2,16 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../../src/components/Nav/Nav';
 import TextItem from '../components/review/TextItem';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import './ReviewPage.scss';
 
 const ReviewPage = () => {
   const [textList, setTextList] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/relatedProductData.json')
+    fetch('/data/relatedProductData.json')
       .then(res => res.json())
       .then(productData => setTextList(productData));
   }, []);
+
+  const navigate = useNavigate();
+  const goToReviewPost = () => {
+    navigate('/review_post');
+  };
   return (
     <>
       <Nav />
@@ -45,6 +51,28 @@ const ReviewPage = () => {
               <li></li>
             </ul>
           </article>
+          <section className="orderBtn">
+            <button className="prevBtn">
+              <AiOutlineArrowLeft />
+              PREV
+            </button>
+            <ul className="orderBtnList">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+              <li>8</li>
+              <li>9</li>
+              <li>10</li>
+            </ul>
+            <button className="nextBtn">
+              NEXT
+              <AiOutlineArrowRight />
+            </button>
+          </section>
           <article className="searchText">
             <span>검색어</span>
             <fieldset className="searchField">
