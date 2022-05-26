@@ -1,8 +1,28 @@
 import './Signup.scss';
 import Agreement from './Agreement';
 import AGREE_LIST from './agreeData';
+import React, { useState, useEffect } from 'react';
 
 const Signup = () => {
+  const [checkedList, setCheckedLists] = useState([]);
+
+  useEffect(() => {
+    setCheckedLists(AGREE_LIST);
+  }, []);
+
+  let copy = checkedList;
+  const handleCheck = e => {
+    if (e === true) {
+      copy.map(item => {
+        item.isChecked = true;
+      });
+    } else {
+      copy.map(item => {
+        item.isChecked = false;
+      });
+    }
+    setCheckedLists(copy);
+  };
   return (
     <div>
       <main className="signup">
@@ -116,7 +136,12 @@ const Signup = () => {
         </title>
         <form className="agreementBox">
           <div className="allAgreement">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={e => {
+                handleCheck(e.target.checked);
+              }}
+            />
             <div>
               이동약관 및 개인정보수집 및 이용,쇼핑정보 수신(선택)에 모두 동의
               합니다.

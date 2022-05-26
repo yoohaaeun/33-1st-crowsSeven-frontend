@@ -270,7 +270,7 @@ const Agreement = ({ item }) => {
         </li>
         <ul className="checkAgree">
           <li>{item.agreeCheck}</li>
-          <input type="checkbox" name={item.id} />
+          <input type="checkbox" name={item.id} checked={item.isChecked} />
           동의함
         </ul>
       </ul>
