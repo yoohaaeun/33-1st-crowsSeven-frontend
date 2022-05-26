@@ -4,14 +4,6 @@ import Orderinfo from './OrderInfo';
 import './OrderPage.scss';
 import Payment from './Payment';
 
-// const Payment = () => {
-//   return (
-//     <div className="payment">
-//       <h1>payment</h1>
-//     </div>
-//   );
-// };
-
 const OrderPage = () => {
   return (
     <div className="orderPage">

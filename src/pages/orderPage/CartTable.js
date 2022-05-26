@@ -23,17 +23,13 @@ const OrderItem = ({ item }) => {
       </td>
       <td>{item.info}</td>
       <td>￦{item.price}</td>
-      <td className="quantity">
-        <div>
-          <input type="number" />
-          <button>Modify</button>
-        </div>
-      </td>
+      <td>{item.qty}</td>
       <td>-</td>
       <td>기본배송</td>
       <td className="charge">
         3000원 <br />
         조건
+        {/* {total > 50000 ? 무료배송 : 3000원 <br /> 조건} */}
       </td>
       <td>{item.price}</td>
     </tr>
@@ -73,6 +69,9 @@ const CartTable = () => {
           <tr>
             <td colspan="9">
               [기본배송] 상품구매금액 42,000 + 배송비 3,000 = 합계 : 45,000원
+              {/* 
+              {total} > 50000 ? {`[기본배송] 상품구매금액 {total} + 배송비 3,000 = 합계 : {total+3000}원`} : {`[기본배송] 상품구매금액 {total} + 배송비 0 (무료) = 합계 : {total}원`}
+              */}
             </td>
           </tr>
         </tfoot>

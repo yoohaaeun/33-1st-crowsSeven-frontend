@@ -1,15 +1,12 @@
 .orderPage {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: 16rem 0;
 
   h1 {
     text-align: center;
-  }
-
-  .orderInfo {
-    background-color: lightskyblue;
-    width: 80rem;
-    height: 80rem;
+    font-size: 25px;
   }
 }

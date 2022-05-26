@@ -1,0 +1,40 @@
+.orderinfo {
+  width: 80rem;
+  background-color: lightpink;
+
+  th {
+    text-align: start;
+    padding-right: 4rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .destinationBox {
+    input {
+      margin-right: 0.4rem;
+      cursor: pointer;
+    }
+
+    label {
+      margin-right: 1.25rem;
+    }
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: inherit;
+  }
+
+  .addressBookBtn {
+    margin-right: 1.25rem;
+  }
+
+  .addressBox {
+    display: flex;
+    flex-direction: column;
+
+    td {
+      margin-bottom: 25px;
+    }
+  }
+}

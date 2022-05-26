@@ -1,12 +1,13 @@
 import React from 'react';
+import './OrderInfo.scss';
 
 const Orderinfo = () => {
   return (
-    <div>
+    <div className="orderinfo">
       <table>
         <tr>
           <th scope="row">배송지 선택</th>
-          <td>
+          <td className="destinationBox">
             <input type="radio" name="red" id="apple" />
             <label for="apple">회원 정보와 동일</label>
 
@@ -14,9 +15,9 @@ const Orderinfo = () => {
             <label for="mango">새로운 배송지</label>
 
             <input type="radio" name="red" id="banana" />
-            <label for="banana">최근배송지 : 유하은</label>
+            <label for="banana">최근배송지 : name</label>
 
-            <button>주소록 보기</button>
+            <button className="addressBookBtn">주소록 보기</button>
           </td>
         </tr>
         <tr>
@@ -27,7 +28,7 @@ const Orderinfo = () => {
         </tr>
         <tr>
           <th scope="row">주소❤️‍🔥</th>
-          <div>
+          <div className="addressBox">
             <td>
               <input type="text" />
               <button>우편번호</button>
