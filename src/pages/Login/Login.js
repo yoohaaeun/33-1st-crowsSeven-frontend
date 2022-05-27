@@ -7,7 +7,7 @@ const Login = () => {
     pw: '',
   });
 
-  const { id, pw } = inputValugit e;
+  const { id, pw } = inputValue;
 
   const handleInput = e => {
     const { name, value } = e.target;
