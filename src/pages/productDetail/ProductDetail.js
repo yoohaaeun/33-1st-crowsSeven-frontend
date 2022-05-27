@@ -1,27 +1,25 @@
-import './ProductDetail.scss';
-import Nav from '../../components/Nav/Nav';
-import { useState, useEffect } from 'react';
 import { FiHeart } from 'react-icons/fi';
 import { MdPhotoSizeSelectSmall } from 'react-icons/md';
 import { GrFacebook, GrTwitter } from 'react-icons/gr';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
+import { useState, useEffect } from 'react';
+import Nav from '../../components/Nav/Nav';
+import './ProductDetail.scss';
 
 const ProductDetail = () => {
-  const [list, setList] = useState([]);
+  const [items, setItems] = useState([]);
   const [amount, setAmount] = useState(1);
-  const { itemDetail, itemName, description, price } = list;
+  const { itemDetail, itemName, description, price } = items;
 
   useEffect(() => {
-    fetch('/Data/ITEM_LIST.json')
+    fetch('/data/ITEM_LIST.json')
       .then(res => res.json())
-      .then(function (result) {
-        return setList(result[0]);
-      });
+      .then(result => setItems(result[0]));
   }, []);
 
-  const onChange = e => {
-    const currentAmount = e.target;
-    setAmount(currentAmount);
+  const currentAmount = e => {
+    const amount = e.target;
+    setAmount(amount);
   };
 
   const increaseAmount = () => {
@@ -35,19 +33,17 @@ const ProductDetail = () => {
       setAmount(1);
     }
   };
-  const priceToString = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
+  const priceToString = Number(price).toLocaleString('ko-KR');
   const calculateTotalPrice = price * amount;
-  const totalPriceToString = calculateTotalPrice
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const totalPriceToString = calculateTotalPrice.toLocaleString('ko-KR');
 
   const handleWishList = () => {
     alert('로그인 후 관심상품 등록을 해주세요.');
   };
 
   return (
-    <div>
+    <>
       <Nav />
       <div className="productDetail">
         <section className="imgSide">
@@ -68,7 +64,7 @@ const ProductDetail = () => {
                 <div className="inputAmount">
                   <div
                     className="amountInput"
-                    onChange={onChange}
+                    onChange={currentAmount}
                     type="number"
                   >
                     <span>{amount}</span>
@@ -112,7 +108,7 @@ const ProductDetail = () => {
           </div>
         </section>
       </div>
-    </div>
+    </>
   );
 };
 
