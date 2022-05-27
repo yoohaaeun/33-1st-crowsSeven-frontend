@@ -1,7 +1,9 @@
 import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     id: '',
     pw: '',
@@ -31,6 +33,10 @@ const Login = () => {
           localStorage.setItem('token', result.token);
         }
       });
+  };
+
+  const goToSignup = () => {
+    navigate('../signup');
   };
 
   return (
@@ -70,7 +76,9 @@ const Login = () => {
             <div>or</div>
             <div className="forgotPw">Password</div>
           </div>
-          <div className="createAccount">CreateAccount</div>
+          <div className="createAccount" onClick={goToSignup}>
+            CreateAccount
+          </div>
         </div>
       </section>
     </div>
