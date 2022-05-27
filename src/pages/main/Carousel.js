@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import CarouselCard from './CarouselCard';
 import './Carousel.scss';
 
-const TOTAL_SLIDES = 4;
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
