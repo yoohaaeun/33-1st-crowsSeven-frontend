@@ -5,9 +5,44 @@ import React, { useState, useEffect } from 'react';
 
 const Signup = () => {
   const [checkedList, setCheckedLists] = useState([]);
-  const [checkId, setCheckId] = useState(
-    '아이디를 입력해 주세요(영문소문자/숫자,4~16자)'
-  );
+  const [inputValue, setInputValue] = useState({
+    id: '',
+    pw: '',
+    name: '',
+    address: '',
+    phone: '',
+    email: '',
+    birthday: '',
+    checked: true,
+  });
+
+  const { id, pw, name, address, phone, email, birthday, checked } = inputValue;
+
+  const handleInput = e => {
+    const { name, value } = e.target;
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+
+  const goToMain = () => {
+    fetch('http://10.58.6.28:8000/users/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: id,
+        password: pw,
+        name: name,
+        address: address,
+        email: email,
+        birth_date: birthday,
+        phone_number: phone,
+        optional_agreement: checked,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log('결과: ', result, inputValue));
+  };
 
   useEffect(() => {
     setCheckedLists(AGREE_LIST);
@@ -23,18 +58,6 @@ const Signup = () => {
       setCheckedLists(copy);
     }
   };
-
-  const handleCheckId = e => {
-    let copy = checkId;
-    if (e.length < 4 || e.length > 16) {
-      copy = '올바른 아이디를 입력해 주세요(영문소문자/숫자,4~16자)';
-      setCheckId(copy);
-    } else {
-      copy = '사용가능한 아이디입니다';
-      setCheckId(copy);
-    }
-  };
-
   return (
     <div>
       <main className="signup">
@@ -61,11 +84,12 @@ const Signup = () => {
           <input
             type="text"
             className="userInput"
-            onChange={e => {
-              handleCheckId(e.target.value);
-            }}
+            onChange={handleInput}
+            name="id"
           />
-          <div className="inputDescription">{checkId}</div>
+          <div className="inputDescription">
+            아이디를 입력해 주세요(영문소문자/숫자,4~16자)
+          </div>
         </form>
 
         <form className="inputLine">
@@ -76,24 +100,39 @@ const Signup = () => {
 
         <form className="inputLine">
           <div className="inputTitle">Password Check</div>
-          <input type="password" className="userInput" />
+          <input
+            type="password"
+            className="userInput"
+            onChange={handleInput}
+            name="pw"
+          />
         </form>
 
         <form className="inputLine">
           <div className="inputTitle">Name</div>
-          <input type="text" className="userInput" />
+          <input
+            type="text"
+            className="userInput"
+            onChange={handleInput}
+            name="name"
+          />
         </form>
 
         <form className="addressLine">
           <div className="address">Address</div>
-          <input type="text" className="addressInput" />
+          <input
+            type="text"
+            className="addressInput"
+            onChange={handleInput}
+            name="address"
+          />
           <div className="addressDescription">기본주소</div>
         </form>
 
         <form className="addressLine">
           <div className="address" />
           <input type="text" className="addressInput" />
-          <div className="addressDescription">나머지 주소</div>
+          <div className="addressDescription">나머지 주소 (선택사항)</div>
         </form>
 
         <form className="phoneLine">
@@ -106,7 +145,8 @@ const Signup = () => {
             <option>033</option>
             <option>034</option>
           </select>
-          <input type="text" className="phoneSecond" />-
+          <input type="text" className="phoneSecond" />
+          -
           <input type="text" className="phoneThird" />
         </form>
 
@@ -120,13 +160,22 @@ const Signup = () => {
             <option>018</option>
             <option>019</option>
           </select>
-          <input type="text" className="phoneSecond" />-
-          <input type="text" className="phoneThird" />
+          <input
+            type="text"
+            className="phoneSecond"
+            onChange={handleInput}
+            name="phone"
+          />
         </form>
 
         <form className="inputLine">
           <div className="inputTitle">E-Mail</div>
-          <input type="text" className="userInput" />
+          <input
+            type="text"
+            className="userInput"
+            onChange={handleInput}
+            name="email"
+          />
         </form>
 
         <title className="addInformation">
@@ -134,16 +183,20 @@ const Signup = () => {
         </title>
         <form className="birthdayLine">
           <div className="birthday">생년월일</div>
-          <input type="text" className="birthdayYear" />
-          년
-          <input type="text" className="birthdayDay" />
-          월
-          <input type="text" className="birthdayDay" />일
+          <input
+            type="text"
+            className="birthdayInput"
+            onChange={handleInput}
+            name="birthday"
+          />
           <div className="birthdayRadio">
             <input type="radio" name="birthday" />
             <label>양력</label>
             <input type="radio" name="birthday" />
             <label>음력</label>
+          </div>
+          <div className="birthdayDescription">
+            8자리로 입력해주세요 ex)19960211
           </div>
         </form>
 
@@ -178,7 +231,9 @@ const Signup = () => {
             );
           })}
         </form>
-        <button className="signupBtn">회원가입</button>
+        <button onClick={goToMain} className="signupBtn">
+          회원가입
+        </button>
       </main>
     </div>
   );

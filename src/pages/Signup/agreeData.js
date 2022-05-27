@@ -13,7 +13,7 @@ const AGREE_LIST = [
   },
   {
     id: '03',
-    description: '[선택]쇼핑정보 수신 동의',
+    description: '[필수]쇼핑정보 수신 동의',
     agreeCheck: '이메일 수신을 동의하십니까?',
     isChecked: false,
   },
