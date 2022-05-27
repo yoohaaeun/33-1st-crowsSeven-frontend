@@ -7,16 +7,35 @@ const Signup = () => {
   const [checkedList, setCheckedLists] = useState([]);
   const [inputValue, setInputValue] = useState({
     id: '',
-    pw: '',
+    pw1: '',
+    pw2: '',
     name: '',
     address: '',
+    address2: '',
     phone: '',
     email: '',
     birthday: '',
     checked: true,
   });
 
-  const { id, pw, name, address, phone, email, birthday, checked } = inputValue;
+  const [idAlertSentence, setIdAlertSentence] = useState(
+    '아이디를 입력해 주세요(영문소문자/숫자,4~16자)'
+  );
+  const [pwAlertSentence, setPwAlertSentence] = useState('');
+  const [emailAlertSentence, setEmailAlertSentence] = useState('');
+  const [phoneAlertSentence, setPhoneAlertSentence] = useState('');
+  const {
+    id,
+    pw1,
+    pw2,
+    name,
+    address,
+    address2,
+    phone,
+    email,
+    birthday,
+    checked,
+  } = inputValue;
 
   const handleInput = e => {
     const { name, value } = e.target;
@@ -31,12 +50,12 @@ const Signup = () => {
       method: 'POST',
       body: JSON.stringify({
         username: id,
-        password: pw,
+        password: pw2,
         name: name,
-        address: address,
+        address: address + address2,
         email: email,
         birth_date: birthday,
-        phone_number: phone,
+        phone_number: '010' + phone,
         optional_agreement: checked,
       }),
     })
@@ -58,6 +77,43 @@ const Signup = () => {
       setCheckedLists(copy);
     }
   };
+
+  const idCheck = id => {
+    let regId = /[a-z0-9]{4,16}$/;
+    if (regId.test(id)) {
+      setIdAlertSentence('사용가능한 아이디입니다');
+    } else {
+      setIdAlertSentence('올바르지 않은 아이디입니다');
+    }
+  };
+
+  const pwCheck = pw2 => {
+    if (pw1 === pw2 && 3 < pw2.length && pw2.length < 17) {
+      setPwAlertSentence('사용가능한 비밀번호입니다.');
+    } else if (pw1 !== pw2) {
+      setPwAlertSentence('비밀번호가 일치하지 않습니다.');
+    } else {
+      setPwAlertSentence('다시입력해 주세요');
+    }
+  };
+
+  const emailCheck = email => {
+    let regEmail = /[a-zA-Z0-9_-]+@[a-z]+.[a-z]+$/;
+    if (!regEmail.test(email)) {
+      setEmailAlertSentence('유효한 이메일을 입력해 주세요.');
+    } else {
+      setEmailAlertSentence('');
+    }
+  };
+
+  const phoneCheck = phone => {
+    if (phone.length !== 8) {
+      setPhoneAlertSentence('숫자 8개만 입력해주세요');
+    } else {
+      setPhoneAlertSentence('');
+    }
+  };
+
   return (
     <div>
       <main className="signup">
@@ -85,16 +141,20 @@ const Signup = () => {
             type="text"
             className="userInput"
             onChange={handleInput}
+            onBlur={() => idCheck(id)}
             name="id"
           />
-          <div className="inputDescription">
-            아이디를 입력해 주세요(영문소문자/숫자,4~16자)
-          </div>
+          <div className="inputDescription">{idAlertSentence}</div>
         </form>
 
         <form className="inputLine">
           <div className="inputTitle">Password</div>
-          <input type="password" className="userInput" />
+          <input
+            type="password"
+            className="userInput"
+            onChange={handleInput}
+            name="pw1"
+          />
           <div className="inputDescription">(영문 대소문자/숫자 4자~16자)</div>
         </form>
 
@@ -104,8 +164,10 @@ const Signup = () => {
             type="password"
             className="userInput"
             onChange={handleInput}
-            name="pw"
+            onBlur={() => pwCheck(pw2)}
+            name="pw2"
           />
+          <div className="inputDescription">{pwAlertSentence}</div>
         </form>
 
         <form className="inputLine">
@@ -131,7 +193,12 @@ const Signup = () => {
 
         <form className="addressLine">
           <div className="address" />
-          <input type="text" className="addressInput" />
+          <input
+            type="text"
+            className="addressInput"
+            onChange={handleInput}
+            name="address2"
+          />
           <div className="addressDescription">나머지 주소 (선택사항)</div>
         </form>
 
@@ -164,8 +231,10 @@ const Signup = () => {
             type="text"
             className="phoneSecond"
             onChange={handleInput}
+            onBlur={() => phoneCheck(phone)}
             name="phone"
           />
+          <div className="phoneDescription">{phoneAlertSentence}</div>
         </form>
 
         <form className="inputLine">
@@ -173,9 +242,11 @@ const Signup = () => {
           <input
             type="text"
             className="userInput"
-            onChange={handleInput}
             name="email"
+            onChange={handleInput}
+            onBlur={() => emailCheck(email)}
           />
+          <div className="inputDescription">{emailAlertSentence}</div>
         </form>
 
         <title className="addInformation">
@@ -186,8 +257,8 @@ const Signup = () => {
           <input
             type="text"
             className="birthdayInput"
-            onChange={handleInput}
             name="birthday"
+            onChange={handleInput}
           />
           <div className="birthdayRadio">
             <input type="radio" name="birthday" />
