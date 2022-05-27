@@ -58,9 +58,7 @@ const Signup = () => {
         phone_number: '010' + phone,
         optional_agreement: checked,
       }),
-    })
-      .then(response => response.json())
-      .then(result => console.log('결과: ', result, inputValue));
+    }).then(response => response.json());
   };
 
   useEffect(() => {
