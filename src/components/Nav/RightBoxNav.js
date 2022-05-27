@@ -4,7 +4,10 @@ import './RightBoxNav.scss';
 const RightBoxNav = ({ isToggle, handleClick }) => {
   return (
     <>
-      <section className={`rigthBoxWrapper ${isToggle ? 'opacityZero' : ''}`} />
+      <section
+        onClick={handleClick}
+        className={`rigthBoxWrapper ${isToggle ? 'opacityZero' : ''}`}
+      />
       <div className={`rightNavBox ${isToggle ? 'widthZero' : ''}`}>
         <GrClose onClick={handleClick} className="cancel" />
         <ul className="rightBoxText">

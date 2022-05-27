@@ -22,6 +22,8 @@
     .navTextList {
       position: relative;
       margin-left: 3rem;
+      user-select: none;
+      cursor: pointer;
 
       &:hover .navTextListInfo {
         visibility: visible;

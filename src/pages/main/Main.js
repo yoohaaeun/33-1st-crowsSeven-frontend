@@ -19,7 +19,7 @@ const Main = () => {
       } else if (slideIndex === IMG_URLS.length) {
         setSlideIndex(1);
       }
-    }, 3000);
+    }, 5000);
     return () => {
       clearInterval(timer);
     };
