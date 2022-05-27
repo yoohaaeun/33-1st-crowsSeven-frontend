@@ -8,6 +8,22 @@ import './ReviewPage.scss';
 const ReviewPage = () => {
   const [textList, setTextList] = useState([]);
 
+  // const [searchInput, setSearchInput] = useState('');
+
+  // const [searchPeriod, setSearchPeriod] = useState('');
+
+  // const [searchTag, setSearchTag] = useState('');
+
+  const [searchTransfer, setSearchTransfer] = useState({
+    searchTag: '',
+    searchPerid: '',
+    searchInput: '',
+  });
+
+  const inputTransfer = () => {};
+
+  const transferBack = () => {};
+
   useEffect(() => {
     fetch('/data/relatedProductData.json')
       .then(res => res.json())
@@ -47,11 +63,6 @@ const ReviewPage = () => {
         </main>
         <section className="btnSearch">
           <article className="prevNextBtn">
-            <ul>
-              <li></li>
-            </ul>
-          </article>
-          <section className="orderBtn">
             <button className="prevBtn">
               <AiOutlineArrowLeft />
               PREV
@@ -72,17 +83,25 @@ const ReviewPage = () => {
               NEXT
               <AiOutlineArrowRight />
             </button>
-          </section>
+          </article>
           <article className="searchText">
-            <span>검색어</span>
             <fieldset className="searchField">
-              <select className="searchPeriod">
+              <span>검색어</span>
+              <select
+                className="searchPeriod"
+                onChange={e => {
+                  inputTransfer(e.target.value);
+                }}
+              >
                 <option>일주일</option>
                 <option>한달</option>
                 <option>세달</option>
                 <option>전체</option>
               </select>
-              <select className="searchOption">
+              <select
+                className="searchOption"
+                onChange={e => inputTransfer(e.target.value)}
+              >
                 <option>제목</option>
                 <option>내용</option>
                 <option>글쓴이</option>
@@ -90,8 +109,16 @@ const ReviewPage = () => {
                 <option>별명</option>
                 <option>상품정보</option>
               </select>
-              <input className="searchInput" type="text" />
-              <button className="searchBtn">찾기</button>
+              <input
+                className="searchInput"
+                onInput={e => {
+                  inputTransfer(e.target.value);
+                }}
+                type="text"
+              />
+              <button className="searchBtn" onClick={transferBack}>
+                찾기
+              </button>
             </fieldset>
           </article>
         </section>

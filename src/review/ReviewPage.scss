@@ -1,7 +1,7 @@
 @import '../styles/variables.scss';
 
 .ReviewPage {
-  padding: 10rem 18.75rem 1.6rem 18.75rem;
+  padding: 10rem 18.75rem 10rem 18.75rem;
   .slideRight {
     @include flexCenter;
     h1 {
@@ -20,22 +20,6 @@
       }
     }
   }
-
-  .btnSearch {
-    .prevNextBtn {
-    }
-
-    .searchText {
-      display: flex;
-      align-items: center;
-      .searchField {
-        select {
-          width: 80px;
-        }
-      }
-    }
-  }
-
   .productList {
     h3 {
       font-size: 25px;
@@ -45,15 +29,82 @@
 
     table {
       width: 100%;
+      margin: 50px 0;
       thead {
         tr {
           border-top: 1px solid black;
           border-bottom: 1px solid black;
+          height: 60px;
+          line-height: 60px;
         }
       }
       tbody {
         tr {
           border-bottom: 1px solid black;
+          height: 120px;
+          text-align: center;
+          line-height: 120px;
+        }
+        .tableLeft {
+          font-size: 20px;
+          text-align: start;
+        }
+        // .productName {
+        //   text-align: start;
+        // }
+      }
+    }
+  }
+
+  .btnSearch {
+    .prevNextBtn {
+      @include flexCenter;
+      margin: 50px 0;
+
+      button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      ul {
+        display: flex;
+
+        li {
+          margin: 0 15px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .searchText {
+      display: flex;
+      align-items: center;
+
+      span {
+        font-weight: bold;
+      }
+
+      .searchField {
+        select {
+          width: 80px;
+          margin: 0 5px;
+          height: 25px;
+        }
+
+        .searchInput {
+          width: 200px;
+          margin-right: 5px;
+        }
+
+        .searchBtn {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+
+          &:hover {
+            color: gray;
+          }
         }
       }
     }
