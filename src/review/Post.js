@@ -139,7 +139,7 @@ const Post = () => {
               {postList
                 .filter(data => data.id < 6)
                 .map(productData => (
-                  <TextItem key={productData.id} postData={productData} />
+                  <TextItem key={productData.id} postItem={productData} />
                 ))}
             </tbody>
           </table>
