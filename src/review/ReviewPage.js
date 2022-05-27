@@ -26,7 +26,6 @@ const ReviewPage = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(searchTransfer);
   const transferBack = () => {};
 
   useEffect(() => {
@@ -36,9 +35,9 @@ const ReviewPage = () => {
   }, []);
 
   const navigate = useNavigate();
-  const goToReviewPost = () => {
-    navigate('/review_post');
-  };
+  // toDo : const goToReviewPost = () => {
+  //   navigate('/review_post');
+  // };
   return (
     <>
       <Nav />

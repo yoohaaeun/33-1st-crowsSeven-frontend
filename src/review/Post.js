@@ -4,7 +4,6 @@ import Nav from '../../src/components/Nav/Nav';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
 import TextItem from '../components/review/TextItem';
 import ReviewPost from '../components/review/ReviewPost';
-import ReviewPage from './ReviewPage';
 import './Post.scss';
 
 const PRODUCT_INFO = [
@@ -92,7 +91,6 @@ const Post = () => {
             <div className="arrowUp">
               <AiOutlineArrowDown /> 이전글
             </div>
-            <div></div>
           </div>
           <div className="nextArticle">
             <div className="arrowDown">
