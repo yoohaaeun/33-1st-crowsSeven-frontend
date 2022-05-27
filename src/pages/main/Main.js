@@ -6,7 +6,7 @@ import MainButton from './MainButton';
 import './Main.scss';
 
 const Main = () => {
-  const [slideIndex, setSlideIndex] = useState(1);
+  const [slideIndex, setSlideIndex] = useState(0);
 
   const moveSlide = index => {
     setSlideIndex(index);
@@ -14,10 +14,10 @@ const Main = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      if (slideIndex !== IMG_URLS.length) {
-        setSlideIndex(slideIndex + 1);
-      } else if (slideIndex === IMG_URLS.length) {
-        setSlideIndex(1);
+      if (slideIndex !== IMG_URLS.length - 1) {
+        setSlideIndex(prev => prev + 1);
+      } else if (slideIndex === IMG_URLS.length - 1) {
+        setSlideIndex(0);
       }
     }, 5000);
     return () => {
@@ -28,13 +28,13 @@ const Main = () => {
   return (
     <>
       <Nav />
-      <div className="fullPageContainer">
+      <div className="main">
         <section id="first" className="mainSection">
           {IMG_URLS.map(({ id, url }, index) => {
             return (
               <div
                 className={
-                  slideIndex === index + 1 ? 'slideImg active' : 'slideImg'
+                  slideIndex === index ? 'slideImg active' : 'slideImg'
                 }
                 key={id}
               >
@@ -44,11 +44,11 @@ const Main = () => {
             );
           })}
           <div className="containerDots">
-            {Array.from({ length: 3 }).map((empty, index) => (
+            {Array.from({ length: 3 }).map((_, index) => (
               <div
                 key={index}
-                onClick={() => moveSlide(index + 1)}
-                className={slideIndex === index + 1 ? 'dot active' : 'dot'}
+                onClick={() => moveSlide(index)}
+                className={slideIndex === index ? 'dot active' : 'dot'}
               />
             ))}
           </div>
