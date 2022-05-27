@@ -3,7 +3,7 @@
 .searchBox {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   @include flexCenter;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.794);
@@ -29,7 +29,7 @@
 }
 
 .searchClose {
-  position: absolute;
+  position: fixed;
   right: 0;
   margin: 1rem;
   font-size: 2rem;
