@@ -3,12 +3,12 @@
 .searchBox {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   @include flexCenter;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.794);
   animation: move 0.5s;
-
+  z-index: 10;
 
   input {
     width: 20rem;
@@ -29,12 +29,12 @@
 }
 
 .searchClose {
-  position: absolute;
+  position: fixed;
   right: 0;
   margin: 1rem;
   font-size: 2rem;
   color: black;
-  z-index: 10;
+  z-index: 11;
 }
 
 @keyframes move {
