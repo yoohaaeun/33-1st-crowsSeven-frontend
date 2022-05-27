@@ -1,0 +1,34 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 78%;
+  height: 100vh;
+  overflow: hidden;
+
+  .carouselWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .buttonContainer {
+    button {
+      margin: 1rem 0.3rem;
+      width: 8px;
+      height: 8px;
+      background-color: grey;
+      border-radius: 2px;
+      border: none;
+      outline: none;
+
+      &:hover {
+        background-color: black;
+        transition: 0.3s all ease-in-out;
+      }
+    }
+  }
+}
