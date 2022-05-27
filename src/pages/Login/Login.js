@@ -7,7 +7,7 @@ const Login = () => {
     pw: '',
   });
 
-  const { id, pw } = inputValue;
+  const { id, pw } = inputValugit e;
 
   const handleInput = e => {
     const { name, value } = e.target;
@@ -15,6 +15,22 @@ const Login = () => {
       ...inputValue,
       [name]: value,
     });
+  };
+
+  const goToMain = () => {
+    fetch('http://10.58.3.110:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: id,
+        password: pw,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.token) {
+          localStorage.setItem('token', result.token);
+        }
+      });
   };
 
   return (
@@ -44,6 +60,7 @@ const Login = () => {
         <button
           className="signBtn"
           disabled={!(id.includes('@') && pw.length >= 5)}
+          onClick={goToMain}
         >
           SIGN IN
         </button>
