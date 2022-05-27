@@ -302,7 +302,21 @@ const Signup = () => {
             );
           })}
         </form>
-        <button onClick={goToMain} className="signupBtn">
+        <button
+          onClick={goToMain}
+          className="signupBtn"
+          disabled={
+            !(
+              id.length > 5 &&
+              pw2.length > 3 &&
+              name.length > 1 &&
+              address.length > 1 &&
+              phone.length > 1 &&
+              email.length > 1 &&
+              birthday.length > 1
+            )
+          }
+        >
           회원가입
         </button>
       </main>

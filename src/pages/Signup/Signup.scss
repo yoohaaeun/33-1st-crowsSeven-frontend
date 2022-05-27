@@ -220,14 +220,15 @@
     width: 130px;
     height: 40px;
     margin: 20px;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
+    cursor: pointer;
 
-    &:hover {
-      color: black;
-      background-color: white;
+    &:disabled {
+      color: white;
+      background-color: black;
       transition: all 350ms ease-in-out;
-      cursor: pointer;
+      cursor: default;
     }
   }
 }
