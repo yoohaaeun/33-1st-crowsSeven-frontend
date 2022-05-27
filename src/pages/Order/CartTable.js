@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartTable.scss';
 
-const tableHeader = [
+const TABLE_HEADER = [
   'Product',
   'Info',
   'Price',
@@ -39,7 +39,7 @@ const CartTable = ({ orderItemList }) => {
   const price = orderItemList
     .map(item => item.price)
     .reduce((a, b) => a + b, 0);
-  const shipping = price > 50000 ? 0 : 3000;
+  const shipping = price >= 50000 ? 0 : 3000;
   const total = price + shipping;
 
   return (
@@ -47,7 +47,7 @@ const CartTable = ({ orderItemList }) => {
       <table>
         <thead>
           <tr>
-            {tableHeader.map((header, idx) => {
+            {TABLE_HEADER.map((header, idx) => {
               return <th key={idx}>{header}</th>;
             })}
           </tr>
@@ -68,7 +68,7 @@ const CartTable = ({ orderItemList }) => {
               </td>
             ) : (
               <td colspan="9">
-                [기본배송] 상품구매금액 {price} + 배송비 {shipping} = 합계 :{' '}
+                [기본배송] 상품구매금액 {price} + 배송비 {shipping} = 합계 :
                 {total}원
               </td>
             )}

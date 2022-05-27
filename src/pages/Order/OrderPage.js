@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CartTable from './CartTable';
 import Orderinfo from './OrderInfo';
-import Payment from './Payment';
-import Footer from './Footer';
 
 import './OrderPage.scss';
 
@@ -27,9 +25,7 @@ const OrderPage = () => {
     <div className="orderPage">
       <h1>주문서작성</h1>
       <CartTable orderItemList={orderItemList} />
-      <Orderinfo />
-      <Payment total={total} />
-      <Footer total={total} />
+      <Orderinfo total={total} />
     </div>
   );
 };
