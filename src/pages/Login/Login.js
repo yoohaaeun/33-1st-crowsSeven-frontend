@@ -18,10 +18,10 @@ const Login = () => {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.3.110:8000/users/signin', {
+    fetch('http://10.58.6.28:8000/users/login', {
       method: 'POST',
       body: JSON.stringify({
-        email: id,
+        username: id,
         password: pw,
       }),
     })
@@ -59,7 +59,7 @@ const Login = () => {
         </div>
         <button
           className="signBtn"
-          disabled={!(id.includes('@') && pw.length >= 5)}
+          disabled={!(id.length > 6 && pw.length >= 5)}
           onClick={goToMain}
         >
           SIGN IN
