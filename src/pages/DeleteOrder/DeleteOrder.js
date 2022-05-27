@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaRegCalendarAlt } from 'react-icons/fa';
-import './OrderCheck.scss';
+import './DeleteOrder.scss';
 
-const OrderCheck = () => {
+const DeleteOrder = () => {
   const navigate = useNavigate();
 
-  const goToDeleteOrder = () => {
-    navigate('../deleteorder');
+  const goToOrderCheck = () => {
+    navigate('../ordercheck');
   };
 
   return (
@@ -18,24 +18,13 @@ const OrderCheck = () => {
           <div className="line1" />
           <div className="line2" />
           <div className="checkBtnBox">
-            <div className="checkBtn1">주문내역조회(0)</div>
-            <div className="checkBtn2" onClick={goToDeleteOrder}>
-              취소/반품/교환내역(0)
+            <div className="checkBtn3" onClick={goToOrderCheck}>
+              주문내역조회(0)
             </div>
+            <div className="checkBtn4">취소/반품/교환내역(0)</div>
           </div>
         </section>
         <section className="dateBox">
-          <select className="orderStatus">
-            <option>전체 주문처리상태</option>
-            <option>입금전</option>
-            <option>배송준비중</option>
-            <option>배송중</option>
-            <option>배송완료</option>
-            <option>취소</option>
-            <option>교환</option>
-            <option>반품</option>
-          </select>
-          <div className="divideLine">|</div>
           <div className="dayBtn">
             <button>오늘</button>
             <button>1주일</button>
@@ -59,13 +48,10 @@ const OrderCheck = () => {
             ㆍ주문번호를 클릭하시면 해당 주문에 대한 상세내역을 확인하실 수
             있습니다.
           </div>
-          <div>
-            ㆍ취소/교환/반품 신청은 주문 완료일 기준 7일까지 가능합니다.
-          </div>
         </section>
       </main>
     </div>
   );
 };
 
-export default OrderCheck;
+export default DeleteOrder;
