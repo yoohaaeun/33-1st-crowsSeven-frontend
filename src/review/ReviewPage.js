@@ -20,8 +20,13 @@ const ReviewPage = () => {
     searchInput: '',
   });
 
-  const inputTransfer = () => {};
-
+  const inputTransfer = e => {
+    setSearchTransfer({
+      ...searchTransfer,
+      [e.target.name]: e.target.value,
+    });
+  };
+  console.log(searchTransfer);
   const transferBack = () => {};
 
   useEffect(() => {
@@ -89,9 +94,8 @@ const ReviewPage = () => {
               <span>검색어</span>
               <select
                 className="searchPeriod"
-                onChange={e => {
-                  inputTransfer(e.target.value);
-                }}
+                name="searchPeroid"
+                onChange={inputTransfer}
               >
                 <option>일주일</option>
                 <option>한달</option>
@@ -100,7 +104,8 @@ const ReviewPage = () => {
               </select>
               <select
                 className="searchOption"
-                onChange={e => inputTransfer(e.target.value)}
+                name="searchTag"
+                onChange={inputTransfer}
               >
                 <option>제목</option>
                 <option>내용</option>
@@ -111,9 +116,8 @@ const ReviewPage = () => {
               </select>
               <input
                 className="searchInput"
-                onInput={e => {
-                  inputTransfer(e.target.value);
-                }}
+                name="searchInput"
+                onInput={inputTransfer}
                 type="text"
               />
               <button className="searchBtn" onClick={transferBack}>

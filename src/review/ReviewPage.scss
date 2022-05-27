@@ -71,8 +71,12 @@
         display: flex;
 
         li {
-          margin: 0 15px;
+          padding: 10px 15px;
           cursor: pointer;
+
+          &:hover {
+            background-color: #f1f1f1;
+          }
         }
       }
     }
