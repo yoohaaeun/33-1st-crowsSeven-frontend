@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Nav from '../../src/components/Nav/Nav';
 import TextItem from '../components/review/TextItem';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
