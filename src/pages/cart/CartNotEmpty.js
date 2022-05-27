@@ -1,7 +1,7 @@
 import React from 'react';
 import CartItem from './CartItem';
 
-const tableHeader = [
+const TABLE_HEADER = [
   'Product',
   'Info',
   'Price',
@@ -18,7 +18,7 @@ const CartUI = ({ cartList }) => {
   const shipping = price >= 50000 ? 0 : 3000;
   const total = price + shipping;
 
-  const TABLE_FOOTER = [
+  const tableFooter = [
     { title: 'Price', amount: price },
     { title: 'Shipping', amount: shipping },
     { title: 'Total', amount: total },
@@ -32,7 +32,7 @@ const CartUI = ({ cartList }) => {
             <th className="checkBox">
               <input type="checkbox" />
             </th>
-            {tableHeader.map(row => (
+            {TABLE_HEADER.map(row => (
               <th key={row}>{row}</th>
             ))}
           </tr>
@@ -43,7 +43,7 @@ const CartUI = ({ cartList }) => {
           })}
         </tbody>
         <tfoot>
-          {TABLE_FOOTER.map(row => {
+          {tableFooter.map(row => {
             return (
               <tr key={row.title}>
                 <td colspan="10">
