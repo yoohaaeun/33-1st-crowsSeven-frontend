@@ -1,12 +1,31 @@
+import { useState, useEffect, useRef } from 'react';
 import CarouselCard from './CarouselCard';
 import './Carousel.scss';
 
+const TOTAL_SLIDES = 4;
 const Carousel = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideRef = useRef(null);
+
+  const handleSlideButtonClick = index => {
+    setCurrentSlide(index);
+  };
+
+  useEffect(() => {
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
+  }, [currentSlide]);
+
   return (
     <section className="carousel">
-      <div className="carouselWrapper">
+      <div className="carouselWrapper" ref={slideRef}>
         {CAROUSEL_DATA.map(({ id, src, title }) => (
           <CarouselCard key={id} src={src} title={title} />
+        ))}
+      </div>
+      <div className="buttonContainer">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <button key={index} onClick={() => handleSlideButtonClick(index)} />
         ))}
       </div>
     </section>
