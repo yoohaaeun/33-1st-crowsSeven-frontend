@@ -12,6 +12,16 @@ const Main = () => {
     setSlideIndex(index);
   };
 
+  console.log(slideIndex);
+
+  // const timer = () => {
+  //   if (slideIndex !== IMG_URLS.length - 1) {
+  //     setSlideIndex(prev => prev + 1);
+  //   } else if (slideIndex === IMG_URLS.length - 1) {
+  //     setSlideIndex(0);
+  //   }
+  // }
+
   useEffect(() => {
     const timer = setInterval(() => {
       if (slideIndex !== IMG_URLS.length - 1) {
@@ -19,11 +29,11 @@ const Main = () => {
       } else if (slideIndex === IMG_URLS.length - 1) {
         setSlideIndex(0);
       }
-    }, 5000);
+    }, 1000);
     return () => {
       clearInterval(timer);
     };
-  }, [slideIndex]);
+  }, []);
 
   return (
     <>
