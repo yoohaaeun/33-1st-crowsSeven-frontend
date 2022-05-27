@@ -8,12 +8,6 @@ import './ReviewPage.scss';
 const ReviewPage = () => {
   const [textList, setTextList] = useState([]);
 
-  // const [searchInput, setSearchInput] = useState('');
-
-  // const [searchPeriod, setSearchPeriod] = useState('');
-
-  // const [searchTag, setSearchTag] = useState('');
-
   const [searchTransfer, setSearchTransfer] = useState({
     searchTag: '',
     searchPerid: '',
@@ -34,7 +28,7 @@ const ReviewPage = () => {
       .then(productData => setTextList(productData));
   }, []);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // toDo : const goToReviewPost = () => {
   //   navigate('/review_post');
   // };
