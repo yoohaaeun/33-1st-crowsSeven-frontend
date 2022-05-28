@@ -2,11 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaRegCalendarAlt } from 'react-icons/fa';
+import OrderEmpty from '../OrderCheck/OrderEmpty';
 import './DeleteOrder.scss';
 
 const DeleteOrder = () => {
   const navigate = useNavigate();
-
   let today = new Date();
   let year = today.getFullYear();
   let month = today.getMonth() + 1;
@@ -96,6 +96,14 @@ const DeleteOrder = () => {
             있습니다.
           </div>
         </section>
+        <div className="itemDescription">
+          <p className="orderItemDescription">주문 상품 정보</p>
+        </div>
+        <div className="orderCart">
+          <div className="orderCartWrapper">
+            <OrderEmpty />
+          </div>
+        </div>
       </main>
     </div>
   );
