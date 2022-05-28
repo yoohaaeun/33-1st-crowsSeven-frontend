@@ -16,7 +16,7 @@ const OrderPage = () => {
   }, []);
 
   const price = orderItemList
-    .map(item => item.price)
+    .map(item => item.price * item.qty)
     .reduce((a, b) => a + b, 0);
   const shipping = price >= 50000 ? 0 : 3000;
   const total = price + shipping;

@@ -7,7 +7,7 @@ const CreditCard = () => {
       <p>
         소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.
       </p>
-      <div>
+      <div className="inputBox">
         <input type="checkbox" id="check" />
         <label for="check">결제수단과 입력정보를 다음에도 사용</label>
       </div>
@@ -18,14 +18,10 @@ const CreditCard = () => {
 const AccountTransfer = () => {
   return (
     <div className="accountTransfer">
-      <table>
-        <tr>
-          <th>예금주명</th>
-          <td>
-            <input type="text" />
-          </td>
-        </tr>
-      </table>
+      <div className="inputBox">
+        <p>예금주명</p>
+        <input type="text" />
+      </div>
       <p>
         ❗️ 소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.
       </p>
@@ -36,25 +32,20 @@ const AccountTransfer = () => {
 const Deposit = () => {
   return (
     <div className="deposit">
-      <table>
-        <tr>
-          <th>입금자명</th>
-          <td>
-            <input type="text" />
-          </td>
-        </tr>
-        <tr>
-          <th>입금은행</th>
-          <td>
-            <select className="bank">
-              <option value="1">선택해 주세요</option>
-              <option value="2">국민은행</option>
-              <option value="3">우리은행</option>
-              <option value="4">하나은행</option>
-            </select>
-          </td>
-        </tr>
-      </table>
+      <div className="inputBox">
+        <p>입금자명</p>
+        <input type="text" />
+      </div>
+
+      <div className="selectBox">
+        <p>입금은행</p>
+        <select className="bank">
+          <option value="1">선택해 주세요</option>
+          <option value="2">국민은행</option>
+          <option value="3">우리은행</option>
+          <option value="4">하나은행</option>
+        </select>
+      </div>
     </div>
   );
 };
@@ -109,75 +100,77 @@ const OrderInfo = ({ total }) => {
           <button className="addressBookBtn">주소록 보기</button>
         </div>
 
-        <div className="row">
-          <div className="title">받으시는 분</div>
-          <input
-            type="text"
-            onChange={handleInput}
-            onKeyUp={onBtnActive}
-            name="name"
-          />
-        </div>
-
-        <div className="row">
-          <div className="title">주소</div>
-          <div className="addressBox">
-            <div>
-              <input
-                type="text"
-                onChange={handleInput}
-                onKeyUp={onBtnActive}
-                name="zipcode"
-              />
-              <span>우편주소</span>
-            </div>
-            <div>
-              <input
-                type="text"
-                onChange={handleInput}
-                onKeyUp={onBtnActive}
-                name="address"
-              />
-              <span>기본주소</span>
-            </div>
-            <div>
-              <input type="text" />
-              <span>나머지주소(선택입력가능)</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="title">휴대전화</div>
-          <input
-            type="text"
-            onChange={handleInput}
-            onKeyUp={onBtnActive}
-            name="number"
-          />
-        </div>
-
-        <div className="row">
-          <div className="title">이메일</div>
-          <div>
+        <div className="addressInputBox">
+          <div className="row">
+            <div className="title">받으시는 분</div>
             <input
-              type="email"
+              type="text"
               onChange={handleInput}
               onKeyUp={onBtnActive}
-              name="email"
+              name="name"
             />
-            <div className="emailText">
-              <p>
-                이메일을 통해 주문처리과정을 보내드립니다. <br /> 이메일
-                주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요.
-              </p>
+          </div>
+
+          <div className="row">
+            <div className="title">주소</div>
+            <div className="addressBox">
+              <div>
+                <input
+                  type="text"
+                  onChange={handleInput}
+                  onKeyUp={onBtnActive}
+                  name="zipcode"
+                />
+                <span>우편주소</span>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  onChange={handleInput}
+                  onKeyUp={onBtnActive}
+                  name="address"
+                />
+                <span>기본주소</span>
+              </div>
+              <div>
+                <input type="text" />
+                <span>나머지주소(선택입력가능)</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="row">
-          <div className="title">배송메세지</div>
-          <textarea type="text" onChange={handleInput} />
+          <div className="row">
+            <div className="title">휴대전화</div>
+            <input
+              type="text"
+              onChange={handleInput}
+              onKeyUp={onBtnActive}
+              name="number"
+            />
+          </div>
+
+          <div className="row">
+            <div className="title">이메일</div>
+            <div>
+              <input
+                type="email"
+                onChange={handleInput}
+                onKeyUp={onBtnActive}
+                name="email"
+              />
+              <div className="emailText">
+                <p>
+                  이메일을 통해 주문처리과정을 보내드립니다. <br /> 이메일
+                  주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="title">배송메세지</div>
+            <textarea type="text" onChange={handleInput} />
+          </div>
         </div>
 
         <div
@@ -224,10 +217,7 @@ const OrderInfo = ({ total }) => {
           {payment === 'deposit' && <Deposit />}
 
           <div className="footer">
-            <div className="row">
-              <p>Total</p>
-              <p>{total}원</p>
-            </div>
+            <p>Total {total}원</p>
             <button disabled={disabled}>Payment</button>
           </div>
         </div>

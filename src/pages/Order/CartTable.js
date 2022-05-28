@@ -30,14 +30,14 @@ const OrderItem = ({ item, price }) => {
           3000원 <br /> 조건
         </td>
       )}
-      <td>{item.price}</td>
+      <td>{item.price * item.qty}</td>
     </tr>
   );
 };
 
 const CartTable = ({ orderItemList }) => {
   const price = orderItemList
-    .map(item => item.price)
+    .map(item => item.price * item.qty)
     .reduce((a, b) => a + b, 0);
   const shipping = price >= 50000 ? 0 : 3000;
   const total = price + shipping;
