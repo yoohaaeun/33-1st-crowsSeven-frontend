@@ -1,10 +1,39 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import './OrderCheck.scss';
 
 const OrderCheck = () => {
   const navigate = useNavigate();
+
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = today.getMonth() + 1;
+  let date = today.getDate();
+  let day = `${year}-${month}-${date}`;
+
+  const oneWeek = () => {
+    setCalendar(`${year}-${month}-${date - 7}`);
+  };
+
+  const oneMonth = () => {
+    setCalendar(`${year}-${month - 1}-${date}`);
+  };
+
+  const threeMonth = () => {
+    setCalendar(`${year}-${month - 3}-${date}`);
+  };
+
+  const sixMonth = () => {
+    let sixMonthAgo = new Date(today.setMonth(today.getMonth() - 5));
+    let year = sixMonthAgo.getFullYear();
+    let month = sixMonthAgo.getMonth();
+    let date = sixMonthAgo.getDate();
+    setCalendar(`${year}-${month}-${date}`);
+  };
+
+  const [calendar, setCalendar] = useState(day);
 
   const goToDeleteOrder = () => {
     navigate('../deleteorder');
@@ -37,16 +66,22 @@ const OrderCheck = () => {
           </select>
           <div className="divideLine">|</div>
           <div className="dayBtn">
-            <button>오늘</button>
-            <button>1주일</button>
-            <button>1개월</button>
-            <button>3개월</button>
-            <button>6개월</button>
+            <button
+              onClick={() => {
+                setCalendar(day);
+              }}
+            >
+              오늘
+            </button>
+            <button onClick={oneWeek}>1주일</button>
+            <button onClick={oneMonth}>1개월</button>
+            <button onClick={threeMonth}>3개월</button>
+            <button onClick={sixMonth}>6개월</button>
           </div>
-          <div className="calendar1">2022-02-25</div>
+          <div className="calendar1">{calendar}</div>
           <FaRegCalendarAlt className="calendarIcon" />
           <div className="dash">-</div>
-          <div className="calendar1">2022-02-25</div>
+          <div className="calendar1">{day}</div>
           <FaRegCalendarAlt className="calendarIcon" />
           <button className="inquire">조회</button>
         </section>
