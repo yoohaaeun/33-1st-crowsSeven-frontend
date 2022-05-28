@@ -14,15 +14,27 @@ const OrderCheck = () => {
   let day = `${year}-${month}-${date}`;
 
   const oneWeek = () => {
-    setCalendar(`${year}-${month}-${date - 7}`);
+    let sixMonthAgo = new Date(today.setDate(today.getDate() - 7));
+    let year = sixMonthAgo.getFullYear();
+    let month = sixMonthAgo.getMonth() + 1;
+    let date = sixMonthAgo.getDate();
+    setCalendar(`${year}-${month}-${date}`);
   };
 
   const oneMonth = () => {
-    setCalendar(`${year}-${month - 1}-${date}`);
+    let sixMonthAgo = new Date(today.setMonth(today.getMonth()));
+    let year = sixMonthAgo.getFullYear();
+    let month = sixMonthAgo.getMonth();
+    let date = sixMonthAgo.getDate();
+    setCalendar(`${year}-${month}-${date}`);
   };
 
   const threeMonth = () => {
-    setCalendar(`${year}-${month - 3}-${date}`);
+    let threeMonthAgo = new Date(today.setMonth(today.getMonth() - 2));
+    let year = threeMonthAgo.getFullYear();
+    let month = threeMonthAgo.getMonth();
+    let date = threeMonthAgo.getDate();
+    setCalendar(`${year}-${month}-${date}`);
   };
 
   const sixMonth = () => {
