@@ -6,7 +6,9 @@
   height: 100vh;
   width: 70%;
   margin: auto;
+  margin-bottom: 100px;
   padding-top: 200px;
+  padding-bottom: 100px;
   font-size: 25px;
   font-weight: 600;
   text-align: center;
@@ -104,6 +106,10 @@
         border-radius: 2px;
         background-color: rgb(241, 239, 239);
         font-size: 12px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
@@ -148,5 +154,87 @@
     div {
       margin-bottom: 7px;
     }
+  }
+
+  .itemDescription {
+    display: flex;
+    width: 100%;
+    padding: 30px 10px 10px 0;
+  }
+
+  .orderItemDescription {
+    font-size: 12px;
+  }
+
+  .orderCart {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 10px;
+    font-size: 12px;
+
+    .orderCartWrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+
+    .checkBox {
+      width: 80px;
+    }
+
+    th,
+    td {
+      vertical-align: middle;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #444444;
+      text-align: center;
+    }
+
+    tfoot {
+      tr {
+        &:last-child {
+          border-bottom: 1px solid #444444;
+        }
+      }
+      td {
+        padding: 10px 0;
+        border: none;
+      }
+      .priceRow {
+        display: flex;
+        justify-content: end;
+
+        .pricebox {
+          width: 10rem;
+          text-align: end;
+        }
+      }
+    }
+  }
+
+  .bottomBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.25rem;
+
+    button {
+      background-color: inherit;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .noItem {
+    height: 150px;
+    font-weight: 300;
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import './DeleteOrder.scss';
@@ -6,8 +7,48 @@ import './DeleteOrder.scss';
 const DeleteOrder = () => {
   const navigate = useNavigate();
 
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = today.getMonth() + 1;
+  let date = today.getDate();
+  let day = `${year}-${month}-${date}`;
+
+  const oneWeek = () => {
+    let sixMonthAgo = new Date(today.setDate(today.getDate() - 7));
+    let year = sixMonthAgo.getFullYear();
+    let month = sixMonthAgo.getMonth() + 1;
+    let date = sixMonthAgo.getDate();
+    setCalendar(`${year}-${month}-${date}`);
+  };
+
+  const oneMonth = () => {
+    let sixMonthAgo = new Date(today.setMonth(today.getMonth()));
+    let year = sixMonthAgo.getFullYear();
+    let month = sixMonthAgo.getMonth();
+    let date = sixMonthAgo.getDate();
+    setCalendar(`${year}-${month}-${date}`);
+  };
+
+  const threeMonth = () => {
+    let threeMonthAgo = new Date(today.setMonth(today.getMonth() - 2));
+    let year = threeMonthAgo.getFullYear();
+    let month = threeMonthAgo.getMonth();
+    let date = threeMonthAgo.getDate();
+    setCalendar(`${year}-${month}-${date}`);
+  };
+
+  const sixMonth = () => {
+    let sixMonthAgo = new Date(today.setMonth(today.getMonth() - 5));
+    let year = sixMonthAgo.getFullYear();
+    let month = sixMonthAgo.getMonth();
+    let date = sixMonthAgo.getDate();
+    setCalendar(`${year}-${month}-${date}`);
+  };
+
+  const [calendar, setCalendar] = useState(day);
+
   const goToOrderCheck = () => {
-    navigate('../ordercheck');
+    navigate('../orderCheck');
   };
 
   return (
@@ -26,16 +67,22 @@ const DeleteOrder = () => {
         </section>
         <section className="dateBox">
           <div className="dayBtn">
-            <button>오늘</button>
-            <button>1주일</button>
-            <button>1개월</button>
-            <button>3개월</button>
-            <button>6개월</button>
+            <button
+              onClick={() => {
+                setCalendar(day);
+              }}
+            >
+              오늘
+            </button>
+            <button onClick={oneWeek}>1주일</button>
+            <button onClick={oneMonth}>1개월</button>
+            <button onClick={threeMonth}>3개월</button>
+            <button onClick={sixMonth}>6개월</button>
           </div>
-          <div className="calendar1">2022-02-25</div>
+          <div className="calendar1">{calendar}</div>
           <FaRegCalendarAlt className="calendarIcon" />
           <div className="dash">-</div>
-          <div className="calendar1">2022-02-25</div>
+          <div className="calendar1">{day}</div>
           <FaRegCalendarAlt className="calendarIcon" />
           <button className="inquire">조회</button>
         </section>

@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Cart from './pages/cart/Cart';
 import Nav from './components/Nav/Nav';
 import Signup from './pages/Signup/Signup';
+import Login from './pages/Login/Login';
 import OrderCheck from './pages/OrderCheck/OrderCheck';
 import DeleteOrder from './pages/DeleteOrder/DeleteOrder';
 
@@ -9,9 +11,12 @@ const Router = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
+        <Route path="/" element={<Nav />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/ordercheck" element={<OrderCheck />} />
-        <Route path="/deleteorder" element={<DeleteOrder />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/orderCheck" element={<OrderCheck />} />
+        <Route path="/deleteOrder" element={<DeleteOrder />} />
       </Routes>
     </BrowserRouter>
   );

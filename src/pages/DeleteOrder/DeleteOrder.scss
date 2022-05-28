@@ -89,6 +89,10 @@
         border: 1px solid rgb(193, 193, 193);
         border-radius: 2px;
         background-color: rgb(241, 239, 239);
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
