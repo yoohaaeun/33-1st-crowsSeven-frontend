@@ -59,8 +59,6 @@ const OrderInfo = ({ total }) => {
     email: '',
   });
 
-  console.log(inputValue);
-
   const [payment, setPayment] = useState();
   const [disabled, setDisabled] = useState(true);
 
