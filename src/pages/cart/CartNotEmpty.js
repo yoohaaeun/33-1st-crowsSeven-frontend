@@ -29,7 +29,6 @@ const CartNotEmpty = ({ cartList, setCartList }) => {
     <>
       <table>
         <thead>
-          ㄴ
           <tr>
             <th className="checkBox">
               <input type="checkbox" />

@@ -5,13 +5,10 @@ import './CartItem.scss';
 const CartItem = ({ item, total, cartList, setCartList }) => {
   const [quantity, setQuantity] = useState();
 
-  const onSubmit = () => {
-    console.log('아이템 아이디', item.id);
-    console.log('바꿀수량', quantity);
-  };
+  const onSubmit = () => {};
 
   const onChangeQty = e => {
-    setQuantity(e.target.value);
+    setQuantity(Number(e.target.value));
 
     const newCartList = cartList.map(cartItem => {
       if (cartItem.id === item.id) {
@@ -21,13 +18,12 @@ const CartItem = ({ item, total, cartList, setCartList }) => {
         return cartItem;
       }
     });
-
     setCartList(newCartList);
   };
 
   useEffect(() => {
     setQuantity(item.qty);
-  }, []);
+  }, [item.qty]);
 
   return (
     <tr className="cartItem">
@@ -46,6 +42,7 @@ const CartItem = ({ item, total, cartList, setCartList }) => {
             className="quantityBtn"
             onChange={onChangeQty}
             value={quantity}
+            min="1"
           />
           <button className="modifyBtn" onClick={onSubmit}>
             Modify
@@ -64,13 +61,6 @@ const CartItem = ({ item, total, cartList, setCartList }) => {
         </td>
       )}
       <td>￦ {item.price * quantity}</td>
-      {/* <td>
-        <div className="selectBtn">
-          <button>주문하기</button>
-          <button>관심상품등록</button>
-          <button>x 삭제</button>
-        </div>
-      </td> */}
     </tr>
   );
 };
