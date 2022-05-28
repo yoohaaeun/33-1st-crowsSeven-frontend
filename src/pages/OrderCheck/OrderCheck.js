@@ -24,34 +24,22 @@ const OrderCheck = () => {
   let day = `${year}-${month}-${date}`;
 
   const oneWeek = () => {
-    let sixMonthAgo = new Date(today.setDate(today.getDate() - 7));
-    let year = sixMonthAgo.getFullYear();
-    let month = sixMonthAgo.getMonth() + 1;
-    let date = sixMonthAgo.getDate();
+    new Date(today.setDate(today.getDate() - 7));
     setCalendar(`${year}-${month}-${date}`);
   };
 
   const oneMonth = () => {
-    let sixMonthAgo = new Date(today.setMonth(today.getMonth()));
-    let year = sixMonthAgo.getFullYear();
-    let month = sixMonthAgo.getMonth();
-    let date = sixMonthAgo.getDate();
+    new Date(today.setMonth(today.getMonth()));
     setCalendar(`${year}-${month}-${date}`);
   };
 
   const threeMonth = () => {
-    let threeMonthAgo = new Date(today.setMonth(today.getMonth() - 2));
-    let year = threeMonthAgo.getFullYear();
-    let month = threeMonthAgo.getMonth();
-    let date = threeMonthAgo.getDate();
+    new Date(today.setMonth(today.getMonth() - 2));
     setCalendar(`${year}-${month}-${date}`);
   };
 
   const sixMonth = () => {
-    let sixMonthAgo = new Date(today.setMonth(today.getMonth() - 5));
-    let year = sixMonthAgo.getFullYear();
-    let month = sixMonthAgo.getMonth();
-    let date = sixMonthAgo.getDate();
+    new Date(today.setMonth(today.getMonth() - 5));
     setCalendar(`${year}-${month}-${date}`);
   };
 
@@ -70,7 +58,7 @@ const OrderCheck = () => {
         <div className="line1" />
         <div className="line2" />
         <div className="checkBtnBox">
-          <div className="checkBtn1">주문내역조회(0)</div>
+          <div className="checkBtn1">주문내역조회({orderList.length})</div>
           <div className="checkBtn2" onClick={goToDeleteOrder}>
             취소/반품/교환내역(0)
           </div>
@@ -88,7 +76,7 @@ const OrderCheck = () => {
           <option>반품</option>
         </select>
         <div className="divideLine">|</div>
-        <div className="dayBtn">
+        <form className="dayBtn">
           <button
             onClick={() => {
               setCalendar(day);
@@ -100,7 +88,7 @@ const OrderCheck = () => {
           <button onClick={oneMonth}>1개월</button>
           <button onClick={threeMonth}>3개월</button>
           <button onClick={sixMonth}>6개월</button>
-        </div>
+        </form>
         <div className="calendar1">{calendar}</div>
         <FaRegCalendarAlt className="calendarIcon" />
         <div className="dash">-</div>
