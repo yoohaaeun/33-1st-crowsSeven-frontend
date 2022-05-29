@@ -8,6 +8,14 @@ import './OrderCheck.scss';
 
 const OrderCheck = () => {
   const navigate = useNavigate();
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = today.getMonth() + 1;
+  let date = today.getDate();
+  let day = `${year}-${month}-${date}`;
+  const [calendar, setCalendar] = useState(day);
+  const [orderList, setOrderList] = useState([]);
+  const orderEmpty = orderList.length === 0;
 
   useEffect(() => {
     fetch('/data/cartList.JSON')
@@ -17,35 +25,38 @@ const OrderCheck = () => {
       });
   }, []);
 
-  let today = new Date();
-  let year = today.getFullYear();
-  let month = today.getMonth() + 1;
-  let date = today.getDate();
-  let day = `${year}-${month}-${date}`;
-
-  const oneWeek = () => {
-    new Date(today.setDate(today.getDate() - 7));
+  const oneWeek = e => {
+    let threeM = new Date(today.setDate(today.getDate() - 7));
+    let year = threeM.getFullYear();
+    let month = threeM.getMonth() + 1;
+    let date = threeM.getDate();
     setCalendar(`${year}-${month}-${date}`);
+    e.preventDefault();
   };
 
-  const oneMonth = () => {
-    new Date(today.setMonth(today.getMonth()));
+  const oneMonth = e => {
+    let month = today.getMonth();
     setCalendar(`${year}-${month}-${date}`);
+    e.preventDefault();
   };
 
-  const threeMonth = () => {
-    new Date(today.setMonth(today.getMonth() - 2));
+  const threeMonth = e => {
+    let threeM = new Date(today.setMonth(today.getMonth() - 3));
+    let year = threeM.getFullYear();
+    let month = threeM.getMonth() + 1;
+    let date = threeM.getDate();
     setCalendar(`${year}-${month}-${date}`);
+    e.preventDefault();
   };
 
-  const sixMonth = () => {
-    new Date(today.setMonth(today.getMonth() - 5));
+  const sixMonth = e => {
+    let sixM = new Date(today.setMonth(today.getMonth() - 5));
+    let year = sixM.getFullYear();
+    let month = sixM.getMonth() + 1;
+    let date = sixM.getDate();
     setCalendar(`${year}-${month}-${date}`);
+    e.preventDefault();
   };
-
-  const [calendar, setCalendar] = useState(day);
-  const [orderList, setOrderList] = useState([]);
-  const orderEmpty = orderList.length === 0;
 
   const goToDeleteOrder = () => {
     navigate('../deleteOrder');
@@ -78,8 +89,9 @@ const OrderCheck = () => {
         <div className="divideLine">|</div>
         <form className="dayBtn">
           <button
-            onClick={() => {
+            onClick={e => {
               setCalendar(day);
+              e.preventDefault();
             }}
           >
             오늘

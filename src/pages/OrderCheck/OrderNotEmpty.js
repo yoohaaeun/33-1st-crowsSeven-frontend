@@ -30,8 +30,8 @@ const OrderNotEmpty = ({ orderList }) => {
         </tr>
       </thead>
       <tbody>
-        {orderList.map(item => {
-          return <OrderItem key={orderList.id} item={item} total={total} />;
+        {orderList.map((item, i) => {
+          return <OrderItem key={i} item={item} total={total} />;
         })}
       </tbody>
     </table>
