@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { FaBeer } from '@react-icons/all-files/fa/FaBeer';
+import React from 'react';
+import OrderStatus from './OrderStatus';
+import LinkPage from './LinkPage';
+import STATUS_LIST from './orderStatusData';
+import LINK_LIST from './linkData';
 import './MyPage.scss';
 
 const MyPage = () => {
-  const [myPageList, setMyPageList] = useState([]);
-
-  useEffect(() => {
-    fetch('/data/cartList.JSON')
-      .then(res => res.json())
-      .then(data => {
-        setMyPageList(data);
-      });
-  }, []);
-
   return (
     <main className="MyPage">
       <h1 className="title">마이 페이지</h1>
@@ -74,58 +67,29 @@ const MyPage = () => {
           </span>
         </article>
         <article className="orderState">
-          <div className="stateBox">
-            <div className="stateTitle">입금전</div>
-            <span className="stateNum" style={{ color: 'blue' }}>
-              0
-            </span>
-          </div>
-          <div className="stateBox">
-            <div className="stateTitle">배송준비중</div>
-            <span className="stateNum" style={{ color: 'blue' }}>
-              0
-            </span>
-          </div>
-          <div className="stateBox">
-            <div className="stateTitle">배송중</div>
-            <span className="stateNum" style={{ color: 'blue' }}>
-              0
-            </span>
-          </div>
-          <div className="stateBox">
-            <div className="stateTitle">배송완료</div>
-            <span className="stateNum" style={{ color: 'blue' }}>
-              0
-            </span>
-          </div>
+          {STATUS_LIST.map((item, i) => {
+            return <OrderStatus key={i} item={item} />;
+          })}
+
           <div className="stateBox">
             <div className="allState">
               <span>ㆍ 취소:</span>
-              <span style={{ color: 'blue' }}>1</span>
+              <span style={{ color: 'blue' }}>0</span>
             </div>
             <div className="allState">
               <span>ㆍ 교환:</span>
-              <span style={{ color: 'blue' }}>1</span>
+              <span style={{ color: 'blue' }}>0</span>
             </div>
             <div className="allState">
               <span>ㆍ 반품:</span>
-              <span style={{ color: 'blue' }}>1</span>
+              <span style={{ color: 'blue' }}>0</span>
             </div>
           </div>
         </article>
       </section>
-      <section className="linkBox">
-        <FaBeer className="linkIcon" />
-        <div className="linkTitle">ORDER</div>
-        <div className="linkDescription">고객님께서 주문하신 상품의</div>
-        <div className="linkDescription">주문내역을 확인하실 수 있습니다.</div>
-      </section>
-      <section className="linkBox">
-        <FaBeer className="linkIcon" />
-        <div className="linkTitle">ORDER</div>
-        <div className="linkDescription">고객님께서 주문하신 상품의</div>
-        <div className="linkDescription">주문내역을 확인하실 수 있습니다.</div>
-      </section>
+      {LINK_LIST.map((item, i) => {
+        return <LinkPage key={i} item={item} />;
+      })}
     </main>
   );
 };

@@ -165,8 +165,12 @@
     border: 1px solid #dddddd;
     background-color: #fafafa;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     .linkIcon {
-      font-size: 25px;
+      width: 30px;
       margin-bottom: 17px;
     }
 
