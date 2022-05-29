@@ -9,6 +9,8 @@ import './ProductDetail.scss';
 const ProductDetail = () => {
   const [items, setItems] = useState([]);
   const [amount, setAmount] = useState(1);
+  const [reviewDrawer, setReviewDrawer] = useState(false);
+  const [QnADrawer, setQnADrawer] = useState(false);
   const { itemDetail, itemName, description, price } = items;
 
   useEffect(() => {
@@ -41,6 +43,10 @@ const ProductDetail = () => {
   const handleWishList = () => {
     alert('로그인 후 관심상품 등록을 해주세요.');
   };
+
+  const handleReviewDrawer = () => setReviewDrawer(!reviewDrawer);
+
+  const handleQnADrawer = () => setQnADrawer(!QnADrawer);
 
   return (
     <>
@@ -92,8 +98,8 @@ const ProductDetail = () => {
               </button>
               <div className="aboutItemBtn">
                 <span>
-                  <button>상품후기 (5)</button>
-                  <button>상품문의 (0)</button>
+                  <button onClick={handleReviewDrawer}>상품후기 (5)</button>
+                  <button onClick={handleQnADrawer}>상품문의 (0)</button>
                 </span>
                 <button className="size">
                   <MdPhotoSizeSelectSmall className="sizeImg" />
@@ -107,6 +113,18 @@ const ProductDetail = () => {
             </div>
           </div>
         </section>
+        <div className={reviewDrawer ? 'drawerPage active' : 'drawerPage'}>
+          <div className="drawerPageContent">
+            <h2>상품 후기</h2>
+            <button onClick={handleReviewDrawer}>x</button>
+          </div>
+        </div>
+        <div className={QnADrawer ? 'drawerPage active' : 'drawerPage'}>
+          <div className="drawerPageContent">
+            <h2>상품 문의</h2>
+            <button onClick={handleQnADrawer}>x</button>
+          </div>
+        </div>
       </div>
     </>
   );
