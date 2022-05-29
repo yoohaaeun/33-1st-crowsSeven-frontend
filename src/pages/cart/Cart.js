@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Cart.scss';
 import Nav from '../../components/Nav/Nav';
 import CartNotEmpty from './CartNotEmpty';
 import CartEmpty from './CartEmpty';
+import './Cart.scss';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
