@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaBeer } from '@react-icons/all-files/fa/FaBeer';
 import './MyPage.scss';
 
 const MyPage = () => {
@@ -13,7 +14,7 @@ const MyPage = () => {
   }, []);
 
   return (
-    <div className="MyPage">
+    <main className="MyPage">
       <h1 className="title">마이 페이지</h1>
       <section className="myPageBox">
         <img
@@ -114,9 +115,18 @@ const MyPage = () => {
         </article>
       </section>
       <section className="linkBox">
-        <div />
+        <FaBeer className="linkIcon" />
+        <div className="linkTitle">ORDER</div>
+        <div className="linkDescription">고객님께서 주문하신 상품의</div>
+        <div className="linkDescription">주문내역을 확인하실 수 있습니다.</div>
       </section>
-    </div>
+      <section className="linkBox">
+        <FaBeer className="linkIcon" />
+        <div className="linkTitle">ORDER</div>
+        <div className="linkDescription">고객님께서 주문하신 상품의</div>
+        <div className="linkDescription">주문내역을 확인하실 수 있습니다.</div>
+      </section>
+    </main>
   );
 };
 

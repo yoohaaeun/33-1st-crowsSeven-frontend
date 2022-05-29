@@ -3,7 +3,6 @@
 .MyPage {
   @include flexCenter;
   flex-direction: column;
-  height: 100vh;
   width: 50%;
   margin: auto;
   padding: 150px 0;
@@ -156,9 +155,29 @@
   }
 
   .linkBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
     width: 100%;
     height: 170px;
     border: 1px solid #dddddd;
     background-color: #fafafa;
+
+    .linkIcon {
+      font-size: 25px;
+      margin-bottom: 17px;
+    }
+
+    .linkTitle {
+      font-size: 17px;
+      margin-bottom: 15px;
+    }
+
+    .linkDescription {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
   }
 }
