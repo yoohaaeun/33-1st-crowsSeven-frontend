@@ -16,11 +16,11 @@ const Store = () => {
       .then(result => setItems(result));
   }, []);
 
-  const changeBigList = e => {
+  const changeBigList = () => {
     setListType('big');
   };
 
-  const changeSmallList = e => {
+  const changeSmallList = () => {
     setListType('small');
   };
 

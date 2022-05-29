@@ -7,8 +7,8 @@ const Items = ({ listType, state, img, name, itemPrice }) => {
         {state === 'soldOut' ? <div className="itemTag">품절</div> : ''}
         <img src={img} alt="product thumbnail" />
         <span className="itemButton">
-          <button className="shop">Quick Shop</button>
-          <button className="cart">
+          <button className="shopBtn">Quick Shop</button>
+          <button className="cartBtn">
             <FaShoppingCart />
           </button>
         </span>

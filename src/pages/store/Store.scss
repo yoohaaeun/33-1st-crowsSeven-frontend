@@ -61,7 +61,6 @@
 
     .itemSort {
       @include flexCenter;
-      display: inline;
 
       .icon {
         @include flexCenter;
@@ -200,12 +199,12 @@
           height: 30px;
         }
 
-        .shop {
+        .shopBtn {
           @include flexCenter;
           width: 90px;
         }
 
-        .cart {
+        .cartBtn {
           @include flexCenter;
           position: absolute;
           right: 10px;
