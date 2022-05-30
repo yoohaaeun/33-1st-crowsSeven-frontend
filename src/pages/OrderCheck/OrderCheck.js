@@ -13,6 +13,7 @@ const OrderCheck = () => {
   let month = today.getMonth() + 1;
   let date = today.getDate();
   let day = `${year}-${month}-${date}`;
+
   const [calendar, setCalendar] = useState(day);
   const [orderList, setOrderList] = useState([]);
   const orderEmpty = orderList.length === 0;
@@ -34,28 +35,12 @@ const OrderCheck = () => {
     e.preventDefault();
   };
 
-  const oneMonth = e => {
-    let month = today.getMonth();
+  const monthAgo = agoMonth => {
+    let newDate = new Date(today.setMonth(today.getMonth() - agoMonth));
+    let year = newDate.getFullYear();
+    let month = newDate.getMonth() + 1;
+    let date = newDate.getDate();
     setCalendar(`${year}-${month}-${date}`);
-    e.preventDefault();
-  };
-
-  const threeMonth = e => {
-    let threeM = new Date(today.setMonth(today.getMonth() - 3));
-    let year = threeM.getFullYear();
-    let month = threeM.getMonth() + 1;
-    let date = threeM.getDate();
-    setCalendar(`${year}-${month}-${date}`);
-    e.preventDefault();
-  };
-
-  const sixMonth = e => {
-    let sixM = new Date(today.setMonth(today.getMonth() - 5));
-    let year = sixM.getFullYear();
-    let month = sixM.getMonth() + 1;
-    let date = sixM.getDate();
-    setCalendar(`${year}-${month}-${date}`);
-    e.preventDefault();
   };
 
   const goToDeleteOrder = () => {
@@ -97,9 +82,30 @@ const OrderCheck = () => {
             오늘
           </button>
           <button onClick={oneWeek}>1주일</button>
-          <button onClick={oneMonth}>1개월</button>
-          <button onClick={threeMonth}>3개월</button>
-          <button onClick={sixMonth}>6개월</button>
+          <button
+            onClick={e => {
+              e.preventDefault();
+              monthAgo(1);
+            }}
+          >
+            1개월
+          </button>
+          <button
+            onClick={e => {
+              e.preventDefault();
+              monthAgo(3);
+            }}
+          >
+            3개월
+          </button>
+          <button
+            onClick={e => {
+              e.preventDefault();
+              monthAgo(6);
+            }}
+          >
+            6개월
+          </button>
         </form>
         <div className="calendar1">{calendar}</div>
         <FaRegCalendarAlt className="calendarIcon" />
