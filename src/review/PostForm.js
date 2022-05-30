@@ -20,7 +20,7 @@ const PostForm = () => {
           </tr>
           <tr>
             <td className="textArea" colSpan="2">
-              <textarea></textarea>
+              <textarea>내용</textarea>
             </td>
           </tr>
           <tr>
