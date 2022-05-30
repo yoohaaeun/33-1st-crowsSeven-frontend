@@ -23,7 +23,7 @@ const Main = () => {
     return () => {
       clearInterval(timer);
     };
-  }, [slideIndex]);
+  }, []);
 
   useEffect(() => {
     const scroll = scrollRef.current;

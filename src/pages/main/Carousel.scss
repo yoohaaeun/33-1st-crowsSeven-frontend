@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
-  width: 78%;
+  width: 90%;
   height: 100vh;
   overflow: hidden;
   scroll-snap-align: start;
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    min-width: 100%;
   }
 
   .buttonContainer {
