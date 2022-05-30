@@ -14,7 +14,12 @@ const Cart = () => {
     fetch('/data/cartListData.json')
       .then(res => res.json())
       .then(data => {
-        setCartList(data);
+        const result = data.map(item => {
+          item.checked = false;
+          return item
+        })
+
+        setCartList(result)
       });
   }, []);
 

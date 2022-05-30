@@ -18,7 +18,8 @@ const CartNotEmpty = ({
   checkedList,
   setCheckedList,
 }) => {
-  const [isAllChecked, setIsAllChecked] = useState(); // 전체선택여부
+  const isAllChecked = checkedList.length === cartList.length;
+  // TODO: every method
 
   const price = cartList
     .map(item => item.price * item.qty)
