@@ -17,6 +17,7 @@ const Carousel = () => {
 
   return (
     <section id="forth" className="carousel">
+      <h1>Magazine</h1>
       <div className="carouselWrapper" ref={slideRef}>
         {CAROUSEL_DATA.map(({ id, src, title }) => (
           <CarouselCard key={id} src={src} title={title} />
@@ -34,62 +35,62 @@ const Carousel = () => {
 const CAROUSEL_DATA = [
   {
     id: 1,
-    src: 'https://cdn.pixabay.com/photo/2016/04/27/18/33/minion-1357223_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '기타치는 미니언',
   },
   {
     id: 2,
-    src: 'https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '기타치는 미니언',
   },
   {
     id: 3,
-    src: 'https://cdn.pixabay.com/photo/2015/08/14/19/41/minion-888797_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '바나나 미니언',
   },
   {
     id: 4,
-    src: 'https://cdn.pixabay.com/photo/2018/09/01/14/16/minion-3646892_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '인형 미니언',
   },
   {
     id: 5,
-    src: 'https://cdn.pixabay.com/photo/2017/08/25/16/56/minions-2680727_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '쌍둥이 미니언',
   },
   {
     id: 6,
-    src: 'https://cdn.pixabay.com/photo/2016/04/19/15/09/minion-1338816_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '귀여운 미니언',
   },
   {
     id: 7,
-    src: 'https://cdn.pixabay.com/photo/2016/01/29/23/59/minion-1168904_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '쇼핑카트 미니언',
   },
   {
     id: 8,
-    src: 'https://cdn.pixabay.com/photo/2020/04/02/17/30/minion-4996002_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '돼지 미니언',
   },
   {
     id: 9,
-    src: 'https://cdn.pixabay.com/photo/2019/02/09/19/13/minion-3985768_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '열쇠고리 미니언',
   },
   {
     id: 10,
-    src: 'https://cdn.pixabay.com/photo/2016/03/31/18/52/minion-1294707_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '키위 미니언',
   },
   {
     id: 11,
-    src: 'https://cdn.pixabay.com/photo/2015/08/15/08/06/minion-889302_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '돋보기 미니언',
   },
   {
     id: 12,
-    src: 'https://cdn.pixabay.com/photo/2014/06/05/22/27/minions-363019_1280.jpg',
+    src: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     title: '대화하는 미니언',
   },
 ];

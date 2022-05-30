@@ -27,6 +27,8 @@
       font-size: 3rem;
       font-weight: 600;
       z-index: 20;
+      transform: translateX(100px);
+      opacity: 0;
     }
 
     span {
@@ -34,6 +36,8 @@
       left: 8rem;
       bottom: 25rem;
       font-size: 1.2rem;
+      transform: translateX(100px);
+      opacity: 0;
     }
 
     .secondImgBtn {
@@ -47,10 +51,12 @@
       border: none;
       border-radius: 5px;
       outline: none;
+      transform: translateX(100px);
+      opacity: 0;
     }
 
     .moveText {
-      animation: moveText 0.5s ease-in;
+      animation: moveText 1s ease-in-out forwards;
     }
 
     .containerDots {
@@ -107,10 +113,16 @@
 
 }
 
+#third {
+  h1 {
+    font-weight: 400;
+  }
+}
+
 @keyframes moveText {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(100px);
   }
 
   to {

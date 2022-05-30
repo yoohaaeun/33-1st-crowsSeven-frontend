@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Nav from '../../components/Nav/Nav';
 import Footer from './Footer';
 import SectionImg from './SectionImg';
@@ -7,7 +7,9 @@ import Carousel from './Carousel';
 import './Main.scss';
 
 const Main = () => {
-  let [slideIndex, setSlideIndex] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [scrollTop, setScrollTop] = useState(0);
+  const scrollRef = useRef();
 
   const moveSlide = index => {
     setSlideIndex(index);
@@ -15,25 +17,31 @@ const Main = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setSlideIndex(prevIndex => {
-        return prevIndex !== IMG_URLS.length ? prevIndex + 1 : 0;
-
-        //   if (slideIndex !== IMG_URLS.length - 1) {
-        //     setSlideIndex(prev => prev + 1);
-        //   } else if (slideIndex === IMG_URLS.length - 1) {
-        //     setSlideIndex(0);
-        //   }
-      }, 5000);
-    });
+      setSlideIndex(prevIndex =>
+        prevIndex !== IMG_URLS.length - 1 ? prevIndex + 1 : 0
+      );
+    }, 5000);
     return () => {
       clearInterval(timer);
     };
+  }, [slideIndex]);
+
+  useEffect(() => {
+    const scroll = scrollRef.current;
+    scroll.addEventListener('scroll', handleScroll, false);
+    return () => {
+      scroll.removeEventListener('scroll', handleScroll, false);
+    };
   }, []);
 
+  const handleScroll = e => {
+    const { scrollTop } = e.srcElement;
+    if (scrollTop > 500 && scrollTop < 1750) setScrollTop(scrollTop);
+  };
   return (
     <>
       <Nav />
-      <div className="main">
+      <div ref={scrollRef} className="main">
         <section id="first" className="mainSection">
           {IMG_URLS.map(({ id, url }, index) => {
             return (
@@ -67,15 +75,53 @@ const Main = () => {
         </div>
         <section id="second" className="mainSection">
           <SectionImg url={SECOND_IMG} />
-          <h1>CrowSeven Membership</h1>
-          <span>
+          <h1
+            className={`${
+              scrollTop > 700 && scrollTop < 850 ? 'moveText' : ''
+            }`}
+          >
+            CrowSeven Membership
+          </h1>
+          <span
+            className={`${
+              scrollTop > 700 && scrollTop < 850 ? 'moveText' : ''
+            }`}
+          >
             크로우세븐의 멤버가 되시고 최대 50%의 추가 적립, 무로배송, 생일할인
             쿠폰 등 혜택을 받아가세요
           </span>
-          <button className="secondImgBtn">자세히 보기</button>
+          <button
+            className={`secondImgBtn ${
+              scrollTop > 700 && scrollTop < 850 ? 'moveText' : ''
+            }`}
+          >
+            자세히 보기
+          </button>
         </section>
         <section id="third" className="mainSection">
           <SectionImg url={THIRD_IMG} />
+          <h1
+            className={`${
+              scrollTop > 1200 && scrollTop < 1650 ? 'moveText' : ''
+            }`}
+          >
+            타임세일이 종료되었습니다.
+          </h1>
+          <span
+            className={`${
+              scrollTop > 1200 && scrollTop < 1650 ? 'moveText' : ''
+            }`}
+          >
+            4월 재입고 맞이, 7일동안!!! {'\n'}
+            유광케이스 균일가 타임세일!
+          </span>
+          <button
+            className={`secondImgBtn ${
+              scrollTop > 1200 && scrollTop < 1650 ? 'moveText' : ''
+            }`}
+          >
+            자세히 보기
+          </button>
         </section>
         <Carousel />
         <Footer />
@@ -130,6 +176,6 @@ const RIGHT_DOTS = [
 const SECOND_IMG =
   'https://images.unsplash.com/photo-1613243555978-636c48dc653c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80';
 const THIRD_IMG =
-  'https://cdn.pixabay.com/photo/2018/08/16/03/06/minion-3609547_1280.jpg';
+  'https://images.unsplash.com/photo-1598900945589-dbd8084ed2af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1773&q=80';
 
 export default Main;
