@@ -48,7 +48,9 @@ const ProductDetail = () => {
 
   const handleReviewDrawer = () => setReviewDrawer(!reviewDrawer);
 
-  const handleQnADrawer = () => setQnADrawer(!QnADrawer);
+  const handleQnADrawer = () => {
+    setQnADrawer(!QnADrawer);
+  };
 
   return (
     <>
@@ -124,11 +126,19 @@ const ProductDetail = () => {
             reviewDrawer ? 'drawerBackground active' : 'drawerBackground'
           }
         />
+        <div
+          onClick={handleReviewDrawer}
+          className={
+            reviewDrawer ? 'drawerBackground active' : 'drawerBackground'
+          }
+        />
+
         <div className={QnADrawer ? 'drawerPage active' : 'drawerPage'}>
           <QnADrawerPage />
           <button onClick={handleQnADrawer}>x</button>
         </div>
         <div
+          onClick={handleQnADrawer}
           className={QnADrawer ? 'drawerBackground active' : 'drawerBackground'}
         />
       </div>
