@@ -1,8 +1,11 @@
 import React from 'react';
 
 const LinkPage = ({ item, navigate }) => {
+  const movePage = () => {
+    navigate(item.link);
+  };
   return (
-    <section className="linkBox">
+    <section className="linkBox" onClick={movePage}>
       <img className="linkIcon" src={item.icon} alt="" />
       <div className="linkTitle">{item.title}</div>
       <div className="linkDescription">{item.description1}</div>
