@@ -23,7 +23,7 @@ const Main = () => {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  });
 
   useEffect(() => {
     const scroll = scrollRef.current;
