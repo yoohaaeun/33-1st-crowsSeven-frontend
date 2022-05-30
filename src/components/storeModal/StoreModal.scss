@@ -1,1 +1,46 @@
 @import '../../styles/variables.scss';
+
+.storeModal {
+  @include flexCenter;
+
+  .modalBackground {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .modalComponent {
+    display: flex;
+    position: absolute;
+    background-color: white;
+    width: 60rem;
+    height: 45rem;
+    padding: 50px;
+
+    .imgSection {
+      display: flex;
+      align-items: flex-start;
+
+      span {
+        background-color: #eee;
+        width: 30rem;
+        height: 30rem;
+      }
+    }
+
+    .infoSection {
+      margin-left: 50px;
+      text-align: left;
+
+      table {
+        font-size: 12px;
+
+        th {
+          width: 8rem;
+          height: 2.5rem;
+        }
+      }
+    }
+  }
+}
