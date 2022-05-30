@@ -229,6 +229,12 @@
   left: -100%;
   transition: 850ms;
   z-index: 50;
+  @include flexCenter;
+  flex-direction: column;
+  opacity: 1;
+  width: 70%;
+  height: 100vh;
+  background-color: white;
 }
 
 .drawerPage.active {
@@ -236,11 +242,30 @@
   transition: 500ms;
 }
 
-.drawerPageContent {
-  @include flexCenter;
-  flex-direction: column;
-  opacity: 1;
-  width: 70%;
+.drawerBackground {
+  background-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  width: 100vw;
   height: 100vh;
-  background-color: white;
+  top: 0;
+  left: -100%;
+  z-index: 40;
+  // transition: opacity 0.5s ease-in-out;
+  animation: fade-in 1s;
+}
+
+.drawerBackground.active {
+  background-color: black;
+  left: 0;
+  animation: fadeIn 2s;
+  opacity: 0.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
 }

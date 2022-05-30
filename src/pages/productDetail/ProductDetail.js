@@ -4,6 +4,8 @@ import { GrFacebook, GrTwitter } from 'react-icons/gr';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { useState, useEffect } from 'react';
 import Nav from '../../components/Nav/Nav';
+import ReviewDrawerPage from './ReviewDrawer';
+import QnADrawerPage from './QnADrawer';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
@@ -114,17 +116,21 @@ const ProductDetail = () => {
           </div>
         </section>
         <div className={reviewDrawer ? 'drawerPage active' : 'drawerPage'}>
-          <div className="drawerPageContent">
-            <h2>상품 후기</h2>
-            <button onClick={handleReviewDrawer}>x</button>
-          </div>
+          <ReviewDrawerPage />
+          <button onClick={handleReviewDrawer}>x</button>
         </div>
+        <div
+          className={
+            reviewDrawer ? 'drawerBackground active' : 'drawerBackground'
+          }
+        />
         <div className={QnADrawer ? 'drawerPage active' : 'drawerPage'}>
-          <div className="drawerPageContent">
-            <h2>상품 문의</h2>
-            <button onClick={handleQnADrawer}>x</button>
-          </div>
+          <QnADrawerPage />
+          <button onClick={handleQnADrawer}>x</button>
         </div>
+        <div
+          className={QnADrawer ? 'drawerBackground active' : 'drawerBackground'}
+        />
       </div>
     </>
   );
