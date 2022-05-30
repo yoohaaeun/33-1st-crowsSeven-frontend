@@ -60,17 +60,28 @@ const OrderInfo = ({ total }) => {
   });
 
   const [payment, setPayment] = useState();
-  const [disabled, setDisabled] = useState(true);
 
   const handleInput = e => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const onBtnActive = () => {
-    inputValue.email.includes('@') && inputValue.name.length > 0
-      ? setDisabled(false)
-      : setDisabled(true);
+  const onSubmit = e => {
+    e.preventDefault();
+
+    const isValid =
+      inputValue.name &&
+      inputValue.zipcode &&
+      inputValue.address &&
+      inputValue.number &&
+      inputValue.email &&
+      payment;
+
+    if (isValid) {
+      //결제 POST 요청
+    } else {
+      window.alert('주문서를 작성해 주세요.');
+    }
   };
 
   return (
@@ -91,7 +102,7 @@ const OrderInfo = ({ total }) => {
 
             <div className="radio">
               <input type="radio" name="destination" id="optional3" />
-              <label for="optional3">최근배송지 : name</label>
+              <label for="optional3">최근배송지</label>
             </div>
           </div>
 
@@ -101,33 +112,18 @@ const OrderInfo = ({ total }) => {
         <div className="addressInputBox">
           <div className="row">
             <div className="title">받으시는 분</div>
-            <input
-              type="text"
-              onChange={handleInput}
-              onKeyUp={onBtnActive}
-              name="name"
-            />
+            <input type="text" onChange={handleInput} name="name" />
           </div>
 
           <div className="row">
             <div className="title">주소</div>
             <div className="addressBox">
               <div>
-                <input
-                  type="text"
-                  onChange={handleInput}
-                  onKeyUp={onBtnActive}
-                  name="zipcode"
-                />
+                <input type="text" onChange={handleInput} name="zipcode" />
                 <span>우편주소</span>
               </div>
               <div>
-                <input
-                  type="text"
-                  onChange={handleInput}
-                  onKeyUp={onBtnActive}
-                  name="address"
-                />
+                <input type="text" onChange={handleInput} name="address" />
                 <span>기본주소</span>
               </div>
               <div>
@@ -139,23 +135,13 @@ const OrderInfo = ({ total }) => {
 
           <div className="row">
             <div className="title">휴대전화</div>
-            <input
-              type="text"
-              onChange={handleInput}
-              onKeyUp={onBtnActive}
-              name="number"
-            />
+            <input type="text" onChange={handleInput} name="number" />
           </div>
 
           <div className="row">
             <div className="title">이메일</div>
             <div>
-              <input
-                type="email"
-                onChange={handleInput}
-                onKeyUp={onBtnActive}
-                name="email"
-              />
+              <input type="email" onChange={handleInput} name="email" />
               <div className="emailText">
                 <p>
                   이메일을 통해 주문처리과정을 보내드립니다. <br /> 이메일
@@ -171,21 +157,16 @@ const OrderInfo = ({ total }) => {
           </div>
         </div>
 
-        <div
-          onChange={e => setPayment(e.target.value)}
-          className="paymentInputBox"
-        >
-          <div className="paymentBox">
+        <div className="paymentInputBox">
+          <div
+            className="paymentBox"
+            onChange={e => setPayment(e.target.value)}
+          >
             <div className="title">결제수단</div>
             <div className="radiobox">
               <div className="radio">
-                <input
-                  type="radio"
-                  name="payment"
-                  id="creditCard"
-                  value="creditCard"
-                />
-                <label>카드 결제</label>
+                <input type="radio" name="payment" id="creditCard" value={1} />
+                <label for="creditCard">카드 결제</label>
               </div>
 
               <div className="radio">
@@ -193,30 +174,30 @@ const OrderInfo = ({ total }) => {
                   type="radio"
                   name="payment"
                   id="accountTransfer"
-                  value="accountTransfer"
+                  value={2}
                 />
                 <label for="accountTransfer">실시간 계좌이체</label>
               </div>
 
               <div className="radio">
-                <input
-                  type="radio"
-                  name="payment"
-                  id="deposit"
-                  value="deposit"
-                />
+                <input type="radio" name="payment" id="deposit" value={3} />
                 <label for="deposit">무통장 입금</label>
               </div>
             </div>
           </div>
-
-          {payment === 'creditCard' && <CreditCard />}
-          {payment === 'accountTransfer' && <AccountTransfer />}
-          {payment === 'deposit' && <Deposit />}
+          {payment === '1' && <CreditCard />}
+          {payment === '2' && <AccountTransfer />}
+          {payment === '3' && <Deposit />}
 
           <div className="footer">
             <p>Total {total}원</p>
-            <button disabled={disabled}>Payment</button>
+            <button
+              onClick={e => {
+                onSubmit(e);
+              }}
+            >
+              Payment
+            </button>
           </div>
         </div>
       </form>
