@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LinkPage = ({ item }) => {
+const LinkPage = ({ item, navigate }) => {
   return (
     <section className="linkBox">
       <img className="linkIcon" src={item.icon} alt="" />

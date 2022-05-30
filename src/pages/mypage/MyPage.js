@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import OrderStatus from './OrderStatus';
 import LinkPage from './LinkPage';
 import STATUS_LIST from './orderStatusData';
@@ -6,6 +7,19 @@ import LINK_LIST from './linkData';
 import './MyPage.scss';
 
 const MyPage = () => {
+  let navigate = useNavigate();
+  const [userList, setUserList] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/mypageData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setUserList(data);
+      });
+  }, []);
+
   return (
     <main className="MyPage">
       <h1 className="title">마이 페이지</h1>
@@ -17,8 +31,10 @@ const MyPage = () => {
         <div className="userBoxDescription">
           <p className="userBoxFirstLine">
             저희 쇼핑몰을 이용해 주셔서 감사합니다.
-            <span style={{ color: 'blue' }}>염종은</span>님은 [일반회원]
-            회원이십니다.
+            <span style={{ color: 'blue' }}>
+              {userList[0] && userList[0].User_name}
+            </span>
+            님은 [일반회원] 회원이십니다.
           </p>
           <p>
             <span style={{ color: 'blue' }}>￦10,000 이상</span> 이상 구매시
@@ -88,7 +104,7 @@ const MyPage = () => {
         </article>
       </section>
       {LINK_LIST.map((item, i) => {
-        return <LinkPage key={i} item={item} />;
+        return <LinkPage key={i} item={item} navigate={navigate} />;
       })}
     </main>
   );
