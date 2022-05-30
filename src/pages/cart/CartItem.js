@@ -10,22 +10,15 @@ const CartItem = ({
   checkedList,
   setCheckedList,
 }) => {
-  const [quantity, setQuantity] = useState();
   const [isChecked, setIsChecked] = useState();
-  console.log('checkedList', checkedList);
 
   const onSubmit = () => {};
 
   const onChangeQty = e => {
-    setQuantity(Number(e.target.value));
-
     const newCartList = cartList.map(cartItem => {
-      console.log('cartItem.id', cartItem.id);
-      console.log('item.id', item.id);
-
       if (cartItem.id === item.id) {
         cartItem.qty = Number(e.target.value);
-        console.log('cartItem여기여기', cartItem);
+
         return cartItem;
       } else {
         return cartItem;
@@ -45,10 +38,6 @@ const CartItem = ({
     }
   };
 
-  useEffect(() => {
-    setQuantity(item.qty);
-  }, [item.qty]);
-
   return (
     <tr className="cartItem">
       <td className="checkBox">
@@ -65,7 +54,7 @@ const CartItem = ({
             type="number"
             className="quantityBtn"
             onChange={onChangeQty}
-            value={quantity}
+            value={item.qty}
             min="1"
           />
           <button className="modifyBtn" onClick={onSubmit}>
@@ -84,7 +73,7 @@ const CartItem = ({
           조건
         </td>
       )}
-      <td>￦ {item.price * quantity}</td>
+      <td>￦ {item.price * item.qty}</td>
     </tr>
   );
 };

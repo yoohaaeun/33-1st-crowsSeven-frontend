@@ -6,7 +6,7 @@ import CartEmpty from './CartEmpty';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
-  const [checkedList, setCheckedList] = useState([]); // 1-1 1번 저장소 만들어주기
+  const [checkedList, setCheckedList] = useState([]);
 
   const cartEmpty = cartList.length === 0;
 
