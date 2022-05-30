@@ -6,11 +6,13 @@ import OrderEmpty from '../OrderCheck/OrderEmpty';
 
 const DeleteOrder = () => {
   const navigate = useNavigate();
+
   let today = new Date();
   let year = today.getFullYear();
   let month = today.getMonth() + 1;
   let date = today.getDate();
   let day = `${year}-${month}-${date}`;
+
   const oneWeek = e => {
     let threeM = new Date(today.setDate(today.getDate() - 7));
     let year = threeM.getFullYear();
@@ -20,29 +22,13 @@ const DeleteOrder = () => {
     e.preventDefault();
   };
 
-  const oneMonth = e => {
-    let month = today.getMonth();
+  const monthAgo = (agoMonth) => {
+    let newDate = new Date(today.setMonth(today.getMonth() - agoMonth + 1));
+    let year = newDate.getFullYear();
+    let month = newDate.getMonth() + 1;
+    let date = newDate.getDate();
     setCalendar(`${year}-${month}-${date}`);
-    e.preventDefault();
-  };
-
-  const threeMonth = e => {
-    let threeM = new Date(today.setMonth(today.getMonth() - 3));
-    let year = threeM.getFullYear();
-    let month = threeM.getMonth() + 1;
-    let date = threeM.getDate();
-    setCalendar(`${year}-${month}-${date}`);
-    e.preventDefault();
-  };
-
-  const sixMonth = e => {
-    let sixM = new Date(today.setMonth(today.getMonth() - 5));
-    let year = sixM.getFullYear();
-    let month = sixM.getMonth() + 1;
-    let date = sixM.getDate();
-    setCalendar(`${year}-${month}-${date}`);
-    e.preventDefault();
-  };
+  }
 
   const [calendar, setCalendar] = useState(day);
 
@@ -75,8 +61,14 @@ const DeleteOrder = () => {
               오늘
             </button>
             <button onClick={oneWeek}>1주일</button>
-            <button onClick={oneMonth}>1개월</button>
-            <button onClick={threeMonth}>3개월</button>
+            <button onClick={(e) => {
+              e.preventDefault();
+              monthAgo(1)
+            }}>1개월</button>
+            <button onClick={(e)=>{
+              e.preventDefault();
+              monthAgo(3);
+            }}>3개월</button>
             <button onClick={sixMonth}>6개월</button>
           </form>
           <div className="calendar1">{calendar}</div>
