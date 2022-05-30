@@ -15,16 +15,20 @@ const Main = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      if (slideIndex !== IMG_URLS.length - 1) {
-        setSlideIndex(prev => prev + 1);
-      } else if (slideIndex === IMG_URLS.length - 1) {
-        setSlideIndex(0);
-      }
-    }, 5000);
+      setSlideIndex(prevIndex => {
+        return prevIndex !== IMG_URLS.length ? prevIndex + 1 : 0;
+
+        //   if (slideIndex !== IMG_URLS.length - 1) {
+        //     setSlideIndex(prev => prev + 1);
+        //   } else if (slideIndex === IMG_URLS.length - 1) {
+        //     setSlideIndex(0);
+        //   }
+      }, 5000);
+    });
     return () => {
       clearInterval(timer);
     };
-  }, [slideIndex]);
+  }, []);
 
   return (
     <>
