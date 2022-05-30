@@ -3,27 +3,30 @@ import React, { useState, useEffect } from 'react';
 import './CartItem.scss';
 
 const CartItem = ({ item, total, cartList, setCartList }) => {
-  const [quantity, setQuantity] = useState();
+  // const [quantity, setQuantity] = useState();
 
   const onSubmit = () => {};
 
   const onChangeQty = e => {
-    setQuantity(Number(e.target.value));
+    // setQuantity(Number(e.target.value));
 
     const newCartList = cartList.map(cartItem => {
       if (cartItem.id === item.id) {
         cartItem.qty = Number(e.target.value);
         return cartItem;
-      } else {
-        return cartItem;
       }
+
+      return cartItem
     });
     setCartList(newCartList);
   };
 
-  useEffect(() => {
-    setQuantity(item.qty);
-  }, [item.qty]);
+  // useEffect(() => {
+  //   setQuantity(item.qty);
+  // }, [item.qty]);
+  // state?
+  // cartList.item.qty === quantity
+  // state?
 
   return (
     <tr className="cartItem">
@@ -41,7 +44,7 @@ const CartItem = ({ item, total, cartList, setCartList }) => {
             type="number"
             className="quantityBtn"
             onChange={onChangeQty}
-            value={quantity}
+            value={item.quantity}
             min="1"
           />
           <button className="modifyBtn" onClick={onSubmit}>
@@ -60,7 +63,7 @@ const CartItem = ({ item, total, cartList, setCartList }) => {
           조건
         </td>
       )}
-      <td>￦ {item.price * quantity}</td>
+      <td>￦ {item.price * item.quantity}</td>
     </tr>
   );
 };
