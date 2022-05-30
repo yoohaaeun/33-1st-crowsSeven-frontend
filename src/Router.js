@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProductDetail from './pages/productDetail/ProductDetail';
+import Store from './pages/store/Store';
 import Cart from './pages/Cart/Cart';
 import Nav from './components/Nav/Nav';
 import Post from './review/Post';
@@ -11,6 +13,8 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Nav />} />
+        <Route path="/store" element={<Store />} />
+        <Route path="/productDetail" element={<ProductDetail />} />
         <Route path="/review_post" element={<Post />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/signup" element={<Signup />} />

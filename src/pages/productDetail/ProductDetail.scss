@@ -1,0 +1,271 @@
+@import '../../styles/variables.scss';
+
+.productDetail {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+
+  h2 {
+    font-size: 22px;
+    margin-bottom: 50px;
+  }
+
+  section {
+    background-color: white;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  ul {
+    font-size: 12px;
+
+    li {
+      margin-bottom: 15px;
+    }
+
+    .description {
+      font-size: 12px;
+      font-weight: 300;
+      color: #666;
+      line-height: 20px;
+      margin-bottom: 30px;
+    }
+
+    .price {
+      font-weight: 800;
+    }
+  }
+
+  .imgSide {
+    width: 55%;
+    min-width: 500px;
+  }
+
+  .descriptionSide {
+    width: 45%;
+    right: 0;
+
+    button {
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .sideWrapper {
+      position: fixed;
+      width: 750px;
+      padding: 120px 10%;
+    }
+
+    .amountTab {
+      @include flexSpaceBetween;
+      font-size: 13px;
+      padding: 20px 0;
+      margin-bottom: 20px;
+      align-items: center;
+
+      .inputAmount {
+        display: flex;
+        align-items: center;
+      }
+
+      .amountInput {
+        @include flexCenter;
+        width: 32px;
+        height: 26px;
+        border-radius: 3px 0 0 3px;
+        border: 1px solid #ccc;
+        margin-right: -1px;
+      }
+
+      .amountHandler {
+        display: inline-flex;
+        flex-direction: column;
+
+        .up {
+          border-radius: 0 3px 0 0;
+        }
+
+        .down {
+          border-radius: 0 0 3px 0;
+        }
+
+        button {
+          @include flexCenter;
+          color: #666;
+          border: 1px solid #ccc;
+          height: 13px;
+          width: 20px;
+
+          .arrow {
+            width: 10px;
+            height: 10px;
+          }
+        }
+      }
+    }
+
+    .totalPrice {
+      font-size: 13px;
+      margin-bottom: 20px;
+
+      span {
+        font-size: 24px;
+        font-weight: 800;
+      }
+    }
+
+    .totalBuyBtn {
+      padding: 20px 0;
+
+      .buyBtn {
+        width: 100%;
+        height: 45px;
+        margin-bottom: 8px;
+        color: white;
+        border: 0;
+        background-color: #333;
+        border: 1px solid #333;
+
+        &:hover {
+          background-color: #eee;
+          border: 1px solid #ccc;
+          color: black;
+          transition: 0.5s;
+        }
+      }
+
+      .cartBtn {
+        width: 100%;
+        height: 45px;
+        background-color: white;
+        border: 1px solid #ccc;
+
+        &:hover {
+          background-color: #eee;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    .wishList {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+
+      span {
+        margin-left: 8px;
+      }
+
+      &:hover {
+        color: #ccc;
+      }
+    }
+
+    .aboutItemBtn {
+      @include flexSpaceBetween;
+      margin: 30px 0;
+
+      span {
+        button {
+          margin-right: 10px;
+
+          &:hover {
+            color: #ccc;
+          }
+        }
+      }
+
+      .size {
+        display: flex;
+        align-items: center;
+
+        .sizeImg {
+          margin-right: 10px;
+        }
+
+        &:hover {
+          color: #ccc;
+        }
+      }
+    }
+
+    .snsBtn {
+      color: #ccc;
+      cursor: pointer;
+
+      .facebookBtn {
+        margin-right: 15px;
+        height: 20px;
+        width: auto;
+      }
+      .twitterBtn {
+        height: 20px;
+        width: auto;
+      }
+    }
+  }
+}
+
+@keyframes pageBackground {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.drawerPage {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+  z-index: 50;
+  @include flexCenter;
+  flex-direction: column;
+  opacity: 1;
+  width: 70%;
+  height: 100vh;
+  background-color: white;
+}
+
+.drawerPage.active {
+  left: 0;
+  transition: 500ms;
+}
+
+.drawerBackground {
+  background-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: -100%;
+  z-index: 40;
+  // transition: opacity 0.5s ease-in-out;
+  animation: fade-in 1s;
+}
+
+.drawerBackground.active {
+  background-color: black;
+  left: 0;
+  animation: fadeIn 2s;
+  opacity: 0.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
