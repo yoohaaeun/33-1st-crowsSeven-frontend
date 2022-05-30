@@ -2,19 +2,60 @@ import React from 'react';
 
 const Agreement = ({ item, checkedList, i, setCheckedLists }) => {
   const checkItems = id => {
-    let copy = [...checkedList];
-    for (let i = 0; i < copy.length; i++) {
-      if (copy[i].id === id) {
-        if (copy[i].isChecked === true) {
-          copy[i].isChecked = false;
-          setCheckedLists(copy);
-        } else if (copy[i].isChecked === false) {
-          copy[i].isChecked = true;
-          setCheckedLists(copy);
-        }
+    // let copy = [...checkedList];
+    // for (let i = 0; i < copy.length; i++) {
+    //   if (copy[i].id === id) {
+    //     if (copy[i].isChecked === true) {
+    //       copy[i].isChecked = false;
+    //       setCheckedLists(copy);
+    //     } else if (copy[i].isChecked === false) {
+    //       copy[i].isChecked = true;
+    //       setCheckedLists(copy);
+    //     }
+    //   }
+    // }
+
+    const newCheckedList = checkedList.map((item)=>{
+      if(item.id === id) {
+        item.isChecked = !item.isChecked
+        return item;
       }
-    }
+
+      return item;
+    })
+
+    setCheckedLists(newCheckedList)
+
+
+
+    // new array => map
+
+    // copy array
+    // copy loop
+    // if id === element.id
+    // 1. isChecked true
+    // isChecked = false
+    // setCheckedLists(copy)
+    // 2. isChecked false
+    //    isChecked = true
+    //    setCheckedLists
+
   };
+
+  // for loop
+  //
+  // Array method, 선언적
+  // map, forEach, reduce
+  // What
+  //
+  // for loop, 명령형
+  // HOW
+  // 어떻게 루프를 돌면서
+  // 이 값을 요렇게 봐꿔서~~~ 
+  //
+  //
+  // 분기가 많아지거나, 명령이 나열되어 있을 때
+  // 최소화
 
   return (
     <div>

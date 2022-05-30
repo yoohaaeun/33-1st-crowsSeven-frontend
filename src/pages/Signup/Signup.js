@@ -22,6 +22,7 @@ const Signup = () => {
     '아이디를 입력해 주세요(영문소문자/숫자,4~16자)'
   );
   const [pwAlertSentence, setPwAlertSentence] = useState('');
+  // valid, valid Text, inValidText
   const [emailAlertSentence, setEmailAlertSentence] = useState('');
   const [phoneAlertSentence, setPhoneAlertSentence] = useState('');
   const {
@@ -76,6 +77,26 @@ const Signup = () => {
     }
   };
 
+
+  // input Value
+  // validation logic
+  // input value valid?
+  // valid ? text : text
+  //
+
+  const [inputValueValid, setValid] = useState({
+    id: false,
+    pw1: false,
+    pw2: false,
+    phone: false,
+    email: false,
+  });
+
+  const validationFunction = {
+    id: /[a-z0-9]{4,16}$/
+  }
+
+
   const idCheck = id => {
     let regId = /[a-z0-9]{4,16}$/;
     if (regId.test(id)) {
@@ -94,6 +115,8 @@ const Signup = () => {
       setPwAlertSentence('다시입력해 주세요');
     }
   };
+  // pw validation
+  // pw check validation
 
   const emailCheck = email => {
     let regEmail = /[a-zA-Z0-9_-]+@[a-z]+.[a-z]+$/;
@@ -142,7 +165,7 @@ const Signup = () => {
             onBlur={() => idCheck(id)}
             name="id"
           />
-          <div className="inputDescription">{idAlertSentence}</div>
+          <div className="inputDescription">{isValid.id ? validText.id : inValidText.id}</div>
         </form>
 
         <form className="inputLine">
@@ -323,3 +346,42 @@ const Signup = () => {
 };
 
 export default Signup;
+
+
+const VALID_TEXT = {
+  id:"사용 가능한 아이디입니다"
+}
+
+const inValidText = {
+  id: "유효하지 않은 아이디입니다"
+}
+
+
+const inputValue = {
+  id:"abcd",
+  pw:"11111111111",
+  pwCheck:"11111111111",
+};
+
+const inputValueValid = {
+  id:false,
+  pw:false,
+  pwCheck:false,
+}
+
+const validation = {
+  id: (value) => value.length > 3,
+ 	pw: (value) => value.length > 5,
+  pwCheck: () => inputValue.pw === inputValue.pwCheck,
+}
+
+// Object => Array
+
+Object.entries(inputValue).forEach(el => {
+  console.log("el", el)
+  console.log("key", el[0])
+  console.log("value", el[1])
+  console.log(el[0], " isValid", validation[el[0]](el[1]));
+  
+  // setState()
+})
