@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GoSearch } from 'react-icons/go';
 import { BsHandbag, BsInstagram, BsYoutube } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 import SearchBox from './SearchBox';
 import RightBoxNav from './RightBoxNav';
@@ -10,6 +11,12 @@ import './Nav.scss';
 const Nav = () => {
   const [isToggle, setToggle] = useState(true);
   const [isSearch, setIsSearch] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleMoveStore = () => {
+    navigate('/store');
+  };
 
   const handleClick = () => {
     setToggle(!isToggle);
@@ -34,7 +41,7 @@ const Nav = () => {
           </div>
 
           <div className="navTextList">
-            STORE
+            <span onClick={handleMoveStore}>STORE</span>
             <div className="navTextListInfo">
               {STORE.map(({ id, listName }) => (
                 <li key={id}>{listName}</li>

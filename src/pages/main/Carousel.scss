@@ -23,7 +23,7 @@
 
   .buttonContainer {
     button {
-      margin: 1rem 0.3rem;
+      margin: 2rem 0.3rem;
       width: 8px;
       height: 8px;
       background-color: grey;
@@ -35,6 +35,11 @@
         background-color: black;
         transition: 0.3s all ease-in-out;
       }
+    }
+
+    .active {
+      width: 10px;
+      background-color: black;
     }
   }
 }
