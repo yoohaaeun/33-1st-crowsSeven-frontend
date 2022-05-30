@@ -2,8 +2,17 @@ import React, { useState, useEffect } from 'react';
 
 import './CartItem.scss';
 
-const CartItem = ({ item, total, cartList, setCartList }) => {
+const CartItem = ({
+  item,
+  total,
+  cartList,
+  setCartList,
+  checkedList,
+  setCheckedList,
+}) => {
   const [quantity, setQuantity] = useState();
+  const [isChecked, setIsChecked] = useState();
+  console.log('checkedList', checkedList);
 
   const onSubmit = () => {};
 
@@ -11,14 +20,29 @@ const CartItem = ({ item, total, cartList, setCartList }) => {
     setQuantity(Number(e.target.value));
 
     const newCartList = cartList.map(cartItem => {
+      console.log('cartItem.id', cartItem.id);
+      console.log('item.id', item.id);
+
       if (cartItem.id === item.id) {
         cartItem.qty = Number(e.target.value);
+        console.log('cartItem여기여기', cartItem);
         return cartItem;
       } else {
         return cartItem;
       }
     });
     setCartList(newCartList);
+  };
+
+  const onCheck = e => {
+    if (e.target.checked) {
+      setIsChecked(true);
+      setCheckedList([...checkedList, item]);
+    } else {
+      setIsChecked(false);
+      const result = checkedList.filter(cartItem => cartItem.id !== item.id);
+      setCheckedList(result);
+    }
   };
 
   useEffect(() => {
@@ -28,7 +52,7 @@ const CartItem = ({ item, total, cartList, setCartList }) => {
   return (
     <tr className="cartItem">
       <td className="checkBox">
-        <input type="checkbox" />
+        <input type="checkbox" onChange={onCheck} checked={isChecked} />
       </td>
       <td>
         <img src={item.product} alt={item.info} />
