@@ -1,16 +1,41 @@
 import React from 'react';
 
-const TextItem = ({ data }) => {
+const TextItem = ({ postItem, isImgShow }) => {
+  console.log(postItem);
+  const { id, number, img, product, subject, author, date, hit } = postItem;
+
   return (
-    <tr key={data.id}>
-      <td>{data.number} </td>
-      <td className="productName">{data.product}</td>
-      <td className="tableLeft">{data.subject}</td>
-      <td>{data.author}</td>
-      <td>{data.date}</td>
-      <td>{data.hit}</td>
+    <tr key={id}>
+      <td className="marginRight">{number} </td>
+
+      {/* {isImgShow && <img src />} */}
+      <td className="productName tableLeft">
+        <div>
+          {isImgShow ? <img src={img} /> : null}
+          {product}
+        </div>
+      </td>
+      <td className="tableLeft">{subject}</td>
+      <td>{author}</td>
+      <td>{date}</td>
+      <td>{hit}</td>
     </tr>
   );
 };
 
+// props isImgShow true img tag rendering
+// IMG O, IMG X
+// img property img tag rendering
 export default TextItem;
+
+// what
+// ~~~
+// fetch
+// article, udemy, youtube,
+// O
+
+// Project
+// fetch ~~~
+// ~~~
+
+//

@@ -17,11 +17,12 @@ const PRODUCT_INFO = [
 ];
 
 const Post = () => {
-  const [textList, setTextList] = useState([]);
+  const [postList, setPostList] = useState([]);
+
   useEffect(() => {
-    fetch('http://localhost:3000/data/relatedProductData.json')
+    fetch('/data/relatedProductData.json')
       .then(res => res.json())
-      .then(productData => setTextList(productData));
+      .then(productData => setPostList(productData));
   }, []);
   // console.log(textList[0]?.post); ?. => optional chaining 조건부 랜더링
 
@@ -50,7 +51,7 @@ const Post = () => {
             </div>
           </div>
         </section>
-        <ReviewPost textList={textList} />
+        <ReviewPost textList={postList} />
         {/* 목데이터를 따로 만드는 게 낫다 하나라도 */}
         <button className="goList" onClick={goToTextList}>
           목록
@@ -115,10 +116,14 @@ const Post = () => {
               </tr>
             </thead>
             <tbody>
-              {textList
+              {postList
                 .filter(data => data.id < 6)
                 .map(productData => (
-                  <TextItem key={productData.id} data={productData} />
+                  <TextItem
+                    key={productData.id}
+                    postItem={productData}
+                    isImgShow={false}
+                  />
                 ))}
               {/* 백엔드가 나와야 게시글 id에 대해 이동가능하고 화요일에 세션있음 */}
             </tbody>

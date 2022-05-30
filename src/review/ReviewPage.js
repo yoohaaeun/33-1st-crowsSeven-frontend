@@ -53,7 +53,11 @@ const ReviewPage = () => {
             </thead>
             <tbody>
               {textList.map(productData => (
-                <TextItem key={productData.id} data={productData} />
+                <TextItem
+                  key={productData.id}
+                  postItem={productData}
+                  isImgShow={true}
+                />
               ))}
             </tbody>
           </table>
