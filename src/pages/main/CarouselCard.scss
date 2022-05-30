@@ -1,0 +1,17 @@
+.carouselCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 3rem;
+
+  img {
+    width: 330px;
+    height: 330px;
+    border-radius: 2rem;
+    object-fit: cover;
+  }
+
+  span {
+    margin-top: 1rem;
+  }
+}
