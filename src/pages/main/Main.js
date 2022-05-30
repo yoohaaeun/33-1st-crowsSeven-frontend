@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../../components/Nav/Nav';
 import Footer from './Footer';
 import SectionImg from './SectionImg';
 import MainButton from './MainButton';
+import Carousel from './Carousel';
 import './Main.scss';
 
 const Main = () => {
@@ -23,7 +24,7 @@ const Main = () => {
     return () => {
       clearInterval(timer);
     };
-  });
+  }, [slideIndex]);
 
   return (
     <>
@@ -62,10 +63,17 @@ const Main = () => {
         </div>
         <section id="second" className="mainSection">
           <SectionImg url={SECOND_IMG} />
+          <h1>CrowSeven Membership</h1>
+          <span>
+            크로우세븐의 멤버가 되시고 최대 50%의 추가 적립, 무로배송, 생일할인
+            쿠폰 등 혜택을 받아가세요
+          </span>
+          <button className="secondImgBtn">자세히 보기</button>
         </section>
         <section id="third" className="mainSection">
           <SectionImg url={THIRD_IMG} />
         </section>
+        <Carousel />
         <Footer />
       </div>
     </>
@@ -75,15 +83,15 @@ const Main = () => {
 const IMG_URLS = [
   {
     id: 1,
-    url: 'https://cdn.pixabay.com/photo/2016/01/29/23/48/minion-1168873_1280.jpg',
+    url: 'https://images.unsplash.com/photo-1528697070265-780e0cda625f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2168&q=80',
   },
   {
     id: 2,
-    url: 'https://cdn.pixabay.com/photo/2016/04/29/15/54/minions-1361171_1280.jpg',
+    url: 'https://velog.velcdn.com/images/yumjongeun/post/425e6c91-a792-4fdf-9277-053e11d1f85a/image.png',
   },
   {
     id: 3,
-    url: 'https://cdn.pixabay.com/photo/2017/02/24/21/03/minions-2096369_1280.jpg',
+    url: 'https://images.unsplash.com/photo-1560052859-7deb492b0baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1103&q=80',
   },
 ];
 
@@ -105,13 +113,18 @@ const RIGHT_DOTS = [
   },
   {
     id: 4,
+    text: '#forth',
+    status: false,
+  },
+  {
+    id: 5,
     text: '#footer',
     status: false,
   },
 ];
 
 const SECOND_IMG =
-  'https://cdn.pixabay.com/photo/2016/05/17/12/15/minions-guitar-1398006_1280.jpg';
+  'https://images.unsplash.com/photo-1613243555978-636c48dc653c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80';
 const THIRD_IMG =
   'https://cdn.pixabay.com/photo/2018/08/16/03/06/minion-3609547_1280.jpg';
 

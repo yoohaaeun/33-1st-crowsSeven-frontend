@@ -20,6 +20,39 @@
       opacity: 1;
     }
 
+    h1 {
+      position: absolute;
+      left: 8rem;
+      bottom: 28rem;
+      font-size: 3rem;
+      font-weight: 600;
+      z-index: 20;
+    }
+
+    span {
+      position: absolute;
+      left: 8rem;
+      bottom: 25rem;
+      font-size: 1.2rem;
+    }
+
+    .secondImgBtn {
+      position: absolute;
+      width: 7rem;
+      height: 3.3rem;
+      left: 8rem;
+      bottom: 20rem;
+      color: white;
+      background-color: black;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .moveText {
+      animation: moveText 0.5s ease-in;
+    }
+
     .containerDots {
       position: absolute;
       display: flex;
@@ -49,17 +82,22 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  text-decoration: none;
+  width: 15px;
   right: 20px;
   bottom: 50%;
+  text-decoration: none;
   z-index: 10;
 
   .rightDots {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     margin-top: 1rem;
     border-radius: 50%;
-    background-color: #FFF;
+    background-color: #b2b2b2;
+
+    &:hover {
+      background-color: black;
+    }
 
   }
 
@@ -67,4 +105,16 @@
     background-color: black;
   }
 
+}
+
+@keyframes moveText {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

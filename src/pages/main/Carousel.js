@@ -16,7 +16,7 @@ const Carousel = () => {
   }, [currentSlide]);
 
   return (
-    <section className="carousel">
+    <section id="forth" className="carousel">
       <div className="carouselWrapper" ref={slideRef}>
         {CAROUSEL_DATA.map(({ id, src, title }) => (
           <CarouselCard key={id} src={src} title={title} />
