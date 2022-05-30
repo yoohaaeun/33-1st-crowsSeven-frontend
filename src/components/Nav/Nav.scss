@@ -5,10 +5,9 @@
   @include flexAround;
   height: 8rem;
   width: 100vw;
-  z-index: 10;
   align-items: center;
   background-color: transparent;
-  z-index: 100;
+  z-index: 10;
 
   .navText {
     display: flex;
