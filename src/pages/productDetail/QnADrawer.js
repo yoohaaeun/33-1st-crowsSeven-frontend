@@ -7,3 +7,17 @@ const QnADrawerPage = () => {
 };
 
 export default QnADrawerPage;
+
+const Drawer = ({children, isOpen, onClose}) => {
+  return (
+    <div className="drawerShadow">
+      <div className="drawer">
+        <button onClick={onClose}>X</button>
+        {children}
+      </div>
+    </div>
+  )
+}
+
+// event bubbling
+// 

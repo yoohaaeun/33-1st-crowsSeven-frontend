@@ -13,6 +13,8 @@ const ProductDetail = () => {
   const [amount, setAmount] = useState(1);
   const [reviewDrawer, setReviewDrawer] = useState(false);
   const [QnADrawer, setQnADrawer] = useState(false);
+  // review, QnA
+  // const [currentDrawer, setCurrentDrawer] = useState("QnA")
   const { itemDetail, itemName, description, price } = items;
 
   useEffect(() => {
@@ -138,8 +140,7 @@ const ProductDetail = () => {
           <button onClick={handleQnADrawer}>x</button>
         </div>
         <div
-          onClick={handleQnADrawer}
-          className={QnADrawer ? 'drawerBackground active' : 'drawerBackground'}
+          className={(QnADrawer || reviewDrawer) ? 'drawerBackground active' : 'drawerBackground'}
         />
       </div>
     </>
@@ -147,3 +148,14 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+
+// Component
+// UI
+// 기능
+
+// 추상화 Level
+// <tag></tag>
+// <Component>
+// <tag></tag>
+// <tag></tag>
+// <Component>
