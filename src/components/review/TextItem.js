@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TextItem = ({ postItem, isImgShow }) => {
-  console.log(postItem);
   const { id, number, img, product, subject, author, date, hit } = postItem;
 
   return (
@@ -11,7 +10,7 @@ const TextItem = ({ postItem, isImgShow }) => {
       {/* {isImgShow && <img src />} */}
       <td className="productName tableLeft">
         <div>
-          {isImgShow ? <img src={img} /> : null}
+          {isImgShow ? <img src={img} alt="tableware" /> : null}
           {product}
         </div>
       </td>
