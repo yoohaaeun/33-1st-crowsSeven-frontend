@@ -88,9 +88,9 @@ const ProductDetail = () => {
               <div className="totalPrice">
                 TOTAL :<span> ￦{totalPriceToString} </span>({amount}개)
               </div>
-              <div className="buyBtn">
-                <button className="buy">구매하기</button>
-                <button className="cart">장바구니</button>
+              <div className="totalBuyBtn">
+                <button className="buyBtn">구매하기</button>
+                <button className="cartBtn">장바구니</button>
               </div>
               <button onClick={handleWishList} className="wishList">
                 <FiHeart />

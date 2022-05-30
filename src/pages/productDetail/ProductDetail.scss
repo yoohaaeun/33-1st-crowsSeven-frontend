@@ -118,10 +118,10 @@
       }
     }
 
-    .buyBtn {
+    .totalBuyBtn {
       padding: 20px 0;
 
-      .buy {
+      .buyBtn {
         width: 100%;
         height: 45px;
         margin-bottom: 8px;
@@ -138,7 +138,7 @@
         }
       }
 
-      .cart {
+      .cartBtn {
         width: 100%;
         height: 45px;
         background-color: white;
@@ -233,7 +233,7 @@
 
 .drawerPage.active {
   left: 0;
-  transition: 350ms;
+  transition: 500ms;
 }
 
 .drawerPageContent {
