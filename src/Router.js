@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Cart from './pages/Cart/Cart';
+import Cart from './pages/cart/Cart';
 import Nav from './components/Nav/Nav';
 import Post from './review/Post';
 import Signup from './pages/Signup/Signup';
