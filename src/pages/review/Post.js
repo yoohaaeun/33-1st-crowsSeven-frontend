@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../../components/Nav/Nav';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
-import TextItem from '../components/review/TextItem';
-import ReviewPost from '../components/review/ReviewPost';
+import TextItem from '../../components/reviews/TextItem';
+import ReviewPost from '../../components/reviews/ReviewPost';
 import './Post.scss';
 
 const PRODUCT_INFO = [

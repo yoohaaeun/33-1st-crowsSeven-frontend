@@ -7,7 +7,6 @@ const TextItem = ({ postItem, isImgShow }) => {
     <tr key={id}>
       <td className="marginRight">{number} </td>
 
-      {/* {isImgShow && <img src />} */}
       <td className="productName tableLeft">
         <div>
           {isImgShow ? <img src={img} alt="tableware" /> : null}

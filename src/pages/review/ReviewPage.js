@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Nav from '../../src/components/Nav/Nav';
-import TextItem from '../components/review/TextItem';
+import Nav from '../../components/Nav/Nav';
+import TextItem from '../../components/reviews/TextItem';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import './ReviewPage.scss';

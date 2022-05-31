@@ -4,9 +4,11 @@ import Nav from './components/Nav/Nav';
 import Post from './pages/review/Post';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
-import ReviewPage from './review/ReviewPage';
-import PostForm from './review/PostForm';
+import ReviewPage from './pages/review/ReviewPage';
+import PostForm from './pages/review/PostForm';
 import Main from './pages/main/Main';
+import Store from './pages/store/Store';
+import ProductDetail from './pages/productDetail/ProductDetail';
 
 const Router = () => {
   return (
