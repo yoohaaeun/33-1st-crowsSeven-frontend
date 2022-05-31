@@ -8,7 +8,6 @@ import './Main.scss';
 const Main = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
-  const [isScroll, setIsScroll] = useState(false);
   const scrollRef = useRef();
 
   const moveSlide = index => {
@@ -29,27 +28,16 @@ const Main = () => {
   useEffect(() => {
     const scroll = scrollRef.current;
     scroll.addEventListener('scroll', handleScroll, false);
-    const throttle = setInterval(() => {
-      if (isScroll) {
-        setIsScroll(false);
-      }
-    }, 1000);
 
     return () => {
       scroll.removeEventListener('scroll', handleScroll, false);
-      clearInterval(throttle);
     };
-  }, [isScroll]);
+  });
 
   const handleScroll = e => {
     const { scrollTop, scrollHeight } = e.target;
-    setIsScroll(true);
-    if (isScroll) {
-      let height = Math.floor((scrollTop / scrollHeight) * 100);
-      if (height > 17 && height < 51) {
-        setScrollTop(height);
-      }
-    }
+    let height = Math.floor((scrollTop / scrollHeight) * 100);
+    if (height > 17 && height < 51) setScrollTop(height);
   };
 
   return (
