@@ -37,6 +37,11 @@
       padding: 0.8rem 0;
       border-bottom: 1px solid #444444;
       text-align: center;
+
+      img {
+        width: 5rem;
+        height: 5rem;
+      }
     }
 
     tfoot {
@@ -45,13 +50,15 @@
           border-bottom: 1px solid #444444;
         }
       }
+
       td {
         padding: 10px 0;
         border: none;
       }
+
       .priceRow {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
 
         .pricebox {
           width: 10rem;

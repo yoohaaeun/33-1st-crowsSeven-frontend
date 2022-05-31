@@ -16,7 +16,8 @@ const Carousel = () => {
   }, [currentSlide]);
 
   return (
-    <section className="carousel">
+    <section id="forth" className="carousel">
+      <h1>Magazine</h1>
       <div className="carouselWrapper" ref={slideRef}>
         {CAROUSEL_DATA.map(({ id, src, title }) => (
           <CarouselCard key={id} src={src} title={title} />
@@ -34,63 +35,63 @@ const Carousel = () => {
 const CAROUSEL_DATA = [
   {
     id: 1,
-    src: 'https://cdn.pixabay.com/photo/2016/04/27/18/33/minion-1357223_1280.jpg',
-    title: '기타치는 미니언',
+    src: 'https://images.unsplash.com/photo-1533323836708-9ed67edee77f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+    title: 'CREATE YOUR HOME',
   },
   {
     id: 2,
-    src: 'https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_1280.jpg',
-    title: '기타치는 미니언',
+    src: 'https://images.unsplash.com/photo-1526250000311-b8f091ec8cac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
+    title: '크로우세븐과 함꼐하는 캠핑',
   },
   {
     id: 3,
-    src: 'https://cdn.pixabay.com/photo/2015/08/14/19/41/minion-888797_1280.jpg',
-    title: '바나나 미니언',
+    src: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1756&q=80',
+    title: '크로우세븐 시네마 오픈!',
   },
   {
     id: 4,
-    src: 'https://cdn.pixabay.com/photo/2018/09/01/14/16/minion-3646892_1280.jpg',
-    title: '인형 미니언',
+    src: 'https://images.unsplash.com/photo-1588253137707-3eca729129e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fGN1cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+    title: '제품 관리 요령',
   },
   {
     id: 5,
-    src: 'https://cdn.pixabay.com/photo/2017/08/25/16/56/minions-2680727_1280.jpg',
-    title: '쌍둥이 미니언',
+    src: 'https://images.unsplash.com/photo-1593055454503-531d165c2ed8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmUlMjBjYXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+    title: '크로우 세븐 휴대폰 케이스 출시!',
   },
   {
     id: 6,
-    src: 'https://cdn.pixabay.com/photo/2016/04/19/15/09/minion-1338816_1280.jpg',
-    title: '귀여운 미니언',
+    src: 'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2hvdyUyMHJvb218ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+    title: '선릉 쇼룸 오픈',
   },
   {
     id: 7,
-    src: 'https://cdn.pixabay.com/photo/2016/01/29/23/59/minion-1168904_1280.jpg',
-    title: '쇼핑카트 미니언',
+    src: 'https://images.unsplash.com/photo-1581067721837-e4809b29692d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvcHBpbmclMjBiYWd8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+    title: '업사이클링 프로젝트 #쇼핑백',
   },
   {
     id: 8,
-    src: 'https://cdn.pixabay.com/photo/2020/04/02/17/30/minion-4996002_1280.jpg',
-    title: '돼지 미니언',
+    src: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Ym9va3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+    title: '크로우세븐과 함꼐하는 독서회',
   },
   {
     id: 9,
-    src: 'https://cdn.pixabay.com/photo/2019/02/09/19/13/minion-3985768_1280.jpg',
-    title: '열쇠고리 미니언',
+    src: 'https://images.unsplash.com/photo-1632933168044-8ae5c39c949d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNoaXJzdG1hcyUyMHRyZWV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+    title: '크리스마스 이벤트!',
   },
   {
     id: 10,
-    src: 'https://cdn.pixabay.com/photo/2016/03/31/18/52/minion-1294707_1280.jpg',
-    title: '키위 미니언',
+    src: 'https://images.unsplash.com/photo-1606394784708-a6b133dd9ade?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNoaXJzdG1hcyUyMHRyZWV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+    title: '성탄절 경품 추첨',
   },
   {
     id: 11,
-    src: 'https://cdn.pixabay.com/photo/2015/08/15/08/06/minion-889302_1280.jpg',
-    title: '돋보기 미니언',
+    src: 'https://images.unsplash.com/photo-1587022369615-2468edb6f31a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzh8fGZsb3dlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+    title: '크로우세븐과 함꼐하는 꽃꽂이!',
   },
   {
     id: 12,
-    src: 'https://cdn.pixabay.com/photo/2014/06/05/22/27/minions-363019_1280.jpg',
-    title: '대화하는 미니언',
+    src: 'https://images.unsplash.com/photo-1627618999952-6d9ea355d679?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGxldHRlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+    title: '주변지인에게 안부를 전해보세요',
   },
 ];
 

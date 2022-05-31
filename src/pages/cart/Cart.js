@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import './Cart.scss';
+=======
+>>>>>>> 5d4e417db194fdf73ff5306c87c20883147b4afe
 import CartNotEmpty from './CartNotEmpty';
 import CartEmpty from './CartEmpty';
+import './Cart.scss';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
