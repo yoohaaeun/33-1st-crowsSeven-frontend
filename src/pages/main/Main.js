@@ -47,7 +47,6 @@ const Main = () => {
     if (isScroll) {
       let height = Math.floor((scrollTop / scrollHeight) * 100);
       if (height > 17 && height < 51) {
-        console.log(height);
         setScrollTop(height);
       }
     }
