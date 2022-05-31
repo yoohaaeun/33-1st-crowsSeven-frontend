@@ -1,6 +1,8 @@
 @import 'src/styles/variables.scss';
 
 .searchBox {
+  position: fixed;
+  @include flexCenter;
   width: 100vw;
   height: 100vh;
   position: fixed;
