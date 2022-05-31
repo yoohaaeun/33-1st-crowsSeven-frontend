@@ -18,6 +18,12 @@ const CartNotEmpty = ({
   checkedList,
   setCheckedList,
 }) => {
+  const [isAllChecked, setIsAllChecked] = useState(false);
+
+  useEffect(() => {
+    setIsAllChecked(cartList.every(cartItem => checkedList.includes(cartItem)));
+  }, [cartList, checkedList]);
+
   const price = cartList
     .map(item => item.price * item.qty)
     .reduce((a, b) => a + b, 0);
@@ -33,8 +39,10 @@ const CartNotEmpty = ({
   const onChecked = e => {
     if (e.target.checked) {
       setCheckedList(cartList);
+      setIsAllChecked(true);
     } else {
       setCheckedList([]);
+      setIsAllChecked(false);
     }
   };
   return (
@@ -43,7 +51,11 @@ const CartNotEmpty = ({
         <thead>
           <tr>
             <th className="checkBox">
-              <input type="checkbox" onChange={onChecked} />
+              <input
+                type="checkbox"
+                onChange={onChecked}
+                checked={isAllChecked}
+              />
             </th>
             {TABLE_HEADER.map(row => (
               <th key={row} className={row.toLowerCase()}>

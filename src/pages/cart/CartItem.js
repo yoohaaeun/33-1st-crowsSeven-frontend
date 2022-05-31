@@ -12,6 +12,11 @@ const CartItem = ({
 }) => {
   const [isChecked, setIsChecked] = useState();
 
+  useEffect(() => {
+    console.log(checkedList.includes(item));
+    setIsChecked(checkedList && checkedList.includes(item));
+  }, [checkedList, item]);
+
   const onSubmit = () => {};
 
   const onChangeQty = e => {
@@ -33,8 +38,7 @@ const CartItem = ({
       setCheckedList([...checkedList, item]);
     } else {
       setIsChecked(false);
-      const result = checkedList.filter(cartItem => cartItem.id !== item.id);
-      setCheckedList(result);
+      setCheckedList(checkedList.filter(cartItem => cartItem.id !== item.id));
     }
   };
 
