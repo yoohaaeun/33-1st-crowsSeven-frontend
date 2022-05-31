@@ -139,6 +139,7 @@
         }
       }
     }
+
     .dayBtn2 {
       margin: 0 30px;
 
@@ -246,13 +247,15 @@
           border-bottom: 1px solid #444444;
         }
       }
+
       td {
         padding: 10px 0;
         border: none;
       }
+
       .priceRow {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
 
         .priceBox {
           width: 10rem;
@@ -274,6 +277,7 @@
       cursor: pointer;
     }
   }
+
   .noItem {
     height: 150px;
     font-weight: 300;
