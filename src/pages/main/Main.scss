@@ -1,0 +1,131 @@
+.main {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  .mainSection {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+
+    .slideImg {
+      position: absolute;
+      opacity: 0;
+      transition: 0.3s all ease-in;
+    }
+
+    .active {
+      opacity: 1;
+    }
+
+    h1 {
+      position: absolute;
+      left: 8rem;
+      bottom: 28rem;
+      font-size: 3rem;
+      font-weight: 600;
+      transform: translateX(100px);
+      opacity: 0;
+    }
+
+    span {
+      position: absolute;
+      left: 8rem;
+      bottom: 25rem;
+      font-size: 1.2rem;
+      transform: translateX(100px);
+      opacity: 0;
+    }
+
+    .secondImgBtn {
+      position: absolute;
+      width: 7rem;
+      height: 3.3rem;
+      left: 8rem;
+      bottom: 20rem;
+      color: white;
+      background-color: black;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      transform: translateX(100px);
+      opacity: 0;
+    }
+
+    .moveText {
+      animation: moveText 1s ease-in-out forwards;
+    }
+
+    .containerDots {
+      position: absolute;
+      display: flex;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .dot {
+        margin: 0 5px;
+        width: 10px;
+        height: 8px;
+        border-radius: 3px;
+        background-color: rgb(94, 94, 94);
+        transition: 0.3s all ease-in;
+      }
+
+      .active {
+        width: 1.4rem;
+        background-color: black;
+      }
+    }
+  }
+}
+
+.rightContainerDots {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 15px;
+  right: 20px;
+  bottom: 50%;
+  text-decoration: none;
+  z-index: 10;
+
+  .rightDots {
+    width: 12px;
+    height: 12px;
+    margin-top: 1rem;
+    border-radius: 50%;
+    background-color: #b2b2b2;
+
+    &:hover {
+      background-color: black;
+    }
+
+  }
+
+  .active {
+    background-color: black;
+  }
+
+}
+
+#third {
+  h1 {
+    font-weight: 400;
+  }
+}
+
+@keyframes moveText {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

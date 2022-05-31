@@ -2,12 +2,14 @@
 
 .nav {
   position: fixed;
-  @include flexAround;
+  @include flexSpaceBetween;
+  margin-left: 2rem;
   height: 8rem;
   width: 100vw;
-  z-index: 10;
   align-items: center;
   background-color: transparent;
+  z-index: 10;
+  cursor: pointer;
 
   .navText {
     display: flex;
@@ -20,6 +22,8 @@
     .navTextList {
       position: relative;
       margin-left: 3rem;
+      user-select: none;
+      cursor: pointer;
 
       &:hover .navTextListInfo {
         visibility: visible;
@@ -71,6 +75,7 @@
     justify-content: space-around;
     width: 8rem;
     font-size: 1.6rem;
+    margin-right: 5rem;
   }
 
   .widthZero {
@@ -78,5 +83,10 @@
     visibility: hidden;
     opacity: 0;
     color: transparent;
+  }
+
+  .opacityZero {
+    visibility: hidden;
+    opacity: 0;
   }
 }
