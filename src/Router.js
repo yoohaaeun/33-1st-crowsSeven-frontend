@@ -8,6 +8,7 @@ import Orderpage from './pages/Order/OrderPage';
 import Post from './pages/review/Post';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
+import MyPage from './pages/mypage/MyPage';
 import OrderCheck from './pages/OrderCheck/OrderCheck';
 import DeleteOrder from './pages/DeleteOrder/DeleteOrder';
 
@@ -24,6 +25,7 @@ const Router = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/mypage" element={<MyPage />} />
         <Route path="/orderCheck" element={<OrderCheck />} />
         <Route path="/deleteOrder" element={<DeleteOrder />} />
       </Routes>
