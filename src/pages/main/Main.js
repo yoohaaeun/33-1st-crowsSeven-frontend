@@ -35,7 +35,7 @@ const Main = () => {
 
   const handleScroll = e => {
     const { scrollTop } = e.srcElement;
-    if (scrollTop > 500 && scrollTop < 1750) setScrollTop(scrollTop);
+    if (scrollTop > 500 && scrollTop < 2200) setScrollTop(scrollTop);
   };
 
   return (
@@ -72,19 +72,19 @@ const Main = () => {
       <section id="second" className="mainSection">
         <SectionImg url={SECOND_IMG} />
         <h1
-          className={`${scrollTop > 700 && scrollTop < 850 ? 'moveText' : ''}`}
+          className={`${scrollTop > 700 && scrollTop < 1000 ? 'moveText' : ''}`}
         >
           CrowSeven Membership
         </h1>
         <span
-          className={`${scrollTop > 700 && scrollTop < 850 ? 'moveText' : ''}`}
+          className={`${scrollTop > 700 && scrollTop < 1000 ? 'moveText' : ''}`}
         >
           크로우세븐의 멤버가 되시고 최대 50%의 추가 적립, 무로배송, 생일할인
           쿠폰 등 혜택을 받아가세요
         </span>
         <button
           className={`secondImgBtn ${
-            scrollTop > 700 && scrollTop < 850 ? 'moveText' : ''
+            scrollTop > 700 && scrollTop < 1000 ? 'moveText' : ''
           }`}
         >
           자세히 보기
@@ -94,14 +94,14 @@ const Main = () => {
         <SectionImg url={THIRD_IMG} />
         <h1
           className={`${
-            scrollTop > 1200 && scrollTop < 1650 ? 'moveText' : ''
+            scrollTop > 1200 && scrollTop < 2000 ? 'moveText' : ''
           }`}
         >
           타임세일이 종료되었습니다.
         </h1>
         <span
           className={`${
-            scrollTop > 1200 && scrollTop < 1650 ? 'moveText' : ''
+            scrollTop > 1200 && scrollTop < 2000 ? 'moveText' : ''
           }`}
         >
           4월 재입고 맞이, 7일동안!!! {'\n'}
@@ -109,7 +109,7 @@ const Main = () => {
         </span>
         <button
           className={`secondImgBtn ${
-            scrollTop > 1200 && scrollTop < 1650 ? 'moveText' : ''
+            scrollTop > 1200 && scrollTop < 2000 ? 'moveText' : ''
           }`}
         >
           자세히 보기
