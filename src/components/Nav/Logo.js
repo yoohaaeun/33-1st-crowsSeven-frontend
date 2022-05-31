@@ -13,7 +13,7 @@ const Logo = () => {
     <ul className="logo" onClick={handleMoveMain}>
       <GiAtSea className="logoIcon" />
       <div className="logoText">
-        <span>CORWSEVEN</span>
+        <span>CROWSEVEN</span>
         <span>HOME</span>
         <span>SEOUL KOREA</span>
       </div>
