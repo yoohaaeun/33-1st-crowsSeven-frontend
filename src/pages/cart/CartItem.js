@@ -1,11 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import './CartItem.scss';
 
-const CartItem = ({ item, total }) => {
+const CartItem = ({
+  item,
+  total,
+  cartList,
+  setCartList,
+  checkedList,
+  setCheckedList,
+}) => {
+  const [isChecked, setIsChecked] = useState();
+
+  useEffect(() => {
+    setIsChecked(checkedList && checkedList.includes(item));
+  }, [checkedList, item]);
+
+  const onSubmit = () => {};
+
+  const onChangeQty = e => {
+    const newCartList = cartList.map(cartItem => {
+      if (cartItem.id === item.id) {
+        cartItem.qty = Number(e.target.value);
+
+        return cartItem;
+      } else {
+        return cartItem;
+      }
+    });
+    setCartList(newCartList);
+  };
+
+  const onCheck = e => {
+    if (e.target.checked) {
+      setIsChecked(true);
+      setCheckedList([...checkedList, item]);
+    } else {
+      setIsChecked(false);
+      setCheckedList(checkedList.filter(cartItem => cartItem.id !== item.id));
+    }
+  };
+
   return (
     <tr className="cartItem">
       <td className="checkBox">
-        <input type="checkbox" />
+        <input type="checkbox" onChange={onCheck} checked={isChecked} />
       </td>
       <td>
         <img src={item.product} alt={item.info} />
@@ -14,8 +53,16 @@ const CartItem = ({ item, total }) => {
       <td>￦{item.price}</td>
       <td className="quantity">
         <div>
-          <input type="number" className="quantityBtn" />
-          <button className="modifyBtn">Modify</button>
+          <input
+            type="number"
+            className="quantityBtn"
+            onChange={onChangeQty}
+            value={item.qty}
+            min="1"
+          />
+          <button className="modifyBtn" onClick={onSubmit}>
+            Modify
+          </button>
         </div>
       </td>
       <td>-</td>
@@ -29,14 +76,7 @@ const CartItem = ({ item, total }) => {
           조건
         </td>
       )}
-      <td>￦{item.price}</td>
-      <td>
-        <div className="selectBtn">
-          <button>주문하기</button>
-          <button>관심상품등록</button>
-          <button>x 삭제</button>
-        </div>
-      </td>
+      <td>￦ {item.price * item.qty}</td>
     </tr>
   );
 };

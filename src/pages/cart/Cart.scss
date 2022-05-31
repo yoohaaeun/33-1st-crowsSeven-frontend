@@ -80,8 +80,40 @@
       cursor: pointer;
     }
   }
-}
 
+  .noItem {
+    height: 150px;
+    font-weight: 300;
+  }
+
+  .product {
+    width: 150px;
+  }
+
+  .info {
+    width: 220px;
+  }
+
+  .mileage {
+    width: 70px;
+  }
+
+  .price {
+    width: 150px;
+  }
+
+  .delivery {
+    width: 120px;
+  }
+
+  .charge {
+    width: 120px;
+  }
+
+  .total {
+    width: 150px;
+  }
+}
 .noItem {
   height: 150px;
   font-weight: 300;
