@@ -8,6 +8,7 @@ import './Main.scss';
 const Main = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
+  const [throttle, setThrottle] = useState(false);
   const scrollRef = useRef();
 
   const moveSlide = index => {
@@ -27,17 +28,25 @@ const Main = () => {
 
   useEffect(() => {
     const scroll = scrollRef.current;
-    scroll.addEventListener('scroll', handleScroll, false);
+    scroll.addEventListener('scroll', throttleFunc, false);
 
     return () => {
-      scroll.removeEventListener('scroll', handleScroll, false);
+      scroll.removeEventListener('scroll', throttleFunc, false);
     };
   });
 
-  const handleScroll = e => {
-    const { scrollTop, scrollHeight } = e.target;
-    let height = Math.floor((scrollTop / scrollHeight) * 100);
-    if (height > 17 && height < 51) setScrollTop(height);
+  const throttleFunc = e => {
+    if (!throttle) {
+      const { scrollTop, scrollHeight } = e.target;
+      let height = Math.floor((scrollTop / scrollHeight) * 100);
+      if (height > 17 && height < 60) {
+        setScrollTop(height);
+        setThrottle(true);
+      }
+      setTimeout(() => {
+        setThrottle(false);
+      }, 300);
+    }
   };
 
   return (
@@ -73,18 +82,18 @@ const Main = () => {
       </div>
       <section id="second" className="mainSection">
         <SectionImg url={SECOND_IMG} />
-        <h1 className={`${scrollTop > 19 && scrollTop < 25 ? 'moveText' : ''}`}>
+        <h1 className={`${scrollTop > 19 && scrollTop < 30 ? 'moveText' : ''}`}>
           CrowSeven Membership
         </h1>
         <span
-          className={`${scrollTop > 19 && scrollTop < 25 ? 'moveText' : ''}`}
+          className={`${scrollTop > 19 && scrollTop < 30 ? 'moveText' : ''}`}
         >
           크로우세븐의 멤버가 되시고 최대 50%의 추가 적립, 무로배송, 생일할인
           쿠폰 등 혜택을 받아가세요
         </span>
         <button
           className={`secondImgBtn ${
-            scrollTop > 19 && scrollTop < 25 ? 'moveText' : ''
+            scrollTop > 19 && scrollTop < 30 ? 'moveText' : ''
           }`}
         >
           자세히 보기
@@ -92,18 +101,18 @@ const Main = () => {
       </section>
       <section id="third" className="mainSection">
         <SectionImg url={THIRD_IMG} />
-        <h1 className={`${scrollTop > 42 && scrollTop < 48 ? 'moveText' : ''}`}>
+        <h1 className={`${scrollTop > 41 && scrollTop < 52 ? 'moveText' : ''}`}>
           타임세일이 종료되었습니다.
         </h1>
         <span
-          className={`${scrollTop > 42 && scrollTop < 48 ? 'moveText' : ''}`}
+          className={`${scrollTop > 41 && scrollTop < 52 ? 'moveText' : ''}`}
         >
           4월 재입고 맞이, 7일동안!!! {'\n'}
           유광케이스 균일가 타임세일!
         </span>
         <button
           className={`secondImgBtn ${
-            scrollTop > 42 && scrollTop < 48 ? 'moveText' : ''
+            scrollTop > 41 && scrollTop < 52 ? 'moveText' : ''
           }`}
         >
           자세히 보기
