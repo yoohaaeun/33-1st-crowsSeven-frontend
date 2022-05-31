@@ -23,7 +23,6 @@ const ReviewPage = () => {
   const transferBack = () => {};
   const location = useLocation();
 
-  console.log(location);
   useEffect(() => {
     fetch('/data/relatedProductData.json')
       // 백 api
