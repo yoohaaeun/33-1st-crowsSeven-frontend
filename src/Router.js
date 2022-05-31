@@ -3,10 +3,11 @@ import ProductDetail from './pages/productDetail/ProductDetail';
 import Store from './pages/store/Store';
 import Cart from './pages/Cart/Cart';
 import Nav from './components/Nav/Nav';
-import Post from './review/Post';
+import Post from './pages/review/Post';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import StoreModal from './components/storeModal/StoreModal';
+import Main from './pages/main/Main';
 
 const Router = () => {
   return (
@@ -14,6 +15,7 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Nav />} />
+        <Route path="/" element={<Main />} />
         <Route path="/store" element={<Store />} />
         <Route path="/storeModal" element={<StoreModal />} />
         <Route path="/productDetail" element={<ProductDetail />} />

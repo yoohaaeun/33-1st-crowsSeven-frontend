@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Nav from '../../src/components/Nav/Nav';
+import Nav from '../../components/Nav/Nav';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
-import TextItem from '../components/review/TextItem';
+import TextItem from '../../components/reviews/TextItem';
 import './Post.scss';
 
 const PRODUCT_INFO = [
@@ -111,7 +111,7 @@ const Post = () => {
             <div className="arrowUp">
               <AiOutlineArrowDown /> 이전글
             </div>
-            <div></div>
+            <div />
           </div>
           <div className="nextArticle">
             <div className="arrowDown">
