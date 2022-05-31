@@ -1,0 +1,181 @@
+@import 'src/styles/variables.scss';
+
+.MyPage {
+  @include flexCenter;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  padding: 150px 0;
+
+  .title {
+    margin-bottom: 40px;
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .myPageBox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 90px;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    background-color: #fafafa;
+
+    .userBoxDescription {
+      margin: 20px;
+      font-size: 14px;
+
+      .userBoxFirstLine {
+        margin-bottom: 4px;
+      }
+    }
+
+    .photoBox {
+      width: 70px;
+      height: 70px;
+      border: 1px solid black;
+    }
+  }
+
+  .reserveFundBox {
+    display: flex;
+    width: 100%;
+    height: 140px;
+    margin-top: 20px;
+    border: 1px solid #dddddd;
+    background-color: #fafafa;
+    font-size: 14px;
+
+    .reserveFundBox1 {
+      width: 50%;
+      padding: 30px 40px;
+      border-right: 1px solid #dddddd;
+
+      .useableFund {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        .inquiry {
+          span {
+            margin-right: 20px;
+          }
+          button {
+            border: 1px solid #dddddd;
+            background-color: #fafafa;
+
+            &:hover {
+              background-color: #e3e3e3;
+            }
+          }
+        }
+
+        .useFund {
+          margin-right: 60px;
+        }
+      }
+    }
+
+    .reserveFundBox2 {
+      padding: 30px 40px;
+      width: 50%;
+
+      .allReserveFund {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        .allFund {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+
+  .orderStateBox {
+    width: 100%;
+    height: 140px;
+    margin: 20px;
+    border: 1px solid #dddddd;
+    background-color: #fafafa;
+    font-size: 14px;
+
+    .orderStateTitle {
+      padding: 14px;
+      border-bottom: 1px solid #dddddd;
+      font-size: 13px;
+
+      .titleAlert {
+        margin-left: 10px;
+        font-size: 11px;
+      }
+    }
+
+    .orderState {
+      display: flex;
+      height: 70%;
+      padding: 15px 0;
+      border: 1px solid #dddddd;
+      background-color: white;
+
+      .stateBox {
+        @include flexCenter;
+        flex-direction: column;
+        width: 20%;
+        border-right: 1px solid #dddddd;
+
+        .stateTitle {
+          margin-bottom: 15px;
+        }
+
+        .stateNum {
+          font-size: 20px;
+        }
+      }
+
+      .stateBox {
+        @include flexCenter;
+        flex-direction: column;
+
+        .allState {
+          margin: 3px;
+
+          span {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .linkBox {
+    @include flexCenter;
+    flex-direction: column;
+    width: 100%;
+    height: 170px;
+    margin-bottom: 15px;
+    border: 1px solid #dddddd;
+    background-color: #fafafa;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .linkIcon {
+      width: 30px;
+      margin-bottom: 17px;
+    }
+
+    .linkTitle {
+      margin-bottom: 15px;
+      font-size: 17px;
+    }
+
+    .linkDescription {
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+  }
+}
