@@ -1,3 +1,4 @@
+import { AiFillCloseSquare } from 'react-icons/ai';
 import './StoreModal.scss';
 
 const StoreModal = () => {
@@ -5,6 +6,7 @@ const StoreModal = () => {
     <div className="storeModal">
       <div className="modalBackground" />
       <div className="modalComponent">
+        <AiFillCloseSquare className="closeBtn" />
         <section className="imgSection">
           <span>product thumbnail</span>
         </section>
