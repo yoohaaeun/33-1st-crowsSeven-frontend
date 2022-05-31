@@ -1,6 +1,6 @@
 import { FiHeart } from 'react-icons/fi';
 import { MdPhotoSizeSelectSmall } from 'react-icons/md';
-import { GrFacebook, GrTwitter } from 'react-icons/gr';
+import { GrFacebook, GrTwitter, GrClose } from 'react-icons/gr';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { useState, useEffect } from 'react';
 import Nav from '../../components/Nav/Nav';
@@ -119,7 +119,7 @@ const ProductDetail = () => {
         </section>
         <div className={reviewDrawer ? 'drawerPage active' : 'drawerPage'}>
           <ReviewDrawerPage />
-          <button onClick={handleReviewDrawer}>x</button>
+          <GrClose onClick={handleReviewDrawer} className="cancel" />
         </div>
         <div
           className={
