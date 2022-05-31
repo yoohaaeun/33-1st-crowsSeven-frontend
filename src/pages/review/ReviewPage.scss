@@ -1,0 +1,145 @@
+@import '../styles/variables.scss';
+
+.ReviewPage {
+  padding: 10rem 18.75rem 10rem 18.75rem;
+  .slideRight {
+    @include flexCenter;
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+      animation: slide-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+    @keyframes slide-right {
+      0% {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0px);
+        opacity: 1;
+      }
+    }
+  }
+  .productList {
+    h3 {
+      font-size: 25px;
+      font-weight: bold;
+      margin: 30px 0;
+    }
+
+    table {
+      width: 100%;
+      margin: 50px 0;
+      thead {
+        tr {
+          border-top: 1px solid black;
+          border-bottom: 1px solid black;
+          height: 60px;
+          line-height: 60px;
+        }
+      }
+      tbody {
+        tr {
+          border-bottom: 1px solid black;
+          height: 120px;
+          text-align: center;
+          line-height: 120px;
+
+          td {
+            vertical-align: middle;
+            position: relative;
+            div {
+              display: flex;
+              align-items: center;
+              color: gray;
+              font-size: 15px;
+              img {
+                width: 70px;
+                height: 70px;
+                margin: 0 5px;
+              }
+            }
+          }
+        }
+        .tableLeft {
+          font-size: 20px;
+          text-align: start;
+        }
+        // .productName {
+        //   text-align: start;
+        // }
+      }
+    }
+  }
+
+  .btnSearch {
+    .prevNextBtn {
+      @include flexCenter;
+      margin: 50px 0;
+
+      button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      ul {
+        display: flex;
+
+        li {
+          padding: 10px 15px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #f1f1f1;
+          }
+        }
+      }
+    }
+
+    .searchText {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .reviewWrite {
+        background-color: black;
+        color: white;
+        padding: 8px 40px;
+        border: 1px solid lightgray;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+          color: black;
+          background-color: #fafafa;
+        }
+      }
+
+      span {
+        font-weight: bold;
+      }
+
+      .searchField {
+        select {
+          width: 80px;
+          margin: 0 5px;
+          height: 25px;
+        }
+
+        .searchInput {
+          width: 200px;
+          margin-right: 5px;
+        }
+
+        .searchBtn {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+}

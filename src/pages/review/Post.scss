@@ -1,4 +1,4 @@
-@import '../styles/variables.scss';
+@import '../../styles/variables.scss';
 
 .post {
   @include flexColumn;
@@ -20,6 +20,7 @@
       transform: translateX(-100px);
       opacity: 0;
     }
+
     100% {
       transform: translateX(0px);
       opacity: 1;
@@ -99,11 +100,13 @@
       align-items: center;
       margin-right: 67px;
       padding: 15px 10px;
+
       &:last-child {
         font-size: 25px;
       }
     }
   }
+
   .mainPost {
     .postAuthor {
       border-bottom: 1px solid lightgray;
@@ -169,6 +172,7 @@
             margin-right: 10px;
           }
         }
+
         .replyBtnContainer {
           button {
             background-color: transparent;
@@ -222,6 +226,7 @@
         }
       }
     }
+
     margin-bottom: 20px;
   }
 

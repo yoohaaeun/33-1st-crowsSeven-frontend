@@ -1,0 +1,24 @@
+.mainButton {
+  position: absolute;
+  width: 7rem;
+  height: 3rem;
+  bottom: 8rem;
+  right: 12rem;
+  border: none;
+  border-radius: 2px;
+  background-color: #FAFAFA;
+  outline: none;
+  animation: moveTo 0.7s ease-in;
+}
+
+@keyframes moveTo {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
