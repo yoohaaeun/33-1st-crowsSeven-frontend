@@ -16,7 +16,36 @@ const CartItem = ({
     setIsChecked(checkedList && checkedList.includes(item));
   }, [checkedList, item]);
 
-  const onSubmit = () => {};
+  // 시작❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
+
+  // ✨ 수량수정, 재고부족알림 ✨
+  const onSubmit = () => {
+    // console.log('아이템 아이디', item.id);
+    // console.log('바꿀수량', item.qty);
+
+    fetch('http://221.114.81.121:8080/cart', {
+      method: 'PUT',
+      body: JSON.stringify({
+        id: item.id,
+        qty: item.qty,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        // console.log(result);
+        if (result.message === 'success') {
+          alert('수량이 변경되었습니다.');
+        }
+      })
+      .catch(e => {
+        // console.log(e);
+        if (e.message === 'STUFF_OVERFLOW') {
+          alert('재고가 부족합니다.');
+        }
+      });
+  };
+
+  // 끝❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
 
   const onChangeQty = e => {
     const newCartList = cartList.map(cartItem => {

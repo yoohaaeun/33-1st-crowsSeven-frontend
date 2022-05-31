@@ -9,12 +9,16 @@ const Cart = () => {
 
   const cartEmpty = cartList.length === 0;
 
-  useEffect(() => {
+  const fetchCartList = () => {
     fetch('/data/cartListData.json')
       .then(res => res.json())
       .then(data => {
         setCartList(data);
       });
+  };
+
+  useEffect(() => {
+    fetchCartList();
   }, []);
 
   return (
@@ -30,6 +34,7 @@ const Cart = () => {
             setCartList={setCartList}
             checkedList={checkedList}
             setCheckedList={setCheckedList}
+            fetchCartList={fetchCartList}
           />
         )}
       </div>

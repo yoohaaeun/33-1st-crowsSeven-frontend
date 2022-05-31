@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CartItem from './CartItem';
 
 const TABLE_HEADER = [
@@ -17,6 +18,7 @@ const CartNotEmpty = ({
   setCartList,
   checkedList,
   setCheckedList,
+  fetchCartList,
 }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
 
@@ -45,6 +47,116 @@ const CartNotEmpty = ({
       setIsAllChecked(false);
     }
   };
+
+  const navigate = useNavigate();
+
+  // 시작❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
+
+  // ✨ 선택삭제 ✨
+  const onSelectDelete = () => {
+    const checkedIds = checkedList.map(checkedItem => checkedItem.id);
+    const query = checkedIds.map(id => `cart_id=${id}`).join('&');
+
+    fetch(`http://~~~:8080/cart?${query}`, {
+      method: 'DELETE',
+      // body: JSON.stringify({
+      //   cart_item: checkedIds,
+      // }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        // console.log(result);
+        if (result.message === 'success') {
+          fetchCartList();
+        }
+      })
+      .catch(e => {
+        alert('다시 시도해주세요.');
+      });
+  };
+
+  // ✨ 선택주문 ✨
+  const goToSelectOrder = () => {
+    const checkedIds = checkedList.map(checkedItem => checkedItem.id);
+
+    const price = checkedList
+      .map(item => item.price * item.qty)
+      .reduce((a, b) => a + b, 0);
+    const shipping = price >= 50000 ? 0 : 3000;
+
+    fetch('http://221.114.81.121:8080/cart', {
+      method: 'POST',
+      headers: {
+        Authorization: 'token',
+      },
+      body: JSON.stringify({
+        cart_ids: checkedIds,
+        shipping_free: shipping,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        // console.log(result);
+        if (result.message === 'success') {
+          navigate('/order');
+        }
+      })
+      .catch(e => {
+        alert('다시 시도해주세요.');
+      });
+  };
+
+  // ✨ 전체삭제 ✨
+  const onDelete = () => {
+    const cartItemIds = cartList.map(cartItem => cartItem.id);
+    const query = cartItemIds.map(id => `cart_id=${id}`).join('&');
+
+    fetch(`http://~~~:8080/cart?${query}`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+        cart_item: cartItemIds,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        // console.log(result);
+        if (result.message === 'success') {
+          fetchCartList();
+        }
+      })
+      .catch(e => {
+        alert('다시 시도해주세요.');
+      });
+  };
+
+  // ✨ 전체주문 ✨
+  const goToOrder = () => {
+    const cartItemIds = cartList.map(cartItem => cartItem.id);
+
+    fetch('http://221.114.81.121:8080/cart', {
+      method: 'POST',
+      headers: {
+        Authorization: 'token',
+      },
+      body: JSON.stringify({
+        cart_item: cartItemIds,
+        shipping_free: shipping,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        // console.log(result);
+        if (result.message === 'success') {
+          navigate('/order');
+        }
+      })
+      .catch(e => {
+        alert('다시 시도해주세요.');
+      });
+  };
+
+  // 끝❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
+
   return (
     <>
       <table>
@@ -98,12 +210,12 @@ const CartNotEmpty = ({
       </table>
       <div className="bottomBtn">
         <div className="deleteBtn">
-          <button>Select Delete</button>
-          <button>Delete</button>
+          <button onClick={onSelectDelete}>Select Delete</button>
+          <button onClick={onDelete}>Delete</button>
         </div>
         <div className="orderBtn">
-          <button>Select Order</button>
-          <button>Order</button>
+          <button onClick={goToSelectOrder}>Select Order</button>
+          <button onClick={goToOrder}>Order</button>
         </div>
       </div>
     </>
