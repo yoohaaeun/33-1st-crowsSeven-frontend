@@ -1,0 +1,178 @@
+.orderInfo {
+  // background-color: whitesmoke;
+  width: 80rem;
+  font-size: 13px;
+
+  input {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    margin-right: 18px;
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+
+    .emailText {
+      p {
+        margin-top: 10px;
+        line-height: 15px;
+        font-size: 11px;
+      }
+    }
+  }
+
+  .title {
+    width: 11%;
+  }
+
+  .destinationBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    input {
+      margin-right: 0.4rem;
+    }
+
+    label {
+      margin-right: 1.25rem;
+      cursor: pointer;
+    }
+  }
+
+  .addressBox {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin-bottom: 15px;
+    }
+
+    & > div {
+      &:last-child {
+        input {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .paymentBox {
+    display: flex;
+  }
+
+  .radiobox {
+    display: flex;
+    align-items: center;
+    // background-color: burlywood;
+
+    input {
+      margin: 0;
+    }
+  }
+
+  .radio {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    margin-right: 15px;
+
+    input {
+      margin-right: 5px;
+      cursor: pointer;
+      position: relative;
+      top: -1px;
+      accent-color: black;
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0 0 0;
+    margin-top: 30px;
+    border-top: 1px solid black;
+
+    p {
+      font-size: 15px;
+    }
+
+    button {
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+}
+
+.creditCard {
+  padding: 20px 0 0 0;
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  .inputBox {
+    input {
+      margin: 0 10px 0 0;
+    }
+
+    label {
+      cursor: pointer;
+      position: relative;
+      top: -2px;
+    }
+  }
+}
+
+.accountTransfer {
+  padding: 20px 0 0 0;
+
+  .inputBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    p {
+      margin-right: 10px;
+    }
+  }
+}
+
+.deposit {
+  padding: 20px 0 0 0;
+
+  .inputBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    p {
+      margin-right: 10px;
+    }
+  }
+
+  .selectBox {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-right: 20px;
+    }
+
+    select {
+      position: relative;
+      top: -2px;
+    }
+  }
+}

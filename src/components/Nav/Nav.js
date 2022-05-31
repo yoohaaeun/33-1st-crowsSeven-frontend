@@ -125,10 +125,6 @@ const STORE = [
     id: 6,
     listName: '키친웨어',
   },
-  {
-    id: 7,
-    listName: '보울',
-  },
 ];
 const COMMUNITY = [
   {
