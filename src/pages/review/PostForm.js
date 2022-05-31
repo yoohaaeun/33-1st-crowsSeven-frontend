@@ -9,13 +9,13 @@ const PostForm = () => {
     navigate('/review_page');
   };
 
-  const POST_WRITE = [
-    {
-      reviewSubject: '',
-      reviewText: '',
-      password: '',
-    },
-  ];
+  //toDo : const POST_WRITE = [
+  //   {
+  //     reviewSubject: '',
+  //     reviewText: '',
+  //     password: '',
+  //   },
+  // ];
 
   const [makeListTransfer, setMakeListTransfer] = useState({
     subject: '',
@@ -24,7 +24,20 @@ const PostForm = () => {
     password: '',
   });
 
-  console.log(makeListTransfer);
+  const postComment = () => {
+    fetch('본문내용을 받는 api주소', {
+      method: 'POST',
+      body: JSON.stringify(makeListTransfer),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'susscess') {
+          navigate('/review_page');
+        } else {
+          alert('잘못된 요청입니다');
+        }
+      });
+  };
 
   const postTransfer = e => {
     setMakeListTransfer({
@@ -32,7 +45,7 @@ const PostForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  console.log(makeListTransfer);
   return (
     <div className="postForm">
       <header className="slideRight">
@@ -58,7 +71,7 @@ const PostForm = () => {
           <tbody>
             <tr>
               <td className="textArea" colSpan="2">
-                <textarea name="content" onChange={postTransfer}></textarea>
+                <textarea name="content" onChange={postTransfer} />
               </td>
             </tr>
             <tr>
@@ -80,7 +93,9 @@ const PostForm = () => {
             </button>
           </div>
           <div>
-            <button className="createBtn">등록</button>
+            <button className="createBtn" onClick={postComment}>
+              등록
+            </button>
             <button className="cancleBtn" onClick={goToReviewList}>
               취소
             </button>
