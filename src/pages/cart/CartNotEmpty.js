@@ -98,15 +98,11 @@ const CartNotEmpty = ({
       </table>
       <div className="bottomBtn">
         <div className="deleteBtn">
-          <button onClick={() => console.log('삭제:', checkedList)}>
-            Select Delete
-          </button>
+          <button>Select Delete</button>
           <button>Delete</button>
         </div>
         <div className="orderBtn">
-          <button onClick={() => console.log('주문:', checkedList)}>
-            Select Order
-          </button>
+          <button>Select Order</button>
           <button>Order</button>
         </div>
       </div>

@@ -13,7 +13,6 @@ const CartItem = ({
   const [isChecked, setIsChecked] = useState();
 
   useEffect(() => {
-    console.log(checkedList.includes(item));
     setIsChecked(checkedList && checkedList.includes(item));
   }, [checkedList, item]);
 
