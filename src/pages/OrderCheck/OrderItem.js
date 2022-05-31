@@ -7,7 +7,7 @@ const OrderItem = ({ item, total }) => {
         <div>{item.date}</div>
       </td>
       <td>
-        <img src={item.product} alt={item.info} />
+        <img className="productImg" src={item.product} alt={item.info} />
       </td>
       <td>{item.info}</td>
       <td>￦{item.price}</td>
