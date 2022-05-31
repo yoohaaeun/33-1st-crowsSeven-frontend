@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Nav from '../../components/Nav/Nav';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
 import TextItem from '../../components/reviews/TextItem';
+import ReviewPost from '../../components/reviews/ReviewPost';
 import './Post.scss';
 
 const PRODUCT_INFO = [
@@ -23,6 +24,7 @@ const Post = () => {
       .then(res => res.json())
       .then(productData => setPostList(productData));
   }, []);
+  // console.log(textList[0]?.post); ?. => optional chaining 조건부 랜더링
 
   const navigate = useNavigate();
   const goToTextList = () => {
@@ -49,30 +51,9 @@ const Post = () => {
             </div>
           </div>
         </section>
-        <main className="mainPost">
-          <div className="postSubject">
-            <div>제목</div>
-            <div>서비스</div>
-          </div>
-          <div className="postAuthor">
-            <div>작성자</div>
-            <div>주****</div>
-          </div>
-          <div className="postDateView">
-            <span className="postDate">작성일 2022-05-18 15:44:51</span>
-            <span className="postView">조회수 32</span>
-          </div>
-          <article className="postArea">
-            생각보다 검은색 띠 자국이 심해서 보기에 안좋고 찝찝해서 반품합니다.
-            <br />
-            스푼은 별로입니다 <br />
-            그리고 고객 서비스가 제대로 되고 있지 않네요 <br />
-            반품처리도 느리고요. <br />
-            다시는 구매하고싶지 않네요
-          </article>
-        </main>
+        <ReviewPost textList={postList} />
+        {/* 목데이터를 따로 만드는 게 낫다 하나라도 */}
         <button className="goList" onClick={goToTextList}>
-          {/* TODO: 주소 확정되면 Link 컴포넌트 추가 */}
           목록
         </button>
         <section className="reply">
@@ -111,7 +92,6 @@ const Post = () => {
             <div className="arrowUp">
               <AiOutlineArrowDown /> 이전글
             </div>
-            <div />
           </div>
           <div className="nextArticle">
             <div className="arrowDown">
@@ -139,8 +119,13 @@ const Post = () => {
               {postList
                 .filter(data => data.id < 6)
                 .map(productData => (
-                  <TextItem key={productData.id} postItem={productData} />
+                  <TextItem
+                    key={productData.id}
+                    postItem={productData}
+                    isImgShow={false}
+                  />
                 ))}
+              {/* 백엔드가 나와야 게시글 id에 대해 이동가능하고 화요일에 세션있음 */}
             </tbody>
           </table>
         </section>

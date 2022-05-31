@@ -1,11 +1,18 @@
 import React from 'react';
 
-const TextItem = ({ postItem }) => {
-  const { id, number, subject, author, date, hit } = postItem;
+const TextItem = ({ postItem, isImgShow }) => {
+  const { id, number, img, product, subject, author, date, hit } = postItem;
+
   return (
     <tr key={id}>
-      <td>{number} </td>
-      <td className="productName">D49 스몰스푼 베이비블루마블</td>
+      <td className="marginRight">{number} </td>
+
+      <td className="productName tableLeft">
+        <div>
+          {isImgShow ? <img src={img} alt="tableware" /> : null}
+          {product}
+        </div>
+      </td>
       <td className="tableLeft">{subject}</td>
       <td>{author}</td>
       <td>{date}</td>
@@ -14,4 +21,19 @@ const TextItem = ({ postItem }) => {
   );
 };
 
+// props isImgShow true img tag rendering
+// IMG O, IMG X
+// img property img tag rendering
 export default TextItem;
+
+// what
+// ~~~
+// fetch
+// article, udemy, youtube,
+// O
+
+// Project
+// fetch ~~~
+// ~~~
+
+//
