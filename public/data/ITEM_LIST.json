@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "state": "none",
+    "itemThumbnail": "https://www.crowcanyon.co.kr/web/product/small/202203/16a008f72589a3a09c36fae321afbd91.png",
+    "itemDetail": "https://crowcanyon.co.kr/web/upload/NNEditor/20220315/KakaoTalk_20220315_094234994.jpg",
+    "itemName": "C03 쇼트텀블러 민트 히비스커스",
+    "description": "크로우캐년홈은 1977년 창업이래, 클래식한 디자인과 내구성 둘 다 갖춘 높은 퀄리티의 에나멜웨어를 만들어왔습니다. 미국 뿐 아니라 전세계적으로 유리나 플라스틱 등 깨지기 쉬운 소재가 환경에 안좋은 소재가 사용되는 것을 우려하여 지속 가능하며 청결하고 디자인까지 멋진 제품은 없을까 라는 아이디어에서 시작하여 만들어졌습니다. 플레이트의 지름은 약 26cm 이며, 색상은 블루 색상입니다.",
+    "price": "21000"
+  },
+  {
+    "id": 2,
+    "state": "new",
+    "itemThumbnail": "https://www.crowcanyon.co.kr/web/product/medium/202203/39e9a5186ba187976c464fb88582928f.png",
+    "itemDetail": "https://crowcanyon.co.kr/web/upload/NNEditor/20220315/KakaoTalk_20220315_094234994_09.jpg",
+    "itemName": "C03 쇼트텀블러 핑크 선셋",
+    "price": "21000"
+  },
+  {
+    "id": 3,
+    "state": "soldOut",
+    "itemThumbnail": "https://www.crowcanyon.co.kr/web/product/small/202103/71afe35d0ce3671155c2b63811fc29cd.jpg",
+    "itemDetail": "https://crowcanyon.co.kr/web/upload/NNEditor/20211123/%EC%83%81%EC%84%B8_%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8_%ED%84%B0%ED%82%A4%EB%A7%88%EB%B8%94%EC%87%BC%ED%8A%B8%ED%85%80%EB%B8%94%EB%9F%AC_01_shop2_154740.jpg",
+    "itemName": "D03 쇼트텀블러 터키마블",
+    "price": "18000"
+  },
+  {
+    "id": 4,
+    "state": "none",
+    "itemThumbnail": "https://www.crowcanyon.co.kr/web/product/small/202107/a2463dd38d3e7557d2849b90c6872690.jpg",
+    "itemDetail": "https://crowcanyon.co.kr/web/upload/NNEditor/20211125/%EC%83%81%EC%84%B8_%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8_%EB%A0%88%EB%93%9C%EB%A7%88%EB%B8%94%EB%B0%80%ED%81%AC%ED%8C%AC_01_shop2_151457.jpg",
+    "itemName": "D130 밀크팬 레드마블",
+    "price": "41000"
+  },
+  {
+    "id": 5,
+    "state": "none",
+    "itemThumbnail": "https://www.crowcanyon.co.kr/web/product/medium/202103/addb91dc847adf3bfe2ac38f107c4c9a.jpg",
+    "itemDetail": "https://crowcanyon.co.kr/web/upload/NNEditor/20211123/%EC%83%81%EC%84%B8_%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8_%EB%A0%88%EB%93%9C%EB%A7%88%EB%B8%94%EB%94%94%EB%84%88%ED%94%8C%EB%A0%88%EC%9D%B4%ED%8A%B8_01_shop2_184325.jpg",
+    "itemName": "D20 디너플레이트 레드마블",
+    "price": "25000"
+  },
+  {
+    "id": 6,
+    "state": "soldOut",
+    "itemThumbnail": "https://www.crowcanyon.co.kr/web/product/small/202103/e3e54e7d2b4055e52b73ededd8b21130.jpg",
+    "itemDetail": "https://crowcanyon.co.kr/web/upload/NNEditor/20211123/%EC%83%81%EC%84%B8_%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8_%EB%B8%94%EB%A3%A8%EB%A7%88%EB%B8%94%EB%94%94%EB%84%88%ED%94%8C%EB%A0%88%EC%9D%B4%ED%8A%B8_01_shop2_184347.jpg",
+    "itemName": "D20 디너플레이트 블루마블",
+    "price": "25000"
+  }
+]

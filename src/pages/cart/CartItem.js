@@ -2,17 +2,27 @@ import React, { useState, useEffect } from 'react';
 
 import './CartItem.scss';
 
-const CartItem = ({ item, total, cartList, setCartList }) => {
-  const [quantity, setQuantity] = useState();
+const CartItem = ({
+  item,
+  total,
+  cartList,
+  setCartList,
+  checkedList,
+  setCheckedList,
+}) => {
+  const [isChecked, setIsChecked] = useState();
+
+  useEffect(() => {
+    setIsChecked(checkedList && checkedList.includes(item));
+  }, [checkedList, item]);
 
   const onSubmit = () => {};
 
   const onChangeQty = e => {
-    setQuantity(Number(e.target.value));
-
     const newCartList = cartList.map(cartItem => {
       if (cartItem.id === item.id) {
         cartItem.qty = Number(e.target.value);
+
         return cartItem;
       } else {
         return cartItem;
@@ -21,14 +31,20 @@ const CartItem = ({ item, total, cartList, setCartList }) => {
     setCartList(newCartList);
   };
 
-  useEffect(() => {
-    setQuantity(item.qty);
-  }, [item.qty]);
+  const onCheck = e => {
+    if (e.target.checked) {
+      setIsChecked(true);
+      setCheckedList([...checkedList, item]);
+    } else {
+      setIsChecked(false);
+      setCheckedList(checkedList.filter(cartItem => cartItem.id !== item.id));
+    }
+  };
 
   return (
     <tr className="cartItem">
       <td className="checkBox">
-        <input type="checkbox" />
+        <input type="checkbox" onChange={onCheck} checked={isChecked} />
       </td>
       <td>
         <img src={item.product} alt={item.info} />
@@ -41,7 +57,7 @@ const CartItem = ({ item, total, cartList, setCartList }) => {
             type="number"
             className="quantityBtn"
             onChange={onChangeQty}
-            value={quantity}
+            value={item.qty}
             min="1"
           />
           <button className="modifyBtn" onClick={onSubmit}>
@@ -60,7 +76,7 @@ const CartItem = ({ item, total, cartList, setCartList }) => {
           조건
         </td>
       )}
-      <td>￦ {item.price * quantity}</td>
+      <td>￦ {item.price * item.qty}</td>
     </tr>
   );
 };

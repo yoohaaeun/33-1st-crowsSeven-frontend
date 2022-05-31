@@ -1,7 +1,9 @@
 import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     id: '',
     pw: '',
@@ -15,6 +17,26 @@ const Login = () => {
       ...inputValue,
       [name]: value,
     });
+  };
+
+  const goToMain = () => {
+    fetch('http://10.58.6.28:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: id,
+        password: pw,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.token) {
+          localStorage.setItem('token', result.token);
+        }
+      });
+  };
+
+  const goToSignup = () => {
+    navigate('../signup');
   };
 
   return (
@@ -43,7 +65,8 @@ const Login = () => {
         </div>
         <button
           className="signBtn"
-          disabled={!(id.includes('@') && pw.length >= 5)}
+          disabled={!(id.length > 6 && pw.length >= 5)}
+          onClick={goToMain}
         >
           SIGN IN
         </button>
@@ -53,7 +76,9 @@ const Login = () => {
             <div>or</div>
             <div className="forgotPw">Password</div>
           </div>
-          <div className="createAccount">CreateAccount</div>
+          <div className="createAccount" onClick={goToSignup}>
+            CreateAccount
+          </div>
         </div>
       </section>
     </div>

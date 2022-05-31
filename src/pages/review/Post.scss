@@ -1,0 +1,264 @@
+@import '../../styles/variables.scss';
+
+.post {
+  @include flexColumn;
+  @include flexAround;
+  padding: 10rem 18.75rem 1.6rem 18.75rem;
+
+  .slideRight {
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      font-size: 25px;
+      animation: slide-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+  }
+
+  @keyframes slide-right {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+
+  .product {
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    width: 22rem;
+    height: 13rem;
+    background-color: #fafafa;
+    @include flexCenter;
+
+    .productInfo {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 90px;
+        height: 90px;
+        margin-right: 20px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .detailedInfo {
+        @include flexColumn;
+        height: 10.625rem;
+        justify-content: space-around;
+
+        .receivingStatus {
+          span {
+            color: white;
+            margin-right: 5px;
+
+            &:first-child {
+              background-color: #b6e46a;
+            }
+
+            &:last-child {
+              background-color: black;
+            }
+          }
+        }
+
+        .productPrice {
+          color: gray;
+        }
+
+        .viewDetails {
+          background-color: white;
+          border: 1px solid lightgray;
+          padding: 5px 0;
+          width: 70%;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #ebebeb;
+          }
+        }
+      }
+    }
+  }
+
+  .postSubject {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+
+    div {
+      display: flex;
+      align-items: center;
+      margin-right: 67px;
+      padding: 15px 10px;
+
+      &:last-child {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .mainPost {
+    .postAuthor {
+      border-bottom: 1px solid lightgray;
+      display: flex;
+
+      div {
+        display: flex;
+        align-items: center;
+        margin-right: 50px;
+        padding: 15px 10px;
+      }
+    }
+
+    .postDateView {
+      border-bottom: 1px solid lightgray;
+      color: gray;
+      display: flex;
+      align-items: center;
+      padding: 15px 10px;
+
+      .postDate {
+        margin-right: 20px;
+      }
+    }
+
+    .postArea {
+      border-bottom: 1px solid lightgray;
+      padding: 70px 0;
+      margin-bottom: 20px;
+      line-height: 30px;
+      white-space: pre-line;
+      // 리액트 개행문자
+    }
+  }
+
+  .goList {
+    background-color: transparent;
+    width: 10%;
+    border: 1px solid lightgray;
+    padding: 8px 0;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #f3f3f3;
+    }
+  }
+
+  .reply {
+    margin: 30px 0;
+
+    .replyText {
+      border: 1px solid lightgray;
+      padding: 10px 10px 25px 10px;
+
+      .replyModifyDelete {
+        @include flexSpaceBetween;
+
+        .replyAuthorContainer {
+          color: gray;
+
+          .replyAuthor {
+            font-size: 15px;
+            margin-right: 10px;
+          }
+        }
+
+        .replyBtnContainer {
+          button {
+            background-color: transparent;
+            border: 1px solid lightgray;
+
+            &:hover {
+              cursor: pointer;
+              background-color: #f3f3f3;
+            }
+
+            &:first-child {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+
+      .replyTextArea {
+        line-height: 50px;
+      }
+    }
+
+    .replyAdmin {
+      padding: 20px;
+      margin: 20px 0;
+      border: 1px solid lightgray;
+      color: gray;
+    }
+  }
+
+  .nextText {
+    .prevArticle {
+      border: 1px solid lightgray;
+      padding: 10px 15px;
+    }
+
+    .nextArticle {
+      border: 1px solid lightgray;
+      padding: 10px 15px;
+      display: flex;
+
+      .arrowDown {
+        margin-right: 40px;
+      }
+
+      .articleLink {
+        button {
+          background-color: transparent;
+          border: none;
+          font-size: 15px;
+        }
+      }
+    }
+
+    margin-bottom: 20px;
+  }
+
+  .relatedArticles {
+    h3 {
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      margin: 20px 0;
+      margin-bottom: 100px;
+      border: 1px solid lightgray;
+
+      .productName {
+        color: gray;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid lightgray;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .tableLeft {
+        text-align: left;
+      }
+
+      thead {
+        background-color: #f3f3f3;
+      }
+    }
+  }
+}
