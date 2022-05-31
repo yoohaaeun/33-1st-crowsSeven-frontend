@@ -8,6 +8,7 @@ import Orderpage from './pages/Order/OrderPage';
 import Post from './pages/review/Post';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
+import StoreModal from './components/storeModal/StoreModal';
 import ReviewPage from './pages/review/ReviewPage';
 import PostForm from './pages/review/PostForm';
 import MyPage from './pages/mypage/MyPage';
@@ -19,9 +20,11 @@ const Router = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
+        <Route path="/" element={<Nav />} />
         <Route path="/order" element={<Orderpage />} />
         <Route path="/" element={<Main />} />
         <Route path="/store" element={<Store />} />
+        <Route path="/storeModal" element={<StoreModal />} />
         <Route path="/productDetail" element={<ProductDetail />} />
         <Route path="/review_post" element={<Post />} />
         <Route path="/review_page" element={<ReviewPage />} />
