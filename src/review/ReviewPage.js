@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Nav from '../../src/components/Nav/Nav';
 import TextItem from '../components/review/TextItem';
+import { useNavigate } from 'react-router-dom';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import './ReviewPage.scss';
 
@@ -27,10 +28,11 @@ const ReviewPage = () => {
       .then(productData => setTextList(productData));
   }, []);
 
-  // const navigate = useNavigate();
-  // toDo : const goToReviewPost = () => {
-  //   navigate('/review_post');
-  // };
+  const navigate = useNavigate();
+  const goToReviewForm = () => {
+    navigate('/review_form');
+  };
+
   return (
     <>
       <Nav />
@@ -120,6 +122,9 @@ const ReviewPage = () => {
                 찾기
               </button>
             </fieldset>
+            <button className="reviewWrite" onClick={goToReviewForm}>
+              글쓰기
+            </button>
           </article>
         </section>
       </div>
