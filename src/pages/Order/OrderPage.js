@@ -25,9 +25,6 @@ const OrderPage = () => {
       });
   };
 
-  console.log('cartList', orderItemList);
-  console.log('setCartList', orderItemList);
-
   // const fetchCartList = () => {
   //   fetch('http://10.58.0.138:8000/carts/')
   //     .then(res => res.json())

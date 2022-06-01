@@ -98,6 +98,7 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
       fetch('http://10.58.0.138:8000/orders/', {
         method: 'POST',
         headers: {
+          // Authorization: localStorage.getItem('Authorization');
           Authorization:
             'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
         },
@@ -260,6 +261,7 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
           </div>
         </div>
       </form>
+      {/* {orderResult && <Ordermodal orderResult={orderResult} setOpenModal={setOpenModal} />} */}
     </div>
   );
 };

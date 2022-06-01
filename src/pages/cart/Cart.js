@@ -8,7 +8,8 @@ const Cart = () => {
   const [checkedList, setCheckedList] = useState([]);
 
   const cartEmpty = cartList.length === 0;
-  console.log('로컬스토리지', localStorage.getItem('Authorization'));
+
+  console.log('👉localStorage', localStorage.getItem('Authorization'));
 
   // const fetchCartList = () => {
   //   fetch('/data/cartListData.json')
@@ -22,6 +23,7 @@ const Cart = () => {
     fetch('http://10.58.0.138:8000/carts/', {
       method: 'GET',
       headers: {
+        // Authorization: localStorage.getItem('Authorization');
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
       },
@@ -29,23 +31,12 @@ const Cart = () => {
       .then(res => res.json())
       .then(data => {
         setCartList(data.results);
-        console.log('results', data.results);
+        console.log('👉results', data.results);
       })
       .catch(e => {
-        console.log('에러', e);
+        console.log('⚠️에러', e);
       });
   };
-
-  console.log('cartList', cartList);
-  console.log('setCartList', cartList);
-
-  // const fetchCartList = () => {
-  //   fetch('http://10.58.0.138:8000/carts/')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setCartList(data);
-  //     });
-  // };
 
   useEffect(() => {
     fetchCartList();

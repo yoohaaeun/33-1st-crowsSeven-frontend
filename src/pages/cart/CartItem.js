@@ -26,6 +26,7 @@ const CartItem = ({
     fetch(`http://10.58.0.138:8000/carts/${item.id}`, {
       method: 'PATCH',
       headers: {
+        // Authorization: localStorage.getItem('Authorization');
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
       },
@@ -37,7 +38,10 @@ const CartItem = ({
       .then(response => response.json())
       .then(result => {
         console.log(result);
+        //2. 그러면 result에 뭐가 담겨져 오는지 확인하기. console.log(result);
+        //3. result에 성공에 대한 무언가가 있으면 그걸확인해서 조건으로 만들기 (ex) result.status === 200 이라거나 아니면 message 가 있는데, 그 메세지가 뭔지 확인 'success'말고 다른 말일..
         if (result.message === 'success') {
+          //1. 여기 콘솔 찍어보고 콘솔 안찍히면 이 코드블럭은 실행이 안된거다.
           alert('수량이 변경되었습니다.');
         }
       })

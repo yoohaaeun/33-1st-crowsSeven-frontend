@@ -88,7 +88,8 @@ const CartNotEmpty = ({
       .then(result => {
         // console.log(result);
         if (result.message === 'success') {
-          fetchCartList();
+          console.log('선택 삭제 성공해서 카트리스트 다시 패치하기');
+          fetchCartList(); //⚠️ 네트워크 탭을 보면서 이게 제대로 호출을 다시 하는지 확인해보기
         }
       })
       .catch(e => {
@@ -121,7 +122,8 @@ const CartNotEmpty = ({
     })
       .then(response => response.json())
       .then(result => {
-        // console.log(result);
+        //⚠️ 여기서 result로 받는 객체의 키, 값 확인해서 조건 처리하기
+        // console.log(result)
         if (result.message === 'results') {
           navigate('/order');
         }
