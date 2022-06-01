@@ -35,7 +35,7 @@ const ReviewPage = () => {
     navigate('/review_form');
   };
 
-  const token = localStorage.getItem('wtw-token');
+  const token = localStorage.getItem('token');
 
   return (
     <>
