@@ -1,8 +1,7 @@
 import { CgViewSplit } from 'react-icons/cg';
-import { useState, useEffect } from 'react';
 import { MdCalendarViewMonth } from 'react-icons/md';
-
-import Nav from '../../components/Nav/Nav';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageList from './PageList';
 import Items from './Items';
 import StoreModal from '../../components/storeModal/StoreModal';
@@ -47,6 +46,11 @@ const Store = () => {
   };
 
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate('/productDetail');
+  };
 
   return (
     <>
@@ -83,6 +87,7 @@ const Store = () => {
                   name={itemName}
                   price={price}
                   showModal={setOpenModal}
+                  goToDetail={goToDetail}
                 />
               );
             })}
