@@ -20,7 +20,6 @@ const Post = () => {
   const [postList, setPostList] = useState([]);
   const params = useParams();
 
-  console.log(params);
   useEffect(() => {
     fetch(`/data/relatedProductData.json/${params.id}`)
       .then(res => res.json())

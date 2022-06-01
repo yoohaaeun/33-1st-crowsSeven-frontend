@@ -45,7 +45,6 @@ const PostForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(makeListTransfer);
   return (
     <div className="postForm">
       <header className="slideRight">
