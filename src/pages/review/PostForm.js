@@ -24,6 +24,10 @@ const PostForm = () => {
   const postComment = () => {
     fetch('http://10.58.0.159:8000/products/', {
       method: 'POST',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.Xq23aHvqQlqnQtXkwVbGPaJQmKHPJHiD5QxERAx1kCU',
+      },
       body: JSON.stringify(makeListTransfer),
     })
       .then(res => res.json())
