@@ -155,27 +155,28 @@ const CartNotEmpty = ({
 
   // ✨ 전체주문 ✨
   const goToOrder = () => {
-    // const cartItemIds = cartList.map(cartItem => cartItem.id);
-    // fetch('http://221.114.81.121:8080/cart', {
-    //   method: 'POST',
-    //   headers: {
-    //     Authorization: 'token',
-    //   },
-    //   body: JSON.stringify({
-    //     cart_item: cartItemIds,
-    //     shipping_free: shipping,
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   .then(result => {
-    //     // console.log(result);
-    //     if (result.message === 'success') {
-    //       navigate('/order');
-    //     }
-    //   })
-    //   .catch(e => {
-    //     alert('다시 시도해주세요.');
-    //   });
+    const cartItemIds = cartList.map(cartItem => cartItem.id);
+    fetch('http://10.58.0.138:8000/orders/', {
+      method: 'POST',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
+      },
+      body: JSON.stringify({
+        cart_item: cartItemIds,
+        shipping_free: shipping,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        // console.log(result);
+        if (result.message === 'success') {
+          navigate('/order');
+        }
+      })
+      .catch(e => {
+        alert('다시 시도해주세요.');
+      });
   };
 
   // 끝❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
