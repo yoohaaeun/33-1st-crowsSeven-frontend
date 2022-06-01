@@ -4,7 +4,7 @@ import { GrFacebook, GrTwitter } from 'react-icons/gr';
 import { useState, useEffect } from 'react';
 import './StoreModal.scss';
 
-const StoreModal = () => {
+const StoreModal = ({ closeModal }) => {
   const [items, setItems] = useState([]);
   const [amount, setAmount] = useState(1);
   const { itemThumbnail, itemName, description, price } = items;
@@ -44,7 +44,12 @@ const StoreModal = () => {
     <div className="storeModal">
       <div className="modalBackground" />
       <div className="modalComponent">
-        <AiFillCloseSquare className="closeBtn" />
+        <AiFillCloseSquare
+          onClick={() => {
+            closeModal(false);
+          }}
+          className="closeBtn"
+        />
         <section className="imgSection">
           <img src={itemThumbnail} alt="Product Thumbnail" />
         </section>

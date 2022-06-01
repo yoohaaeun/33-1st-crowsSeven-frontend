@@ -1,6 +1,6 @@
 import { FaShoppingCart } from 'react-icons/fa';
 
-const Items = ({ listType, state, img, name, price }) => {
+const Items = ({ listType, state, img, name, price, showModal }) => {
   const priceToString = Number(price).toLocaleString('ko-KR');
 
   return (
@@ -9,7 +9,14 @@ const Items = ({ listType, state, img, name, price }) => {
         {state === 'soldOut' ? <div className="itemTag">품절</div> : ''}
         <img src={img} alt="product thumbnail" />
         <span className="itemButton">
-          <button className="shopBtn">Quick Shop</button>
+          <button
+            onClick={() => {
+              showModal(true);
+            }}
+            className="shopBtn"
+          >
+            Quick Shop
+          </button>
           <button className="cartBtn">
             <FaShoppingCart />
           </button>

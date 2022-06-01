@@ -1,9 +1,11 @@
 import { CgViewSplit } from 'react-icons/cg';
 import { useState, useEffect } from 'react';
 import { MdCalendarViewMonth } from 'react-icons/md';
+
 import Nav from '../../components/Nav/Nav';
 import PageList from './PageList';
 import Items from './Items';
+import StoreModal from '../../components/storeModal/StoreModal';
 import './Store.scss';
 
 const Store = () => {
@@ -44,9 +46,11 @@ const Store = () => {
     console.log(btnIndex);
   };
 
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <>
-      <Nav />
+      {openModal && <StoreModal closeModal={setOpenModal} />}
       <div className="store">
         <section>
           <h2>전체상품</h2>
@@ -78,6 +82,7 @@ const Store = () => {
                   img={itemThumbnail}
                   name={itemName}
                   price={price}
+                  showModal={setOpenModal}
                 />
               );
             })}
