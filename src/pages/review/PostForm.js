@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './PostForm.scss';
@@ -9,14 +9,6 @@ const PostForm = () => {
     navigate('/review_page');
   };
 
-  //toDo : const POST_WRITE = [
-  //   {
-  //     reviewSubject: '',
-  //     reviewText: '',
-  //     password: '',
-  //   },
-  // ];
-
   const [makeListTransfer, setMakeListTransfer] = useState({
     subject: '',
     option: '',
@@ -24,20 +16,34 @@ const PostForm = () => {
     password: '',
   });
 
+  const [option, setOption] = useState('');
+
+  // id
+  // name
+
   const postComment = () => {
-    fetch('본문내용을 받는 api주소', {
+    fetch('http://10.58.0.159:8000/products/', {
       method: 'POST',
       body: JSON.stringify(makeListTransfer),
     })
       .then(res => res.json())
       .then(res => {
-        if (res.message === 'susscess') {
+        if (res.message === 'success') {
           navigate('/review_page');
         } else {
           alert('잘못된 요청입니다');
         }
       });
   };
+  // http://10.58.0.159:8000/users/purchaseproduct
+
+  useEffect(() => {
+    fetch('/data/optiondata.json')
+      .then(res => res.json())
+      .then(res => {
+        setOption(res);
+      });
+  }, []);
 
   const postTransfer = e => {
     setMakeListTransfer({
@@ -63,6 +69,13 @@ const PostForm = () => {
                   onChange={postTransfer}
                 >
                   <option>제품 선택</option>
+                  {option.map(a => {
+                    return (
+                      <>
+                        <option key={a.id}>{a.name}</option>
+                      </>
+                    );
+                  })}
                 </select>
               </td>
             </tr>

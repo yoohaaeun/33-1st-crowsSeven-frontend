@@ -24,7 +24,7 @@ const ReviewPage = () => {
   const location = useLocation();
 
   useEffect(() => {
-    fetch('/data/relatedProductData.json')
+    fetch('http://10.58.0.159:8000/whole')
       // 백 api
       .then(res => res.json())
       .then(productData => setTextList(productData));
@@ -35,7 +35,7 @@ const ReviewPage = () => {
     navigate('/review_form');
   };
 
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('access_token');
 
   return (
     <>
