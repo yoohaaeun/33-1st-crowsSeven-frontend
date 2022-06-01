@@ -1,22 +1,41 @@
-const PageList = () => {
+const PageList = ({
+  goToPage,
+  firstPage,
+  previousPage,
+  nextPage,
+  lastPage,
+}) => {
   return (
     <div className="pageList">
-      <button>FIRST</button>
-      <button>
+      <button onClick={firstPage}>FIRST</button>
+      <button onClick={previousPage}>
         <span className="leftBtn">{`<`}</span>PREV
       </button>
       <ul>
         <li>
-          <button className="select">1</button>
+          <button
+            onClick={e => {
+              goToPage(e.target.innerHTML);
+            }}
+            className="select"
+          >
+            1
+          </button>
         </li>
         <li>
-          <button>2</button>
+          <button
+            onClick={e => {
+              goToPage(e.target.innerHTML);
+            }}
+          >
+            2
+          </button>
         </li>
       </ul>
-      <button>
+      <button onClick={nextPage}>
         NEXT<span className="rightBtn">{`>`}</span>
       </button>
-      <button>LAST</button>
+      <button onClick={lastPage}>LAST</button>
     </div>
   );
 };

@@ -24,6 +24,26 @@ const Store = () => {
     setListType('small');
   };
 
+  const firstPage = () => {
+    console.log('firstPage');
+  };
+
+  const previousPage = () => {
+    console.log('previousPage');
+  };
+
+  const nextPage = () => {
+    console.log('nextPage');
+  };
+
+  const lastPage = () => {
+    console.log('lastPage');
+  };
+
+  const goToPage = btnIndex => {
+    console.log(btnIndex);
+  };
+
   return (
     <>
       <Nav />
@@ -57,12 +77,18 @@ const Store = () => {
                   state={state}
                   img={itemThumbnail}
                   name={itemName}
-                  itemPrice={price}
+                  price={price}
                 />
               );
             })}
           </div>
-          <PageList />
+          <PageList
+            goToPage={goToPage}
+            firstPage={firstPage}
+            previousPage={previousPage}
+            nextPage={nextPage}
+            lastPage={lastPage}
+          />
         </section>
       </div>
     </>

@@ -1,6 +1,8 @@
 import { FaShoppingCart } from 'react-icons/fa';
 
-const Items = ({ listType, state, img, name, itemPrice }) => {
+const Items = ({ listType, state, img, name, price }) => {
+  const priceToString = Number(price).toLocaleString('ko-KR');
+
   return (
     <div className={listType === 'small' ? 'smallItems' : 'bigItems'}>
       <span className="itemImg">
@@ -16,7 +18,7 @@ const Items = ({ listType, state, img, name, itemPrice }) => {
       <div className="description">
         <div className="name">{name}</div>
         <hr />
-        <div className="price">{itemPrice}</div>
+        <div className="price">￦{priceToString}</div>
       </div>
     </div>
   );
