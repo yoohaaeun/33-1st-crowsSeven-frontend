@@ -1,6 +1,6 @@
 import React from 'react';
-
-const CartEmpty = () => {
+import './OrderCheck.scss';
+const OrderEmpty = () => {
   return (
     <>
       <table>
@@ -12,13 +12,9 @@ const CartEmpty = () => {
       </table>
       <div className="bottomBtn">
         <div className="deleteBtn" />
-        <div className="orderBtn">
-          <button>Select Order</button>
-          <button>Order</button>
-        </div>
       </div>
     </>
   );
 };
 
-export default CartEmpty;
+export default OrderEmpty;

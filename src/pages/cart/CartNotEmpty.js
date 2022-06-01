@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CartItem from './CartItem';
 
 const TABLE_HEADER = [
@@ -10,11 +10,23 @@ const TABLE_HEADER = [
   'Delivery',
   'Charge',
   'Total',
-  '선택',
 ];
 
-const CartUI = ({ cartList }) => {
-  const price = cartList.map(item => item.price).reduce((a, b) => a + b, 0);
+const CartNotEmpty = ({
+  cartList,
+  setCartList,
+  checkedList,
+  setCheckedList,
+}) => {
+  const [isAllChecked, setIsAllChecked] = useState(false);
+
+  useEffect(() => {
+    setIsAllChecked(cartList.every(cartItem => checkedList.includes(cartItem)));
+  }, [cartList, checkedList]);
+
+  const price = cartList
+    .map(item => item.price * item.qty)
+    .reduce((a, b) => a + b, 0);
   const shipping = price >= 50000 ? 0 : 3000;
   const total = price + shipping;
 
@@ -24,22 +36,47 @@ const CartUI = ({ cartList }) => {
     { title: 'Total', amount: total },
   ];
 
+  const onChecked = e => {
+    if (e.target.checked) {
+      setCheckedList(cartList);
+      setIsAllChecked(true);
+    } else {
+      setCheckedList([]);
+      setIsAllChecked(false);
+    }
+  };
   return (
     <>
       <table>
         <thead>
           <tr>
             <th className="checkBox">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                onChange={onChecked}
+                checked={isAllChecked}
+              />
             </th>
             {TABLE_HEADER.map(row => (
-              <th key={row}>{row}</th>
+              <th key={row} className={row.toLowerCase()}>
+                {row}
+              </th>
             ))}
           </tr>
         </thead>
         <tbody>
           {cartList.map(item => {
-            return <CartItem key={cartList.id} item={item} total={total} />;
+            return (
+              <CartItem
+                key={cartList.id}
+                item={item}
+                total={total}
+                cartList={cartList}
+                setCartList={setCartList}
+                checkedList={checkedList}
+                setCheckedList={setCheckedList}
+              />
+            );
           })}
         </tbody>
         <tfoot>
@@ -73,4 +110,4 @@ const CartUI = ({ cartList }) => {
   );
 };
 
-export default CartUI;
+export default CartNotEmpty;

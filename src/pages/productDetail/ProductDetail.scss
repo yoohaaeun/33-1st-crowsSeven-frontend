@@ -41,6 +41,11 @@
   .imgSide {
     width: 55%;
     min-width: 500px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   .descriptionSide {
