@@ -53,11 +53,32 @@ const CartNotEmpty = ({
   // 시작❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
 
   // ✨ 선택삭제 ✨
+  // const onSelectDelete = () => {
+  //   const checkedIds = checkedList.map(checkedItem => checkedItem.id);
+  //   const query = checkedIds.map(id => `cart_id=${id}`).join('&');
+  //   fetch(`http://10.58.0.138:8000/carts/?${query}`, {
+  //     method: 'DELETE',
+  //     // body: JSON.stringify({
+  //     //   cart_item: checkedIds,
+  //     // }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       // console.log(result);
+  //       if (result.message === 'success') {
+  //         fetchCartList();
+  //       }
+  //     })
+  //     .catch(e => {
+  //       alert('다시 시도해주세요.');
+  //     });
+  // };
+
   const onSelectDelete = () => {
     const checkedIds = checkedList.map(checkedItem => checkedItem.id);
-    const query = checkedIds.map(id => `cart_id=${id}`).join('&');
-
-    fetch(`http://~~~:8080/cart?${query}`, {
+    console.log('checkedIds', checkedIds);
+    // const query = checkedIds.map(id => `cart_id=${id}`).join('&');
+    fetch(`http://10.58.0.138:8000/carts/${checkedIds}`, {
       method: 'DELETE',
       // body: JSON.stringify({
       //   cart_item: checkedIds,
@@ -78,26 +99,30 @@ const CartNotEmpty = ({
   // ✨ 선택주문 ✨
   const goToSelectOrder = () => {
     const checkedIds = checkedList.map(checkedItem => checkedItem.id);
+    const query = checkedIds.map(id => `cart_ids=${id}`).join('&');
+
+    console.log(checkedIds);
 
     const price = checkedList
       .map(item => item.price * item.qty)
       .reduce((a, b) => a + b, 0);
     const shipping = price >= 50000 ? 0 : 3000;
 
-    fetch('http://221.114.81.121:8080/cart', {
+    fetch(`http://10.58.0.138:8000/orders/`, {
       method: 'POST',
       headers: {
-        Authorization: 'token',
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
       },
       body: JSON.stringify({
         cart_ids: checkedIds,
-        shipping_free: shipping,
+        shipping_fee: shipping,
       }),
     })
       .then(response => response.json())
       .then(result => {
         // console.log(result);
-        if (result.message === 'success') {
+        if (result.message === 'results') {
           navigate('/order');
         }
       })
@@ -106,53 +131,51 @@ const CartNotEmpty = ({
       });
   };
 
-  // ✨ 전체삭제 ✨
+  // ✨ 전체삭제x ✨
   const onDelete = () => {
-    const cartItemIds = cartList.map(cartItem => cartItem.id);
-    const query = cartItemIds.map(id => `cart_id=${id}`).join('&');
-
-    fetch(`http://~~~:8080/cart?${query}`, {
-      method: 'DELETE',
-      body: JSON.stringify({
-        cart_item: cartItemIds,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        // console.log(result);
-        if (result.message === 'success') {
-          fetchCartList();
-        }
-      })
-      .catch(e => {
-        alert('다시 시도해주세요.');
-      });
+    // const cartItemIds = cartList.map(cartItem => cartItem.id);
+    // const query = cartItemIds.map(id => `cart_id=${id}`).join('&');
+    // fetch(`http://~~~:8080/cart?${query}`, {
+    //   method: 'DELETE',
+    //   body: JSON.stringify({
+    //     cart_item: cartItemIds,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     // console.log(result);
+    //     if (result.message === 'success') {
+    //       fetchCartList();
+    //     }
+    //   })
+    //   .catch(e => {
+    //     alert('다시 시도해주세요.');
+    //   });
   };
 
   // ✨ 전체주문 ✨
   const goToOrder = () => {
-    const cartItemIds = cartList.map(cartItem => cartItem.id);
-
-    fetch('http://221.114.81.121:8080/cart', {
-      method: 'POST',
-      headers: {
-        Authorization: 'token',
-      },
-      body: JSON.stringify({
-        cart_item: cartItemIds,
-        shipping_free: shipping,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        // console.log(result);
-        if (result.message === 'success') {
-          navigate('/order');
-        }
-      })
-      .catch(e => {
-        alert('다시 시도해주세요.');
-      });
+    // const cartItemIds = cartList.map(cartItem => cartItem.id);
+    // fetch('http://221.114.81.121:8080/cart', {
+    //   method: 'POST',
+    //   headers: {
+    //     Authorization: 'token',
+    //   },
+    //   body: JSON.stringify({
+    //     cart_item: cartItemIds,
+    //     shipping_free: shipping,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     // console.log(result);
+    //     if (result.message === 'success') {
+    //       navigate('/order');
+    //     }
+    //   })
+    //   .catch(e => {
+    //     alert('다시 시도해주세요.');
+    //   });
   };
 
   // 끝❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
@@ -177,19 +200,20 @@ const CartNotEmpty = ({
           </tr>
         </thead>
         <tbody>
-          {cartList.map(item => {
-            return (
-              <CartItem
-                key={cartList.id}
-                item={item}
-                total={total}
-                cartList={cartList}
-                setCartList={setCartList}
-                checkedList={checkedList}
-                setCheckedList={setCheckedList}
-              />
-            );
-          })}
+          {cartList &&
+            cartList.map(item => {
+              return (
+                <CartItem
+                  key={cartList.id}
+                  item={item}
+                  total={total}
+                  cartList={cartList && cartList}
+                  setCartList={setCartList}
+                  checkedList={checkedList}
+                  setCheckedList={setCheckedList}
+                />
+              );
+            })}
         </tbody>
         <tfoot>
           {tableFooter.map(row => {

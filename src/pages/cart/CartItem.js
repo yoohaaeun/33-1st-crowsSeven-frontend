@@ -20,25 +20,29 @@ const CartItem = ({
 
   // ✨ 수량수정, 재고부족알림 ✨
   const onSubmit = () => {
-    // console.log('아이템 아이디', item.id);
-    // console.log('바꿀수량', item.qty);
+    console.log('아이템 아이디', item.id);
+    console.log('바꿀수량', item.qty);
 
-    fetch('http://221.114.81.121:8080/cart', {
-      method: 'PUT',
+    fetch(`http://10.58.0.138:8000/carts/${item.id}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
+      },
       body: JSON.stringify({
-        id: item.id,
+        // id: item.id,
         qty: item.qty,
       }),
     })
       .then(response => response.json())
       .then(result => {
-        // console.log(result);
+        console.log(result);
         if (result.message === 'success') {
           alert('수량이 변경되었습니다.');
         }
       })
       .catch(e => {
-        // console.log(e);
+        console.log('재고부족', e);
         if (e.message === 'STUFF_OVERFLOW') {
           alert('재고가 부족합니다.');
         }

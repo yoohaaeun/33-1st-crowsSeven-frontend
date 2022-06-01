@@ -8,14 +8,44 @@ const Cart = () => {
   const [checkedList, setCheckedList] = useState([]);
 
   const cartEmpty = cartList.length === 0;
+  console.log('로컬스토리지', localStorage.getItem('Authorization'));
+
+  // const fetchCartList = () => {
+  //   fetch('/data/cartListData.json')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setCartList(data);
+  //     });
+  // };
 
   const fetchCartList = () => {
-    fetch('/data/cartListData.json')
+    fetch('http://10.58.0.138:8000/carts/', {
+      method: 'GET',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
+      },
+    })
       .then(res => res.json())
       .then(data => {
-        setCartList(data);
+        setCartList(data.results);
+        console.log('results', data.results);
+      })
+      .catch(e => {
+        console.log('에러', e);
       });
   };
+
+  console.log('cartList', cartList);
+  console.log('setCartList', cartList);
+
+  // const fetchCartList = () => {
+  //   fetch('http://10.58.0.138:8000/carts/')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setCartList(data);
+  //     });
+  // };
 
   useEffect(() => {
     fetchCartList();
@@ -25,12 +55,12 @@ const Cart = () => {
     <div className="cart">
       <h1 className="basket">장바구니</h1>
       <div className="tableWrapper">
-        <p>국내배송({cartList.length})</p>
+        <p>국내배송({cartList && cartList.length})</p>
         {cartEmpty ? (
           <CartEmpty />
         ) : (
           <CartNotEmpty
-            cartList={cartList}
+            cartList={cartList && cartList}
             setCartList={setCartList}
             checkedList={checkedList}
             setCheckedList={setCheckedList}
