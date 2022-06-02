@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Nav from '../../components/Nav/Nav';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
 import TextItem from '../../components/reviews/TextItem';
@@ -18,18 +18,28 @@ const PRODUCT_INFO = [
 
 const Post = () => {
   const [postList, setPostList] = useState([]);
+  const params = useParams();
+  const [itemInfo, setItemInfo] = useState({});
 
   useEffect(() => {
-    fetch('/data/relatedProductData.json')
+    fetch(`http://10.58.1.252:8000/reviews/22`)
       .then(res => res.json())
       .then(productData => setPostList(productData));
   }, []);
-  // console.log(textList[0]?.post); ?. => optional chaining 조건부 랜더링
+
+  console.log(itemInfo);
 
   const navigate = useNavigate();
   const goToTextList = () => {
     navigate('/review_page');
   };
+
+  useEffect(() => {
+    fetch(`http://10.58.1.252:8000/reviews/22`)
+      .then(res => res.json())
+      .then(results => setItemInfo(results));
+  }, []);
+
   return (
     <>
       <Nav />
@@ -39,20 +49,23 @@ const Post = () => {
         </header>
         <section className="product">
           <div className="productInfo">
-            <img src={`${PRODUCT_INFO[0].img}`} alt="productPhoto" />
+            <img src="" alt="productPhoto" />
             <div className="detailedInfo">
               <div className="receivingStatus">
                 <span>{PRODUCT_INFO[0].NEW && 'NEW'}</span>
                 <span>{PRODUCT_INFO[0].품절 && '품절'}</span>
               </div>
-              <div className="productName">{PRODUCT_INFO[0].name}</div>
-              <div className="productPrice">{PRODUCT_INFO[0].price}</div>
+              <div className="productName">
+                {itemInfo.product[0].product_name}
+              </div>
+              <div className="productPrice">
+                {itemInfo.product[0].product_price}
+              </div>
               <button className="viewDetails">상품 상세보기</button>
             </div>
           </div>
         </section>
-        <ReviewPost textList={postList} />
-        {/* 목데이터를 따로 만드는 게 낫다 하나라도 */}
+        <ReviewPost itemInfo={itemInfo} />
         <button className="goList" onClick={goToTextList}>
           목록
         </button>
