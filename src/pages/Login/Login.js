@@ -30,7 +30,6 @@ const Login = () => {
       .then(response => response.json())
       .then(result => {
         if (result.access_token) {
-          console.log(result.access_token);
           localStorage.setItem('Authorization', result.access_token);
         }
       });
