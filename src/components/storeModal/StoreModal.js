@@ -1,6 +1,7 @@
 import { AiFillCloseSquare } from 'react-icons/ai';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { GrFacebook, GrTwitter } from 'react-icons/gr';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import './StoreModal.scss';
 
@@ -23,6 +24,28 @@ const StoreModal = ({ items, closeModal }) => {
       alert('주문 수량은 1 이상이어야 합니다.');
       setAmount(1);
     }
+  };
+
+  const navigate = useNavigate();
+
+  const goToCart = () => {
+    fetch(`http://10.58.1.252:8000/carts/`, {
+      method: 'POST',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
+      },
+      body: JSON.stringify({
+        option_product_id: Number(items.id),
+        count: Number(amount),
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          navigate('../cart');
+        }
+      });
   };
 
   const priceToString = Number(price).toLocaleString('ko-KR');
@@ -77,7 +100,7 @@ const StoreModal = ({ items, closeModal }) => {
           <hr />
 
           <div className="amountTab">
-            {itemName}
+            <span className="itemName">{itemName}</span>
             <div className="inputAmount">
               <div
                 className="amountInput"
@@ -95,7 +118,7 @@ const StoreModal = ({ items, closeModal }) => {
                 </button>
               </div>
             </div>
-            <span>￦{totalPriceToString}</span>
+            <span className="amountPrice">￦{totalPriceToString}</span>
           </div>
           <hr />
           <div className="totalPrice">
@@ -104,7 +127,9 @@ const StoreModal = ({ items, closeModal }) => {
           </div>
           <div className="totalBuyBtn">
             <button className="buyBtn">BUY NOW</button>
-            <button className="cartBtn">CART</button>
+            <button onClick={goToCart} className="cartBtn">
+              CART
+            </button>
           </div>
           <button onClick={handleWishList} className="wishList">
             <span>+ WISH LIST</span>

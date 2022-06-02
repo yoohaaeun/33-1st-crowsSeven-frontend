@@ -109,6 +109,10 @@
         padding: 10px 0;
         align-items: center;
 
+        .itemName {
+          width: 50%;
+        }
+
         span {
           font-weight: 800;
         }
@@ -153,6 +157,11 @@
               height: 10px;
             }
           }
+        }
+
+        .amountPrice {
+          text-align: right;
+          width: 20%;
         }
       }
 

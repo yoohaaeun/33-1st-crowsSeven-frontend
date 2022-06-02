@@ -14,7 +14,7 @@ const Items = ({ getItemData, id, listType, img, itemName, price }) => {
         <span className="itemButton">
           <button
             onClick={() => {
-              getItemData({ img, itemName, price });
+              getItemData({ id, img, itemName, price });
             }}
             className="shopBtn"
           >
