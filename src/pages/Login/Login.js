@@ -20,7 +20,7 @@ const Login = () => {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.6.28:8000/users/login', {
+    fetch('http://10.58.1.252:8000/users/login', {
       method: 'POST',
       body: JSON.stringify({
         username: id,
@@ -29,8 +29,8 @@ const Login = () => {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.token) {
-          localStorage.setItem('token', result.token);
+        if (result.access_token) {
+          localStorage.setItem('Authorization', result.access_token);
         }
       });
   };
