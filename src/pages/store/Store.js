@@ -16,7 +16,7 @@ const Store = () => {
   const location = useLocation();
 
   useEffect(() => {
-    fetch(`http://10.58.1.252:8000/products/list${location.search}`, {
+    fetch(`http://10.58.2.129:8000/products/list${location.search}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -84,7 +84,7 @@ const Store = () => {
           <h2>전체상품</h2>
           <div className="itemCategory">
             <div className="itemAmount">
-              <b>{items.length}</b>
+              <b>{items.length && items[0].total_count}</b>
               <span>개의 상품이 있습니다.</span>
             </div>
             <div className="itemSort">
@@ -101,16 +101,15 @@ const Store = () => {
             </div>
           </div>
           <div className="itemList">
-            {items.map(({ id, state, thumbnail, name, price }) => {
+            {items.map(({ id, itemThumbnail, itemName, price }) => {
               return (
                 <Items
                   getItemData={getItemData}
                   id={id}
                   listType={listType}
                   key={id}
-                  state={state}
-                  img={thumbnail}
-                  itemName={name}
+                  img={itemThumbnail}
+                  itemName={itemName}
                   price={price}
                 />
               );
