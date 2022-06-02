@@ -10,42 +10,48 @@ const PostForm = () => {
   };
 
   const [makeListTransfer, setMakeListTransfer] = useState({
-    subject: '',
+    title: '',
     option: '',
     content: '',
     password: '',
   });
 
-  const [option, setOption] = useState('');
+  const [selectOption, setSelectOption] = useState([]);
 
-  // id
-  // name
-
-  const postComment = () => {
-    fetch('http://10.58.0.159:8000/products/', {
+  const { title, option, content, password } = makeListTransfer;
+  const postComment = e => {
+    e.preventDefault();
+    fetch(`http://10.58.1.252:8000/reviews/${option}`, {
       method: 'POST',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.Xq23aHvqQlqnQtXkwVbGPaJQmKHPJHiD5QxERAx1kCU',
+        Authorization: localStorage.getItem('Authorization'),
       },
-      body: JSON.stringify(makeListTransfer),
+      body: JSON.stringify({
+        title: title,
+        content: content,
+        password: password,
+      }),
     })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'success') {
-          navigate('/review_page');
-        } else {
-          alert('잘못된 요청입니다');
-        }
-      });
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+    // .then(res => {
+    //   if (res.ok) {
+    //     navigate('/review_page');
+    //   } else {
+    //     alert('잘못된 요청입니다');
+    //   }
+    // });
   };
-  // http://10.58.0.159:8000/users/purchaseproduct
 
   useEffect(() => {
-    fetch('/data/optiondata.json')
+    fetch('http://10.58.1.252:8000/users/purchasedproduct', {
+      headers: {
+        Authorization: localStorage.getItem('Authorization'),
+      },
+    })
       .then(res => res.json())
-      .then(res => {
-        setOption(res);
+      .then(data => {
+        setSelectOption(data.message);
       });
   }, []);
 
@@ -55,29 +61,31 @@ const PostForm = () => {
       [e.target.name]: e.target.value,
     });
   };
+  console.log(makeListTransfer);
+
   return (
     <div className="postForm">
       <header className="slideRight">
         <h1>상품후기</h1>
       </header>
-      <form className="reviewFormContainer">
+      <form className="reviewFormContainer" method="POST">
         <table>
           <thead>
             <tr>
               <th>제목</th>
               <td>
-                <input type="text" name="subject" onChange={postTransfer} />
+                <input type="text" name="title" onChange={postTransfer} />
                 <select
                   className="reviewOption"
                   name="option"
                   onChange={postTransfer}
                 >
                   <option>제품 선택</option>
-                  {option.map(a => {
+                  {selectOption.map(a => {
                     return (
-                      <>
-                        <option key={a.id}>{a.name}</option>
-                      </>
+                      <option key={a.id} value={a.id}>
+                        {a.name}
+                      </option>
                     );
                   })}
                 </select>

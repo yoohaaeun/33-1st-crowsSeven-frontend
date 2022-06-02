@@ -2,7 +2,24 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const TextItem = ({ postItem, isImgShow }) => {
-  const { id, number, img, product, subject, author, date, hit } = postItem;
+  const {
+    // review_id,
+    // review_thumb_nail,
+    // review_product,
+    // review_title,
+    // review_name,
+    // review_date,
+    // review_view_count,
+    id,
+    number,
+    img,
+    subject,
+    post,
+    author,
+    product,
+    date,
+    hit,
+  } = postItem;
 
   const navigate = useNavigate();
   const goToPostPage = () => {

@@ -20,12 +20,30 @@ const ReviewPage = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const transferBack = () => {};
+
+  const transferBack = () => {
+    fetch('http://10.58.0.159:8000/products/', {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('Authorization'),
+      },
+      body: JSON.stringify(searchTransfer),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'success') {
+          navigate('/review_page');
+        } else {
+          alert('잘못된 요청입니다');
+        }
+      });
+  };
   const location = useLocation();
 
   useEffect(() => {
-    fetch('http://10.58.0.159:8000/whole')
-      // 백 api
+    // fetch('http://10.58.1.252:8000/reviews/whole')
+    // 백 api
+    fetch('/data/relatedProductData.json')
       .then(res => res.json())
       .then(productData => setTextList(productData));
   }, [location.pathname]);
@@ -35,7 +53,7 @@ const ReviewPage = () => {
     navigate('/review_form');
   };
 
-  const token = localStorage.getItem('access_token');
+  const token = localStorage.getItem('Authorization');
 
   return (
     <>

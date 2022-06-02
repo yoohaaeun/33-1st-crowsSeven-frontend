@@ -1,11 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import './ReviewPost.scss';
 
 const ReviewPost = ({ textList }) => {
+  const navigate = useNavigate();
   const deletePost = () => {
-    fetch('', {
+    fetch('http://10.58.0.159:8000/product/', {
       method: 'DELETE',
-    });
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === 'success') {
+          navigate('/review_page');
+        } else {
+          alert('잘못된 요청입니다');
+        }
+      });
   };
 
   return (
