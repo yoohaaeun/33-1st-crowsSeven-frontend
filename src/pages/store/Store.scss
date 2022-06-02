@@ -39,7 +39,7 @@
     @include flexSpaceBetween;
     align-items: center;
     margin-bottom: 10px;
-    padding: 0;
+    padding: 0 15px;
 
     b {
       font-size: 13px;
@@ -170,9 +170,20 @@
     }
   }
 
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
   .itemImg {
     @include flexColumn;
     position: relative;
+    animation: fadeIn 1s;
 
     .itemTag {
       @include flexCenter;
