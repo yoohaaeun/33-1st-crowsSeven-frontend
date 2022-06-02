@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GoSearch } from 'react-icons/go';
 import { BsHandbag, BsInstagram, BsYoutube } from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 import SearchBox from './SearchBox';
 import RightBoxNav from './RightBoxNav';
@@ -11,6 +11,7 @@ import './Nav.scss';
 const Nav = () => {
   const [isToggle, setToggle] = useState(true);
   const [isSearch, setIsSearch] = useState(false);
+  // const [listName, setListName] = useState();
 
   const navigate = useNavigate();
 
