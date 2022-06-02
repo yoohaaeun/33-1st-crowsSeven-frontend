@@ -20,12 +20,12 @@ const Router = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Nav />} />
+        {/* <Route path="/" element={<Nav />} /> */}
         <Route path="/order" element={<Orderpage />} />
         <Route path="/" element={<Main />} />
         <Route path="/store" element={<Store />} />
         <Route path="/storeModal" element={<StoreModal />} />
-        <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/review_post" element={<Post />} />
         <Route path="/review_page" element={<ReviewPage />} />
         <Route path="/review_form" element={<PostForm />} />
