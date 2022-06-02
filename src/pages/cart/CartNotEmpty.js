@@ -63,10 +63,10 @@ const CartNotEmpty = ({
       //   cart_item: checkedIds,
       // }),
     })
-      .then(res => res.json())
+      // .then(res => res.json())
       .then(res => {
         console.log('⚠️', res);
-        if (res.message === 'DELETE_SUCCESS') {
+        if (res.status === 200) {
           console.log('선택 삭제 성공해서 카트리스트 다시 패치하기');
           fetchCartList();
         }

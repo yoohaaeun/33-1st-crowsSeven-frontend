@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Ordermodal from '../../components/OrderModal/OrderModal';
 import './OrderInfo.scss';
 
 const CreditCard = () => {
@@ -51,7 +52,9 @@ const Deposit = () => {
 };
 
 const OrderInfo = ({ orderItemList, shipping, total }) => {
-  const [orderResult, setOrderResult] = useState();
+  const [orderResult, setOrderResult] = useState(null);
+
+  console.log(orderResult);
 
   const [inputValue, setInputValue] = useState({
     selected_product_ids: '',
@@ -87,12 +90,6 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
       payment;
 
     const orderItemIds = orderItemList.map(orderItem => orderItem.id);
-    // console.log({
-    //   ...inputValue,
-    //   paymentmethod: Number(payment),
-    //   shopping_fee: shipping,
-    //   selected_product_ids: orderItemIds,
-    // });
 
     if (isValid) {
       fetch('http://10.58.1.252:8000/orders/', {
@@ -107,11 +104,13 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
           selected_product_ids: orderItemIds,
         }),
       })
-        .then(res => res.json())
         .then(res => {
-          if (res.message === 'SUCCESS') {
+          if (res.status === 200) {
+            console.log('주문성공');
             const result = res.result; // {date: '22.05.22', orderNumber: 23324324}
             setOrderResult(result);
+          } else if (res.status === 400) {
+            alert('주문할 상품이 없습니다.');
           } else {
             alert('주문을 실패했습니다. 다시 요청해주세요');
           }
@@ -123,8 +122,6 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
       window.alert('주문서를 작성해 주세요.');
     }
   };
-
-  // 끝 ❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
 
   return (
     <div className="orderInfo">
@@ -248,8 +245,11 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
           {payment === '3' && <Deposit />}
 
           <div className="orderFooter">
-            <p>Total {total}원</p>
+            <p>
+              Total <span>{total}</span>원
+            </p>
             <button
+              className="paymentBtn"
               onClick={e => {
                 onSubmit(e);
               }}
@@ -259,7 +259,7 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
           </div>
         </div>
       </form>
-      {/* {orderResult && <Ordermodal orderResult={orderResult} setOpenModal={setOpenModal} />} */}
+      {orderResult && <Ordermodal orderResult={orderResult} />}
     </div>
   );
 };
