@@ -12,6 +12,7 @@ import MyPage from './pages/mypage/MyPage';
 import OrderCheck from './pages/OrderCheck/OrderCheck';
 import DeleteOrder from './pages/DeleteOrder/DeleteOrder';
 import SearchResult from './pages/searchResult/SearchResult';
+import Footer from './pages/main/Footer';
 
 const Router = () => {
   return (

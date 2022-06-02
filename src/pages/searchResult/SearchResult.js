@@ -1,19 +1,23 @@
 import { CgViewSplit } from 'react-icons/cg';
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { MdCalendarViewMonth } from 'react-icons/md';
 import PageList from '../store/PageList';
-import Items from '../store/Items';
+import Items from './Items';
 import '../store/Store.scss';
 
 const SearchResult = () => {
   const [items, setItems] = useState([]);
   const [listType, setListType] = useState('small');
+  const location = useLocation();
 
   useEffect(() => {
-    fetch('/data/ITEM_LIST.json')
+    fetch(`http://10.58.2.129:8000/products/search${location.search}`)
       .then(res => res.json())
-      .then(result => setItems(result));
-  }, []);
+      .then(result => {
+        setItems(result.products);
+      });
+  }, [location]);
 
   const changeBigList = () => {
     setListType('big');
@@ -46,12 +50,11 @@ const SearchResult = () => {
           </div>
         </div>
         <div className="itemList">
-          {items.map(({ id, state, itemThumbnail, itemName, price }) => {
+          {items.map(({ id, itemThumbnail, itemName, price }) => {
             return (
               <Items
                 listType={listType}
                 key={id}
-                state={state}
                 img={itemThumbnail}
                 name={itemName}
                 itemPrice={price}
