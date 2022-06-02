@@ -15,7 +15,7 @@ const RightBoxNav = ({ isToggle, handleClick }) => {
       copy = false;
       setLoginSign(copy);
     }
-  }, [data]);
+  }, [data, loginSign]);
 
   const handleMoveLogin = () => {
     let copy = loginSign;

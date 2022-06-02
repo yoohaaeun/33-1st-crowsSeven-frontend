@@ -32,6 +32,10 @@ const Nav = () => {
     navigate(`${queryString}`);
   };
 
+  const handleMoveCart = () => {
+    navigate('/cart');
+  };
+
   return (
     <>
       <nav className="nav">
@@ -78,7 +82,7 @@ const Nav = () => {
         </ul>
         <div className="navIcon">
           <GoSearch onClick={handleSearchClick} />
-          <BsHandbag />
+          <BsHandbag onClick={handleMoveCart} />
           <GiHamburgerMenu onClick={handleClick} />
         </div>
         <RightBoxNav isToggle={isToggle} handleClick={handleClick} />
