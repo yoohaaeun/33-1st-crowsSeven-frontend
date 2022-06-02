@@ -13,7 +13,7 @@ const CartItem = ({
   const [isChecked, setIsChecked] = useState();
 
   useEffect(() => {
-    setIsChecked(checkedList && checkedList.includes(item));
+    setIsChecked(checkedList.includes(item));
   }, [checkedList, item]);
 
   const onSubmit = () => {
@@ -38,15 +38,17 @@ const CartItem = ({
   };
 
   const onChangeQty = e => {
-    const newCartList = cartList.map(cartItem => {
-      if (cartItem.id === item.id) {
-        cartItem.qty = Number(e.target.value);
+    const newCartList =
+      cartList &&
+      cartList.map(cartItem => {
+        if (cartItem.id === item.id) {
+          cartItem.qty = Number(e.target.value);
 
-        return cartItem;
-      } else {
-        return cartItem;
-      }
-    });
+          return cartItem;
+        } else {
+          return cartItem;
+        }
+      });
     setCartList(newCartList);
   };
 

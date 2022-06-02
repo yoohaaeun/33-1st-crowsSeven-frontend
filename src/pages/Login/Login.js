@@ -31,10 +31,12 @@ const Login = () => {
       .then(result => {
         if (result.access_token) {
           localStorage.setItem('Authorization', result.access_token);
+          navigate('../');
+        } else {
+          alert('아이디와 비밀번호를 확인해주세요');
         }
       });
   };
-
   const goToSignup = () => {
     navigate('../signup');
   };
@@ -65,7 +67,7 @@ const Login = () => {
         </div>
         <button
           className="signBtn"
-          disabled={!(id.length > 6 && pw.length >= 5)}
+          disabled={!(id.length > 4 && pw.length >= 4)}
           onClick={goToMain}
         >
           SIGN IN
