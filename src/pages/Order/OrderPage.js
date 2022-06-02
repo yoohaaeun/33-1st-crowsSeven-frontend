@@ -8,17 +8,16 @@ const OrderPage = () => {
   const [orderItemList, setOrderItem] = useState([]);
 
   const fetchCartList = () => {
-    fetch('http://10.58.0.138:8000/carts/', {
+    fetch('http://10.58.1.252:8000/carts/', {
       method: 'GET',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
+        Authorization: localStorage.getItem('Authorization'),
       },
     })
       .then(res => res.json())
-      .then(data => {
-        setOrderItem(data.results);
-        console.log('results', data.results);
+      .then(res => {
+        setOrderItem(res.results);
+        console.log('results', res.results);
       })
       .catch(e => {
         console.log('에러', e);

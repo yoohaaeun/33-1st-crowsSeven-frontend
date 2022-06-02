@@ -95,12 +95,10 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
     // });
 
     if (isValid) {
-      fetch('http://10.58.0.138:8000/orders/', {
+      fetch('http://10.58.1.252:8000/orders/', {
         method: 'POST',
         headers: {
-          // Authorization: localStorage.getItem('Authorization');
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
+          Authorization: localStorage.getItem('Authorization'),
         },
         body: JSON.stringify({
           ...inputValue,
@@ -111,7 +109,7 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
       })
         .then(res => res.json())
         .then(res => {
-          if (res.message === 'success') {
+          if (res.message === 'SUCCESS') {
             const result = res.result; // {date: '22.05.22', orderNumber: 23324324}
             setOrderResult(result);
           } else {

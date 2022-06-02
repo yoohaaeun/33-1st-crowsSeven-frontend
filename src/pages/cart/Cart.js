@@ -20,18 +20,16 @@ const Cart = () => {
   // };
 
   const fetchCartList = () => {
-    fetch('http://10.58.0.138:8000/carts/', {
+    fetch('http://10.58.1.252:8000/carts/', {
       method: 'GET',
       headers: {
-        // Authorization: localStorage.getItem('Authorization');
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
+        Authorization: localStorage.getItem('Authorization'),
       },
     })
       .then(res => res.json())
-      .then(data => {
-        setCartList(data.results);
-        console.log('👉results', data.results);
+      .then(res => {
+        setCartList(res.results);
+        console.log('👉results', res.results);
       })
       .catch(e => {
         console.log('⚠️에러', e);

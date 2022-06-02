@@ -53,43 +53,22 @@ const CartNotEmpty = ({
   // 시작❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
 
   // ✨ 선택삭제 ✨
-  // const onSelectDelete = () => {
-  //   const checkedIds = checkedList.map(checkedItem => checkedItem.id);
-  //   const query = checkedIds.map(id => `cart_id=${id}`).join('&');
-  //   fetch(`http://10.58.0.138:8000/carts/?${query}`, {
-  //     method: 'DELETE',
-  //     // body: JSON.stringify({
-  //     //   cart_item: checkedIds,
-  //     // }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       // console.log(result);
-  //       if (result.message === 'success') {
-  //         fetchCartList();
-  //       }
-  //     })
-  //     .catch(e => {
-  //       alert('다시 시도해주세요.');
-  //     });
-  // };
 
   const onSelectDelete = () => {
     const checkedIds = checkedList.map(checkedItem => checkedItem.id);
-    console.log('checkedIds', checkedIds);
     // const query = checkedIds.map(id => `cart_id=${id}`).join('&');
-    fetch(`http://10.58.0.138:8000/carts/${checkedIds}`, {
+    fetch(`http://10.58.1.252:8000/carts/${checkedIds}`, {
       method: 'DELETE',
       // body: JSON.stringify({
       //   cart_item: checkedIds,
       // }),
     })
-      .then(response => response.json())
-      .then(result => {
-        // console.log(result);
-        if (result.message === 'success') {
+      .then(res => res.json())
+      .then(res => {
+        console.log('⚠️', res);
+        if (res.message === 'DELETE_SUCCESS') {
           console.log('선택 삭제 성공해서 카트리스트 다시 패치하기');
-          fetchCartList(); //⚠️ 네트워크 탭을 보면서 이게 제대로 호출을 다시 하는지 확인해보기
+          fetchCartList();
         }
       })
       .catch(e => {
@@ -99,38 +78,35 @@ const CartNotEmpty = ({
 
   // ✨ 선택주문 ✨
   const goToSelectOrder = () => {
-    const checkedIds = checkedList.map(checkedItem => checkedItem.id);
-    const query = checkedIds.map(id => `cart_ids=${id}`).join('&');
-
-    console.log(checkedIds);
-
-    const price = checkedList
-      .map(item => item.price * item.qty)
-      .reduce((a, b) => a + b, 0);
-    const shipping = price >= 50000 ? 0 : 3000;
-
-    fetch(`http://10.58.0.138:8000/orders/`, {
-      method: 'POST',
-      headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
-      },
-      body: JSON.stringify({
-        cart_ids: checkedIds,
-        shipping_fee: shipping,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        //⚠️ 여기서 result로 받는 객체의 키, 값 확인해서 조건 처리하기
-        // console.log(result)
-        if (result.message === 'results') {
-          navigate('/order');
-        }
-      })
-      .catch(e => {
-        alert('다시 시도해주세요.');
-      });
+    // const checkedIds = checkedList.map(checkedItem => checkedItem.id);
+    // const query = checkedIds.map(id => `cart_ids=${id}`).join('&');
+    // console.log(checkedIds);
+    // const price = checkedList
+    //   .map(item => item.price * item.qty)
+    //   .reduce((a, b) => a + b, 0);
+    // const shipping = price >= 50000 ? 0 : 3000;
+    // fetch(`http://10.58.0.138:8000/orders/`, {
+    //   method: 'POST',
+    //   headers: {
+    //     Authorization:
+    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
+    //   },
+    //   body: JSON.stringify({
+    //     cart_ids: checkedIds,
+    //     shipping_fee: shipping,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     //⚠️ 여기서 result로 받는 객체의 키, 값 확인해서 조건 처리하기
+    //     // console.log(result)
+    //     if (result.message === 'results') {
+    //       navigate('/order');
+    //     }
+    //   })
+    //   .catch(e => {
+    //     alert('다시 시도해주세요.');
+    //   });
   };
 
   // ✨ 전체삭제x ✨
@@ -157,28 +133,29 @@ const CartNotEmpty = ({
 
   // ✨ 전체주문 ✨
   const goToOrder = () => {
-    const cartItemIds = cartList.map(cartItem => cartItem.id);
-    fetch('http://10.58.0.138:8000/orders/', {
-      method: 'POST',
-      headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
-      },
-      body: JSON.stringify({
-        cart_item: cartItemIds,
-        shipping_free: shipping,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        // console.log(result);
-        if (result.message === 'success') {
-          navigate('/order');
-        }
-      })
-      .catch(e => {
-        alert('다시 시도해주세요.');
-      });
+    navigate('/order');
+    // const cartItemIds = cartList.map(cartItem => cartItem.id);
+    // fetch('http://10.58.0.138:8000/orders/', {
+    //   method: 'POST',
+    //   headers: {
+    //     Authorization:
+    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
+    //   },
+    //   body: JSON.stringify({
+    //     cart_item: cartItemIds,
+    //     shipping_free: shipping,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     // console.log(result);
+    //     if (result.message === 'success') {
+    //       navigate('/order');
+    //     }
+    //   })
+    //   .catch(e => {
+    //     alert('다시 시도해주세요.');
+    //   });
   };
 
   // 끝❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
