@@ -1,7 +1,7 @@
 import { FaShoppingCart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
-const Items = ({ getItemData, id, listType, state, img, itemName, price }) => {
+const Items = ({ getItemData, id, listType, img, itemName, price }) => {
   const priceToString = Number(price).toLocaleString('ko-KR');
   const navigate = useNavigate();
   const goToDetail = () => {
@@ -11,11 +11,10 @@ const Items = ({ getItemData, id, listType, state, img, itemName, price }) => {
   return (
     <div className={listType === 'small' ? 'smallItems' : 'bigItems'}>
       <span className="itemImg">
-        {state === 'soldOut' ? <div className="itemTag">품절</div> : ''}
         <span className="itemButton">
           <button
             onClick={() => {
-              getItemData({ img, itemName, price });
+              getItemData({ id, img, itemName, price });
             }}
             className="shopBtn"
           >

@@ -20,7 +20,7 @@ const ProductDetail = () => {
     items;
 
   useEffect(() => {
-    fetch(`http://10.58.1.252:8000/products/${params.id}`, {
+    fetch(`http://10.58.2.129:8000/products/${params.id}`, {
       method: 'GET',
     })
       .then(res => res.json())

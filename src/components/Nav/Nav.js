@@ -11,6 +11,7 @@ import './Nav.scss';
 const Nav = () => {
   const [isToggle, setToggle] = useState(true);
   const [isSearch, setIsSearch] = useState(false);
+  // const [listName, setListName] = useState();
 
   const navigate = useNavigate();
 
