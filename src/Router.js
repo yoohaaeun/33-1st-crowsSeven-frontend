@@ -14,13 +14,13 @@ import PostForm from './pages/review/PostForm';
 import MyPage from './pages/mypage/MyPage';
 import OrderCheck from './pages/OrderCheck/OrderCheck';
 import DeleteOrder from './pages/DeleteOrder/DeleteOrder';
+import SearchResult from './pages/searchResult/SearchResult';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Nav />
       <Routes>
-        {/* <Route path="/" element={<Nav />} /> */}
         <Route path="/order" element={<Orderpage />} />
         <Route path="/" element={<Main />} />
         <Route path="/store" element={<Store />} />
@@ -35,6 +35,7 @@ const Router = () => {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/orderCheck" element={<OrderCheck />} />
         <Route path="/deleteOrder" element={<DeleteOrder />} />
+        <Route path="/search" element={<SearchResult />} />
       </Routes>
     </BrowserRouter>
   );

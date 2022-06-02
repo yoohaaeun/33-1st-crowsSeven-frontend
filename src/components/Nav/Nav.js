@@ -26,6 +26,12 @@ const Nav = () => {
     setIsSearch(!isSearch);
   };
 
+  const goToCategory = e => {
+    const categoryName = e.target.innerHTML;
+    const queryString = `?category=${categoryName}`;
+    navigate(`${queryString}`);
+  };
+
   return (
     <>
       <nav className="nav">
@@ -44,7 +50,9 @@ const Nav = () => {
             <span onClick={handleMoveStore}>STORE</span>
             <div className="navTextListInfo">
               {STORE.map(({ id, listName }) => (
-                <li key={id}>{listName}</li>
+                <li onClick={goToCategory} listName={listName} key={id}>
+                  {listName}
+                </li>
               ))}
             </div>
           </div>
@@ -103,27 +111,23 @@ const ABOUT = [
 const STORE = [
   {
     id: 1,
-    listName: 'RE-STOCK',
-  },
-  {
-    id: 2,
-    listName: '카탈리나',
-  },
-  {
-    id: 3,
     listName: '컵',
   },
   {
-    id: 4,
+    id: 2,
     listName: '플레이트',
   },
   {
-    id: 5,
+    id: 3,
     listName: '보울',
   },
   {
-    id: 6,
+    id: 4,
     listName: '키친웨어',
+  },
+  {
+    id: 5,
+    listName: '굿즈',
   },
 ];
 const COMMUNITY = [
