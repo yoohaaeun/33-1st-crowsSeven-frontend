@@ -9,16 +9,6 @@ const Cart = () => {
 
   const cartEmpty = cartList.length === 0;
 
-  console.log('👉localStorage', localStorage.getItem('Authorization'));
-
-  // const fetchCartList = () => {
-  //   fetch('/data/cartListData.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setCartList(data);
-  //     });
-  // };
-
   const fetchCartList = () => {
     fetch('http://10.58.1.252:8000/carts/', {
       method: 'GET',
@@ -29,11 +19,8 @@ const Cart = () => {
       .then(res => res.json())
       .then(res => {
         setCartList(res.results);
-        console.log('👉results', res.results);
       })
-      .catch(e => {
-        console.log('⚠️에러', e);
-      });
+      .catch(e => {});
   };
 
   useEffect(() => {

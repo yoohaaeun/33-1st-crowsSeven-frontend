@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Ordermodal from '../../components/OrderModal/OrderModal';
+
 import './OrderInfo.scss';
 
 const CreditCard = () => {
@@ -52,9 +53,7 @@ const Deposit = () => {
 };
 
 const OrderInfo = ({ orderItemList, shipping, total }) => {
-  const [orderResult, setOrderResult] = useState(null);
-
-  console.log(orderResult);
+  const [orderResult, setOrderResult] = useState([]);
 
   const [inputValue, setInputValue] = useState({
     selected_product_ids: '',
@@ -75,9 +74,6 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  // 시작 ❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
-
-  // ✨ 주문서 ✨
   const onSubmit = e => {
     e.preventDefault();
 
@@ -106,18 +102,14 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
       })
         .then(res => {
           if (res.status === 200) {
-            console.log('주문성공');
-            const result = res.result; // {date: '22.05.22', orderNumber: 23324324}
-            setOrderResult(result);
+            return res.json();
           } else if (res.status === 400) {
             alert('주문할 상품이 없습니다.');
           } else {
             alert('주문을 실패했습니다. 다시 요청해주세요');
           }
         })
-        .catch(e => {
-          alert('다시 시도해주세요.');
-        });
+        .then(res => setOrderResult(res));
     } else {
       window.alert('주문서를 작성해 주세요.');
     }
@@ -259,7 +251,7 @@ const OrderInfo = ({ orderItemList, shipping, total }) => {
           </div>
         </div>
       </form>
-      {orderResult && <Ordermodal orderResult={orderResult} />}
+      {orderResult.length > 0 && <Ordermodal orderResult={orderResult} />}
     </div>
   );
 };

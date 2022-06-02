@@ -16,41 +16,26 @@ const CartItem = ({
     setIsChecked(checkedList && checkedList.includes(item));
   }, [checkedList, item]);
 
-  // 시작❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
-
-  // ✨ 수량수정, 재고부족알림 ✨
   const onSubmit = () => {
-    console.log('아이템 아이디', item.id);
-    console.log('바꿀수량', item.qty);
-
     fetch(`http://10.58.1.252:8000/carts/${item.id}`, {
       method: 'PATCH',
       headers: {
         Authorization: localStorage.getItem('Authorization'),
       },
       body: JSON.stringify({
-        // id: item.id,
         qty: item.qty,
       }),
     })
       .then(response => response.json())
       .then(result => {
-        console.log(result);
-        //2. 그러면 result에 뭐가 담겨져 오는지 확인하기. console.log(result);
-        //3. result에 성공에 대한 무언가가 있으면 그걸확인해서 조건으로 만들기 (ex) result.status === 200 이라거나 아니면 message 가 있는데, 그 메세지가 뭔지 확인 'success'말고 다른 말일..
         if (result.message === 'SUCCESS') {
-          //1. 여기 콘솔 찍어보고 콘솔 안찍히면 이 코드블럭은 실행이 안된거다.
           alert('수량이 변경되었습니다.');
         } else if (result.message === 'STUFF_OVERFLOW') {
           alert('재고가 부족합니다.');
         }
       })
-      .catch(e => {
-        console.log('재고부족', e);
-      });
+      .catch(e => {});
   };
-
-  // 끝❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
 
   const onChangeQty = e => {
     const newCartList = cartList.map(cartItem => {

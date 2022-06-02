@@ -50,24 +50,14 @@ const CartNotEmpty = ({
 
   const navigate = useNavigate();
 
-  // 시작❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
-
-  // ✨ 선택삭제 ✨
-
   const onSelectDelete = () => {
     const checkedIds = checkedList.map(checkedItem => checkedItem.id);
-    // const query = checkedIds.map(id => `cart_id=${id}`).join('&');
+
     fetch(`http://10.58.1.252:8000/carts/${checkedIds}`, {
       method: 'DELETE',
-      // body: JSON.stringify({
-      //   cart_item: checkedIds,
-      // }),
     })
-      // .then(res => res.json())
       .then(res => {
-        console.log('⚠️', res);
         if (res.status === 200) {
-          console.log('선택 삭제 성공해서 카트리스트 다시 패치하기');
           fetchCartList();
         }
       })
@@ -76,89 +66,13 @@ const CartNotEmpty = ({
       });
   };
 
-  // ✨ 선택주문 ✨
-  const goToSelectOrder = () => {
-    // const checkedIds = checkedList.map(checkedItem => checkedItem.id);
-    // const query = checkedIds.map(id => `cart_ids=${id}`).join('&');
-    // console.log(checkedIds);
-    // const price = checkedList
-    //   .map(item => item.price * item.qty)
-    //   .reduce((a, b) => a + b, 0);
-    // const shipping = price >= 50000 ? 0 : 3000;
-    // fetch(`http://10.58.0.138:8000/orders/`, {
-    //   method: 'POST',
-    //   headers: {
-    //     Authorization:
-    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
-    //   },
-    //   body: JSON.stringify({
-    //     cart_ids: checkedIds,
-    //     shipping_fee: shipping,
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   .then(result => {
-    //     //⚠️ 여기서 result로 받는 객체의 키, 값 확인해서 조건 처리하기
-    //     // console.log(result)
-    //     if (result.message === 'results') {
-    //       navigate('/order');
-    //     }
-    //   })
-    //   .catch(e => {
-    //     alert('다시 시도해주세요.');
-    //   });
-  };
+  const goToSelectOrder = () => {};
 
-  // ✨ 전체삭제x ✨
-  const onDelete = () => {
-    // const cartItemIds = cartList.map(cartItem => cartItem.id);
-    // const query = cartItemIds.map(id => `cart_id=${id}`).join('&');
-    // fetch(`http://~~~:8080/cart?${query}`, {
-    //   method: 'DELETE',
-    //   body: JSON.stringify({
-    //     cart_item: cartItemIds,
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   .then(result => {
-    //     // console.log(result);
-    //     if (result.message === 'success') {
-    //       fetchCartList();
-    //     }
-    //   })
-    //   .catch(e => {
-    //     alert('다시 시도해주세요.');
-    //   });
-  };
+  const onDelete = () => {};
 
-  // ✨ 전체주문 ✨
   const goToOrder = () => {
     navigate('/order');
-    // const cartItemIds = cartList.map(cartItem => cartItem.id);
-    // fetch('http://10.58.0.138:8000/orders/', {
-    //   method: 'POST',
-    //   headers: {
-    //     Authorization:
-    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
-    //   },
-    //   body: JSON.stringify({
-    //     cart_item: cartItemIds,
-    //     shipping_free: shipping,
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   .then(result => {
-    //     // console.log(result);
-    //     if (result.message === 'success') {
-    //       navigate('/order');
-    //     }
-    //   })
-    //   .catch(e => {
-    //     alert('다시 시도해주세요.');
-    //   });
   };
-
-  // 끝❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
 
   return (
     <>

@@ -17,32 +17,13 @@ const OrderPage = () => {
       .then(res => res.json())
       .then(res => {
         setOrderItem(res.results);
-        console.log('results', res.results);
       })
-      .catch(e => {
-        console.log('에러', e);
-      });
+      .catch(e => {});
   };
-
-  // const fetchCartList = () => {
-  //   fetch('http://10.58.0.138:8000/carts/')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setCartList(data);
-  //     });
-  // };
 
   useEffect(() => {
     fetchCartList();
   }, []);
-
-  // useEffect(() => {
-  //   fetch('/data/cartListData.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setOrderItem(data);
-  //     });
-  // }, []);
 
   const price = orderItemList
     .map(item => item.price * item.qty)
