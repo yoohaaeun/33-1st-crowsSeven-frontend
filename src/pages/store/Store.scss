@@ -2,9 +2,11 @@
 
 .store {
   @include flexCenter;
+  position: relative;
   min-width: 950px;
   padding: 0 80px;
   letter-spacing: 1px;
+  z-index: 1;
 
   h2 {
     text-align: center;
@@ -111,6 +113,7 @@
 
       .name {
         font-size: 16px;
+        cursor: pointer;
       }
 
       .price {
@@ -156,6 +159,7 @@
 
       .name {
         font-size: 16px;
+        cursor: pointer;
       }
 
       .price {
