@@ -70,11 +70,10 @@ const Store = () => {
     setItemData(ItemData);
   };
 
-  // 시간 부족으로 미구현
-  // const firstPage = () => {};
-  // const previousPage = btnIndex => {};
-  // const nextPage = btnIndex => {};
-  // const lastPage = () => {};
+  const firstPage = () => {};
+  const previousPage = btnIndex => {};
+  const nextPage = btnIndex => {};
+  const lastPage = () => {};
 
   return (
     <>
@@ -82,6 +81,10 @@ const Store = () => {
       <div className="store">
         <section>
           <h2>전체상품</h2>
+          <div className="category">
+            <button>category</button>
+            <button>category</button>
+          </div>
           <div className="itemCategory">
             <div className="itemAmount">
               <b>{items.length && items[0].total_count}</b>
@@ -117,11 +120,10 @@ const Store = () => {
           </div>
           <PageList
             goToPage={goToPage}
-            // 시간 부족으로 미구현
-            // firstPage={firstPage}
-            // previousPage={previousPage}
-            // nextPage={nextPage}
-            // lastPage={lastPage}
+            firstPage={firstPage}
+            previousPage={previousPage}
+            nextPage={nextPage}
+            lastPage={lastPage}
           />
         </section>
       </div>

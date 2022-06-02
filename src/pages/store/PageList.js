@@ -5,37 +5,33 @@ const PageList = ({
   nextPage,
   lastPage,
 }) => {
+  const pageButton = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+
   return (
     <div className="pageList">
-      {/* <button onClick={firstPage}>FIRST</button>
+      <button onClick={firstPage}>FIRST</button>
       <button onClick={previousPage}>
         <span className="leftBtn">{`<`}</span>PREV
-      </button> */}
+      </button>
       <ul>
-        <li>
-          <button
-            onClick={e => {
-              goToPage(e.target.innerHTML - 1);
-            }}
-            className="select"
-          >
-            1
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={e => {
-              goToPage(e.target.innerHTML - 1);
-            }}
-          >
-            2
-          </button>
-        </li>
+        {pageButton.map(({ id }) => {
+          return (
+            <li key={id}>
+              <button
+                onClick={e => {
+                  goToPage(e.target.innerHTML - 1);
+                }}
+              >
+                {id}
+              </button>
+            </li>
+          );
+        })}
       </ul>
-      {/* <button onClick={nextPage}>
+      <button onClick={nextPage}>
         NEXT<span className="rightBtn">{`>`}</span>
       </button>
-      <button onClick={lastPage}>LAST</button> */}
+      <button onClick={lastPage}>LAST</button>
     </div>
   );
 };

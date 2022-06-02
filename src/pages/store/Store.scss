@@ -12,7 +12,8 @@
     text-align: center;
     font-size: 25px;
     font-weight: 500;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    animation: fadeIn 1s;
   }
 
   button {
@@ -33,6 +34,23 @@
   ul,
   li {
     display: inline;
+  }
+
+  .category {
+    @include flexCenter;
+    margin-bottom: 50px;
+
+    button {
+      border: 1px solid #e6e6e6;
+      border-radius: 20px;
+      padding: 10px 30px;
+      color: #333;
+      background-color: #fcfcfc;
+
+      &:hover {
+        background-color: #e6e6e6;
+      }
+    }
   }
 
   .itemCategory {
@@ -56,6 +74,10 @@
       text-align: right;
       padding: 0;
       margin: 0 0 0 20px;
+
+      &:hover {
+        color: #ccc;
+      }
     }
 
     .itemAmount {
@@ -251,6 +273,10 @@
       .rightBtn {
         color: #ddd;
         margin-left: 5px;
+      }
+
+      &:hover {
+        background-color: #eee;
       }
     }
 
