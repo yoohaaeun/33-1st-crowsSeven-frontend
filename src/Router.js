@@ -14,6 +14,7 @@ import PostForm from './pages/review/PostForm';
 import MyPage from './pages/mypage/MyPage';
 import OrderCheck from './pages/OrderCheck/OrderCheck';
 import DeleteOrder from './pages/DeleteOrder/DeleteOrder';
+import SearchResult from './pages/searchResult/SearchResult';
 
 const Router = () => {
   return (
@@ -24,7 +25,7 @@ const Router = () => {
         <Route path="/" element={<Main />} />
         <Route path="/store" element={<Store />} />
         <Route path="/storeModal" element={<StoreModal />} />
-        <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/review_post" element={<Post />} />
         <Route path="/review_page" element={<ReviewPage />} />
         <Route path="/review_form" element={<PostForm />} />
@@ -34,6 +35,7 @@ const Router = () => {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/orderCheck" element={<OrderCheck />} />
         <Route path="/deleteOrder" element={<DeleteOrder />} />
+        <Route path="/search" element={<SearchResult />} />
       </Routes>
     </BrowserRouter>
   );

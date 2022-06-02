@@ -32,6 +32,15 @@ const RightBoxNav = ({ isToggle, handleClick }) => {
   const handleMoveCart = () => {
     navigate('/cart');
   };
+
+  const handleMoveOrderCheck = () => {
+    navigate('/orderCheck');
+  };
+
+  const handleMoveMyPage = () => {
+    navigate('/mypage');
+  };
+
   return (
     <>
       <section
@@ -43,8 +52,8 @@ const RightBoxNav = ({ isToggle, handleClick }) => {
         <ul className="rightBoxText" onClick={handleClick}>
           <li onClick={handleMoveLogin}>{loginSign ? '로그인' : '로그아웃'}</li>
           <li onClick={handleMoveCart}>장바구니</li>
-          <li>주문조회</li>
-          <li>마이쇼핑</li>
+          <li onClick={handleMoveOrderCheck}>주문조회</li>
+          <li onClick={handleMoveMyPage}>마이쇼핑</li>
           <span>최근 상품</span>
         </ul>
         <div />

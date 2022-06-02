@@ -48,7 +48,7 @@ const Signup = () => {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.2.129:8000/users/signup', {
+    fetch('http://10.58.1.252:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         username: id,

@@ -16,7 +16,26 @@ const CartItem = ({
     setIsChecked(checkedList.includes(item));
   }, [checkedList, item]);
 
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    fetch(`http://10.58.1.252:8000/carts/${item.id}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: localStorage.getItem('Authorization'),
+      },
+      body: JSON.stringify({
+        qty: item.qty,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          alert('수량이 변경되었습니다.');
+        } else if (result.message === 'STUFF_OVERFLOW') {
+          alert('재고가 부족합니다.');
+        }
+      })
+      .catch(e => {});
+  };
 
   const onChangeQty = e => {
     const newCartList =

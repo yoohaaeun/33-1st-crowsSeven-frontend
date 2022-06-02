@@ -9,17 +9,22 @@ const Cart = () => {
 
   const cartEmpty = cartList.length === 0;
 
-  useEffect(() => {
-    fetch('http://10.58.0.159:8000/carts', {
+  const fetchCartList = () => {
+    fetch('http://10.58.1.252:8000/carts/', {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('Authorization'),
       },
     })
       .then(res => res.json())
-      .then(data => {
-        setCartList(data);
-      });
+      .then(res => {
+        setCartList(res.results);
+      })
+      .catch(e => {});
+  };
+
+  useEffect(() => {
+    fetchCartList();
   }, []);
 
   return (
@@ -31,10 +36,11 @@ const Cart = () => {
           <CartEmpty />
         ) : (
           <CartNotEmpty
-            cartList={cartList}
+            cartList={cartList && cartList}
             setCartList={setCartList}
             checkedList={checkedList}
             setCheckedList={setCheckedList}
+            fetchCartList={fetchCartList}
           />
         )}
       </div>
