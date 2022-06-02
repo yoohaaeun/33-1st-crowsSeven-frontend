@@ -88,9 +88,13 @@ const Store = () => {
   const params = new URLSearchParams(location.search);
   const urlCategory = params.get('category');
 
-  // const [handleCategory, setHandleCategory] = useState({});
+  const goToMaterial = e => {
+    location.search
+      ? navigate(`?category=${urlCategory}&material=${e.target.innerHTML}`)
+      : navigate(`?sort_method=-price`);
+  };
 
-  const obj = {
+  const CATEGORY = {
     컵: [
       { id: 1, name: '마블' },
       { id: 2, name: '스틴슨' },
@@ -121,8 +125,12 @@ const Store = () => {
           <h2>{location.search ? urlCategory : '전체상품'}</h2>
           {urlCategory && (
             <div className="category">
-              {obj[urlCategory].map(({ id, name }) => {
-                return <button key={id}>{name}</button>;
+              {CATEGORY[urlCategory].map(({ id, name }) => {
+                return (
+                  <button key={id} onClick={goToMaterial}>
+                    {name}
+                  </button>
+                );
               })}
             </div>
           )}
