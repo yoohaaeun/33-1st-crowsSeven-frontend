@@ -1,15 +1,12 @@
 import { FaShoppingCart } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
-const Items = ({
-  listType,
-  state,
-  img,
-  name,
-  price,
-  showModal,
-  goToDetail,
-}) => {
+const Items = ({ getItemData, id, listType, state, img, itemName, price }) => {
   const priceToString = Number(price).toLocaleString('ko-KR');
+  const navigate = useNavigate();
+  const goToDetail = () => {
+    navigate(`/productDetail/${id}`);
+  };
 
   return (
     <div className={listType === 'small' ? 'smallItems' : 'bigItems'}>
@@ -18,7 +15,7 @@ const Items = ({
         <span className="itemButton">
           <button
             onClick={() => {
-              showModal(true);
+              getItemData({ img, itemName, price });
             }}
             className="shopBtn"
           >
@@ -32,7 +29,7 @@ const Items = ({
       </span>
       <div className="description">
         <div onClick={goToDetail} className="name">
-          {name}
+          {itemName}
         </div>
         <hr />
         <div className="price">￦{priceToString}</div>

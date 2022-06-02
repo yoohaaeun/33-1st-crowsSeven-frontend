@@ -7,15 +7,15 @@ const PageList = ({
 }) => {
   return (
     <div className="pageList">
-      <button onClick={firstPage}>FIRST</button>
+      {/* <button onClick={firstPage}>FIRST</button>
       <button onClick={previousPage}>
         <span className="leftBtn">{`<`}</span>PREV
-      </button>
+      </button> */}
       <ul>
         <li>
           <button
             onClick={e => {
-              goToPage(e.target.innerHTML);
+              goToPage(e.target.innerHTML - 1);
             }}
             className="select"
           >
@@ -25,17 +25,17 @@ const PageList = ({
         <li>
           <button
             onClick={e => {
-              goToPage(e.target.innerHTML);
+              goToPage(e.target.innerHTML - 1);
             }}
           >
             2
           </button>
         </li>
       </ul>
-      <button onClick={nextPage}>
+      {/* <button onClick={nextPage}>
         NEXT<span className="rightBtn">{`>`}</span>
       </button>
-      <button onClick={lastPage}>LAST</button>
+      <button onClick={lastPage}>LAST</button> */}
     </div>
   );
 };

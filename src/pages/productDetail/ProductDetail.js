@@ -3,6 +3,7 @@ import { MdPhotoSizeSelectSmall } from 'react-icons/md';
 import { GrFacebook, GrTwitter, GrClose } from 'react-icons/gr';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import Nav from '../../components/Nav/Nav';
 import ReviewDrawerPage from './ReviewDrawer';
 import QnADrawerPage from './QnADrawer';
@@ -13,13 +14,38 @@ const ProductDetail = () => {
   const [amount, setAmount] = useState(1);
   const [reviewDrawer, setReviewDrawer] = useState(false);
   const [QnADrawer, setQnADrawer] = useState(false);
-  const { itemDetail, itemName, description, price } = items;
+  const navigate = useNavigate();
+  const params = useParams();
+  const { thumbnail_image_url, name, description, price, option_product_id } =
+    items;
 
   useEffect(() => {
-    fetch('/data/ITEM_LIST.json')
+    fetch(`http://10.58.1.252:8000/products/${params.id}`, {
+      method: 'GET',
+    })
       .then(res => res.json())
-      .then(result => setItems(result[0]));
-  }, []);
+      .then(result => setItems(result.results));
+  }, [params.id]);
+
+  const goToCart = () => {
+    fetch(`http://10.58.1.252:8000/carts/`, {
+      method: 'POST',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTB9.i1C1V7Mue-i8VfcUp-ZO-kzEDgLOxX7xzQK7WLadk7U',
+      },
+      body: JSON.stringify({
+        option_product_id: Number(option_product_id),
+        count: Number(amount),
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          navigate('../cart');
+        }
+      });
+  };
 
   const currentAmount = e => {
     const amount = e.target;
@@ -57,11 +83,11 @@ const ProductDetail = () => {
       <Nav />
       <div className="productDetail">
         <section className="imgSide">
-          <img src={itemDetail} alt="Product Detail" />
+          <img src={thumbnail_image_url} alt="Product Detail" />
         </section>
         <section className="descriptionSide">
           <div className="sideWrapper">
-            <h2>{itemName}</h2>
+            <h2>{name}</h2>
             <div className="description">
               <ul>
                 <li className="description">{description}</li>
@@ -70,7 +96,7 @@ const ProductDetail = () => {
                 <li>￦3,000 (￦50,000 이상 구매 시 무료)</li>
               </ul>
               <div className="amountTab">
-                {itemName}
+                {name}
                 <div className="inputAmount">
                   <div
                     className="amountInput"
@@ -94,7 +120,9 @@ const ProductDetail = () => {
               </div>
               <div className="totalBuyBtn">
                 <button className="buyBtn">구매하기</button>
-                <button className="cartBtn">장바구니</button>
+                <button onClick={goToCart} className="cartBtn">
+                  장바구니
+                </button>
               </div>
               <button onClick={handleWishList} className="wishList">
                 <FiHeart />

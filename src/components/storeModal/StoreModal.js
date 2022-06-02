@@ -1,13 +1,12 @@
 import { AiFillCloseSquare } from 'react-icons/ai';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { GrFacebook, GrTwitter } from 'react-icons/gr';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './StoreModal.scss';
 
-const StoreModal = ({ closeModal }) => {
-  const [items, setItems] = useState([]);
+const StoreModal = ({ items, closeModal }) => {
   const [amount, setAmount] = useState(1);
-  const { itemThumbnail, itemName, description, price } = items;
+  const { img, itemName, price } = items;
 
   const currentAmount = e => {
     const amount = e.target;
@@ -34,12 +33,6 @@ const StoreModal = ({ closeModal }) => {
     alert('로그인 후 관심상품 등록을 해주세요.');
   };
 
-  useEffect(() => {
-    fetch('/data/ITEM_LIST.json')
-      .then(res => res.json())
-      .then(result => setItems(result[0]));
-  }, []);
-
   return (
     <div className="storeModal">
       <div className="modalBackground" />
@@ -51,7 +44,7 @@ const StoreModal = ({ closeModal }) => {
           className="closeBtn"
         />
         <section className="imgSection">
-          <img src={itemThumbnail} alt="Product Thumbnail" />
+          <img src={img} alt="Product Thumbnail" />
         </section>
         <section className="infoSection">
           <h2 className="itemName">{itemName}</h2>
@@ -59,7 +52,7 @@ const StoreModal = ({ closeModal }) => {
           <table>
             <tr className="description">
               <th>상품 간략설명</th>
-              <td>{description}</td>
+              <td>description</td>
             </tr>
             <tr className="price">
               <th>판매가</th>
