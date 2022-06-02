@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GoSearch } from 'react-icons/go';
 import { BsHandbag, BsInstagram, BsYoutube } from 'react-icons/bs';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 import SearchBox from './SearchBox';
 import RightBoxNav from './RightBoxNav';
