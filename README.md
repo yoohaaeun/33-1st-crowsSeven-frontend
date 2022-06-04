@@ -2,24 +2,27 @@
 
 ---
 
-### 멤버
+### 팀원
 
-김민정
-박상연
-김완영
-염종은
-박슬기
-신윤지
-유하은
+- FE: 염종은,유하은,박슬기,김완영,신윤지
+- BE: 박상연,김민정
+
+#### 기술 스택
+
+- `FE`: JavaScript, ReactJs, react-router, HTML5, SASS
+
+- `BE`:
+
+#### Colaboration Tool
+
+- Git, Trello, Slack
 
 ---
 
-### 회의록
+### 데모 영상
 
-220523
+https://youtu.be/--gfsEindSE
 
-- 코딩 규칙
-  1. font-size의 단위는 px로 합니다.
-  2. 모든 변수는 camelCase로 작성합니다.
-  3. box-size 는 rem으로 통일합니다
-  4. 컴포넌트는 arrow function으로 통일합니다.
+---
+
+---
