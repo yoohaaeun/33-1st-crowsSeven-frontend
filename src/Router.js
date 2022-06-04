@@ -12,7 +12,6 @@ import MyPage from './pages/mypage/MyPage';
 import OrderCheck from './pages/OrderCheck/OrderCheck';
 import DeleteOrder from './pages/DeleteOrder/DeleteOrder';
 import SearchResult from './pages/searchResult/SearchResult';
-import ReviewList from './pages/review/ReviewList';
 import Post from './pages/review/Post';
 import ReviewPage from './pages/review/ReviewPage';
 import PostForm from './pages/review/PostForm';
@@ -30,7 +29,6 @@ const Router = () => {
         <Route path="/review_post/:id" element={<Post />} />
         <Route path="/review_page" element={<ReviewPage />} />
         <Route path="/review_form" element={<PostForm />} />
-        <Route path="/review" element={<ReviewList />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
