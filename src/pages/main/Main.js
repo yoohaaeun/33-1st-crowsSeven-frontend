@@ -40,10 +40,8 @@ const Main = () => {
     if (!throttle) {
       const { scrollTop, scrollHeight } = e.target;
       let height = Math.floor((scrollTop / scrollHeight) * 100);
-      if (height > 17 && height < 60) {
-        setScrollTop(height);
-        setThrottle(true);
-      }
+      setScrollTop(height);
+      setThrottle(true);
       setTimeout(() => {
         setThrottle(false);
       }, 300);

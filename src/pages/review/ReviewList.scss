@@ -1,0 +1,48 @@
+.reviewList {
+  padding: 0 5rem;
+
+  h1 {
+    padding-top: 8rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .reviewTitle {
+    margin-top: 4rem;
+    font-size: 1.2rem;
+
+    hr {
+      margin-top: 1rem;
+      outline: none;
+      border: 1px solid rgba(211, 211, 211, 0.488);
+    }
+
+    .reviewCategory {
+      display: flex;
+      justify-content: space-between;
+      flex: 10;
+      margin: 0.7rem 0;
+      padding: 0 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+
+      .product {
+        flex: 1;
+      }
+
+      .subject {
+        flex: 3;
+      }
+
+      .name {
+        flex: 0.5;
+      }
+
+      .date {
+        flex: 0.5;
+      }
+
+    }
+  }
+}
