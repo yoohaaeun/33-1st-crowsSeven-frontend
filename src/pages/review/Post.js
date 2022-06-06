@@ -27,12 +27,11 @@ const Post = () => {
       .then(productData => setPostList(productData));
   }, []);
   // console.log(textList[0]?.post); ?. => optional chaining 조건부 랜더링
-  console.log('item', itemInfo.pruduct[0]);
   const navigate = useNavigate();
   const goToTextList = () => {
     navigate('/review_page');
   };
-  console.log(itemInfo);
+  
   useEffect(() => {
     fetch(`http://10.58.1.252:8000/reviews/${params.id}`)
       .then(res => res.json())
